@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class UserMainActivity extends AppCompatActivity {
 
-    Button logout, walk, locate, setting;
+    Button logout, walk, locate, ranking, setting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ public class UserMainActivity extends AppCompatActivity {
         logout = (Button) findViewById(R.id.logout);
         walk = (Button)findViewById(R.id.walk);
         locate = (Button)findViewById(R.id.locate);
+        ranking = (Button)findViewById(R.id.ranking);
         setting = (Button)findViewById(R.id.set2);
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -52,6 +53,15 @@ public class UserMainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        ranking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserMainActivity.this, RankActivity.class));
+                finish();
+            }
+        });
+
 
         setting.setOnClickListener(new View.OnClickListener() {
             @Override

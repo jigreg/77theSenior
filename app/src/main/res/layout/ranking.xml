@@ -1,6 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@android:id/tabhost">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="410dp"
+                android:layout_height="76dp"
+                android:background="#CFB997"
+                android:drawableLeft="@drawable/rank"
+                android:gravity="center"
+                android:paddingLeft="23dp"
+                android:paddingRight="220dp"
+                android:text="랭킹"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:layout_alignParentRight="true"
+                android:id="@+id/before"
+                android:layout_width="70dp"
+                android:layout_height="76dp"
+                android:background="#CFB997"
+                android:src="@drawable/before"/>
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@android:id/tabcontent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/tabWalk"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:textStyle="bold"
+                        android:textSize="17dp"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:text="순위"/>
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:textSize="17dp"
+                        android:gravity="center"
+                        android:layout_weight="2"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:text="닉네임"/>
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:textSize="17dp"
+                        android:gravity="center"
+                        android:layout_weight="5"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:text="걸음수"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:background="#D3D1D1" ></View>
+
+                <ListView
+                    android:id="@+id/walk_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/tabTrain"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:textStyle="bold"
+                        android:textSize="17dp"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:text="순위"/>
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:textSize="17dp"
+                        android:gravity="center"
+                        android:layout_weight="2"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:text="닉네임"/>
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:textSize="17dp"
+                        android:gravity="center"
+                        android:layout_weight="5"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:text="점수"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:background="#D3D1D1" ></View>
+
+                <ListView
+                    android:id="@+id/train_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <TabWidget
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#CFB997"
+            android:id="@android:id/tabs"/>
+    </LinearLayout>
+
+</TabHost>

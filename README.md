@@ -1,4 +1,4 @@
-0707 love
-git test
-Hello im git user
-git last test real real
+0726 Hwang Won Tae
+: Ranking Function -> TabHost + ListView (release)
+!issue 1. RealTime DB sorting is not supported
+!issue 2. Walking data must be changed to "int"
