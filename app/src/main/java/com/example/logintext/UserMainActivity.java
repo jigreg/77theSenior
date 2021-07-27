@@ -15,11 +15,7 @@ import java.util.Calendar;
 
 public class UserMainActivity extends AppCompatActivity {
 
-<<<<<<< HEAD
-    Button logout, walk, locate, setting,calendar;
-=======
-    Button logout, walk, locate, ranking, setting;
->>>>>>> 3efe1de480978ed08c5991da4138b6ca4635e7b1
+    Button logout, walk, locate, setting, ranking, calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +23,11 @@ public class UserMainActivity extends AppCompatActivity {
         setContentView(R.layout.user_main);
 
         logout = (Button) findViewById(R.id.logout);
-        walk = (Button)findViewById(R.id.walk);
-        locate = (Button)findViewById(R.id.locate);
-        ranking = (Button)findViewById(R.id.ranking);
-        setting = (Button)findViewById(R.id.set2);
-        calendar = (Button)findViewById(R.id.calendar2);
+        walk = (Button) findViewById(R.id.walk);
+        locate = (Button) findViewById(R.id.locate);
+        ranking = (Button) findViewById(R.id.ranking);
+        setting = (Button) findViewById(R.id.set2);
+        calendar = (Button) findViewById(R.id.calendar2);
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
@@ -68,7 +64,6 @@ public class UserMainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
 
         setting.setOnClickListener(new View.OnClickListener() {
             @Override
