@@ -105,8 +105,8 @@ public class RankActivity extends TabActivity {
         mReference.child("user").orderByChild("walk").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                int rank = 1;
                 for (DataSnapshot messageData : dataSnapshot.getChildren()) {
-                    int rank = 1;
                     String rankNum = rank+"";
                     String name = messageData.child("name").getValue().toString();
                     String walked = messageData.child("walk").getValue().toString();

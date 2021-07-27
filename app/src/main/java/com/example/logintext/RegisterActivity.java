@@ -230,6 +230,7 @@ public class RegisterActivity extends AppCompatActivity {
                                                         String email = user.getEmail();
                                                         String uid = user.getUid();
                                                         String name = mname.getText().toString().trim();
+                                                        String nickname = nname.getText().toString().trim();
                                                         String birth = yspinner.getSelectedItem().toString() + mspinner.getSelectedItem().toString() + dspinner.getSelectedItem().toString();
                                                         String pnum = phonenum.getText().toString();
 
@@ -243,6 +244,7 @@ public class RegisterActivity extends AppCompatActivity {
                                                         hashMap.put("uid", uid);
                                                         hashMap.put("email", email);
                                                         hashMap.put("name", name);
+                                                        hashMap.put("nickname", nickname);
                                                         hashMap.put("birth", birth);
                                                         hashMap.put("gender", gender);
                                                         hashMap.put("phonenum", pnum);

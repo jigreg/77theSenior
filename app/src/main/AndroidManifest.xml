@@ -30,6 +30,7 @@
             android:value="AIzaSyCSs-7XKcBnHDYf-P2bXXyj7X6JruWCy4U" />
 
         <activity android:name=".ProtectorRegisterCodeActivity"/>
+        <activity android:name=".CalendarActivity"/>
         <activity android:name=".UserSettingActivity"/>
         <activity android:name=".UserRegisterCodeActivity"/>
         <activity android:name=".GPSHistoryActivity"/>
