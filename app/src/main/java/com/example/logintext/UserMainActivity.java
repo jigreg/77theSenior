@@ -11,9 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Calendar;
+
 public class UserMainActivity extends AppCompatActivity {
 
-    Button logout, walk, locate, setting;
+    Button logout, walk, locate, setting,calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class UserMainActivity extends AppCompatActivity {
         walk = (Button)findViewById(R.id.walk);
         locate = (Button)findViewById(R.id.locate);
         setting = (Button)findViewById(R.id.set2);
+        calendar = (Button)findViewById(R.id.calendar2);
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
@@ -57,6 +60,13 @@ public class UserMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(UserMainActivity.this, UserSettingActivity.class));
+                finish();
+            }
+        });
+        calendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserMainActivity.this, CalendarActivity.class));
                 finish();
             }
         });
