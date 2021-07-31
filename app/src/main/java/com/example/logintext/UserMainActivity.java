@@ -60,7 +60,7 @@ public class UserMainActivity extends AppCompatActivity {
         ranking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(UserMainActivity.this, RankActivity.class));
+                startActivity(new Intent(UserMainActivity.this, WalkRankActivity.class));
                 finish();
             }
         });

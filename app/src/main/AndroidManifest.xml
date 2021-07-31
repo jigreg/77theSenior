@@ -29,6 +29,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCSs-7XKcBnHDYf-P2bXXyj7X6JruWCy4U" />
 
+        <activity android:name=".WalkRankActivity"/>
+        <activity android:name=".TrainRankActivity"/>
         <activity android:name=".ProtectorRegisterCodeActivity"/>
         <activity android:name=".CalendarActivity"/>
         <activity android:name=".UserSettingActivity"/>
@@ -41,7 +43,6 @@
         <activity android:name=".LocationActivity" />
         <activity android:name=".RegisterActivity"/>
         <activity android:name=".UserLocationActivity"/>
-        <activity android:name=".RankActivity"/>
         <activity android:name=".ProtectorMainActivity"/>
         <activity android:name=".SafeZoneActivity"/>
         <activity android:name=".LoginActivity"/>
