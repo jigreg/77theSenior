@@ -13,6 +13,7 @@
     import android.widget.Button;
     import android.widget.CalendarView;
     import android.widget.EditText;
+    import android.widget.ImageButton;
     import android.widget.TextView;
     import android.widget.Toast;
 
@@ -37,6 +38,7 @@
         public Button cha_Btn,del_Btn,save_Btn;
         public TextView diaryTextView,textView2,textView3;
         public EditText contextEditText;
+        ImageButton before;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,7 @@
             textView2=findViewById(R.id.textView2);
             textView3=findViewById(R.id.textView3);
             contextEditText=findViewById(R.id.contextEditText);
+            before = (ImageButton) findViewById(R.id.before4);
             //로그인 및 회원가입 엑티비티에서 이름을 받아옴
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             uid = user.getUid();
@@ -80,6 +83,12 @@
                     diaryTextView.setText(String.format("%d / %d / %d",year,month+1,dayOfMonth));
                     contextEditText.setText("");
                     checkDay(year,month,dayOfMonth,name);
+                }
+            });
+            before.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(CalendarActivity.this, UserMainActivity.class));
                 }
             });
             save_Btn.setOnClickListener(new View.OnClickListener() {
