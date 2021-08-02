@@ -21,4 +21,4 @@
 
 (Clear) !issue 1. RealTime DB sorting is not supported -> Resolved using algorithm.
 
-(Non-Clear) !issue 2. Walking data must be changed to "int"
+(Non-Clear) !issue 2. Walking data must be changed to "int".
