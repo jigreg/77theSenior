@@ -15,7 +15,7 @@ import java.util.Calendar;
 
 public class UserMainActivity extends AppCompatActivity {
 
-    Button logout, walk, locate, setting, ranking, calendar;
+    Button logout, walk, training, locate, setting, ranking, calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,7 @@ public class UserMainActivity extends AppCompatActivity {
 
         logout = (Button) findViewById(R.id.logout);
         walk = (Button) findViewById(R.id.walk);
+        training = (Button)findViewById(R.id.training);
         locate = (Button) findViewById(R.id.locate);
         ranking = (Button) findViewById(R.id.ranking);
         setting = (Button) findViewById(R.id.set2);
@@ -45,6 +46,14 @@ public class UserMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(UserMainActivity.this, WalkActivity.class));
+                finish();
+            }
+        });
+
+        training.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserMainActivity.this, BrainMain.class));
                 finish();
             }
         });

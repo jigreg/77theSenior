@@ -29,3 +29,11 @@
 !issue 1. WalkData & BrainData should sort by day (0801 : walkdata 700 ,braindata : 609)
 
 !issue 2. AVD still DEAD Cant solve help...
+
+
+0804 Back Su Jung
+: BrainMain, CatFindActivity add
+
+!isuue 1. Don't have Criteria for Scores
+
+!isuue 2. Watermelongame's Difficulty or Necessity

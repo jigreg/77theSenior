@@ -4,9 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 위치 권한 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
@@ -16,42 +16,43 @@
         android:roundIcon="@mipmap/myicon"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".BrainMain"></activity>
 
-        <receiver android:name=".Alarmservice"
+        <receiver
+            android:name=".Alarmservice"
             android:enabled="false">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
-        </receiver>
-
-        <!-- 구글맵 API 가져오기 -->
+        </receiver> <!-- 구글맵 API 가져오기 -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCSs-7XKcBnHDYf-P2bXXyj7X6JruWCy4U" />
 
-        <activity android:name=".WalkRankActivity"/>
-        <activity android:name=".TrainRankActivity"/>
-        <activity android:name=".ProtectorRegisterCodeActivity"/>
-        <activity android:name=".CalendarActivity"/>
-        <activity android:name=".UserSettingActivity"/>
-        <activity android:name=".UserRegisterCodeActivity"/>
-        <activity android:name=".GPSHistoryActivity"/>
-        <activity android:name=".ChooseActivity"/>
-        <activity android:name=".UserMainActivity"/>
+        <activity android:name=".WalkRankActivity" />
+        <activity android:name=".TrainRankActivity" />
+        <activity android:name=".ProtectorRegisterCodeActivity" />
+        <activity android:name=".CalendarActivity" />
+        <activity android:name=".UserSettingActivity" />
+        <activity android:name=".UserRegisterCodeActivity" />
+        <activity android:name=".GPSHistoryActivity" />
+        <activity android:name=".ChooseActivity" />
+        <activity android:name=".UserMainActivity" />
         <activity android:name=".WalkActivity" />
         <activity android:name=".FindIdPwActivity" />
         <activity android:name=".LocationActivity" />
-        <activity android:name=".RegisterActivity"/>
-        <activity android:name=".UserLocationActivity"/>
-        <activity android:name=".ProtectorMainActivity"/>
-        <activity android:name=".SafeZoneActivity"/>
-        <activity android:name=".LoginActivity"/>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".UserLocationActivity" />
+        <activity android:name=".ProtectorMainActivity" />
+        <activity android:name=".SafeZoneActivity" />
+        <activity android:name=".LoginActivity" />
         <activity android:name=".LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter></activity>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
