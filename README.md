@@ -22,3 +22,10 @@
 (Clear) !issue 1. RealTime DB sorting is not supported -> Resolved using algorithm.
 
 (Non-Clear) !issue 2. Walking data must be changed to "int".
+
+0803 YU JUN
+: Calendar Function -> Slidingpannellayout add
+
+!issue 1. WalkData & BrainData should sort by day (0801 : walkdata 700 ,braindata : 609)
+
+!issul 2. AVD still DEAD Cant solve help...
