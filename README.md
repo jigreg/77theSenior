@@ -19,6 +19,7 @@
 
 - issue 2. Calendar can only memo -> Walking data and Brain training data
 
+---
 
 ### 0731 Hwang Won Tae
     : Ranking Function -> Deleted TabHost, Used ListView & Intent
@@ -28,6 +29,8 @@
 - (Clear) !issue 1. RealTime DB sorting is not supported -> Resolved using algorithm.
 
 - (Non-Clear) !issue 2. Walking data must be changed to "int".
+
+---
 
 ### 0803 Yu Jun
     : Calendar Function -> Slidingpannellayout add
