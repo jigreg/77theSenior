@@ -165,16 +165,17 @@ public class WalkActivity extends AppCompatActivity implements SensorEventListen
         Calendar time = Calendar.getInstance();
 
         String format_time = format.format(time.getTime());
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("Users").child("user");
+        DatabaseReference ref = database.getReference("Users").child(uid).child("user").child("walk").child(format_time);
 
         ref.child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(!dataSnapshot.child("walk").getValue().toString().equals("0")) {
-                    walkk = dataSnapshot.child("walk").child(format_time).child("walked").getValue().toString();
+                    walkk = dataSnapshot.child("walk").child(format_time).getValue().toString();
                 } else {
                     walkk = "0";
                 }
