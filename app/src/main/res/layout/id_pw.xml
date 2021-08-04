@@ -7,21 +7,29 @@
     android:background="#F5EEE0"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:background="#CFB997"
+            android:gravity="center"
+            android:text="ID/PW 찾기"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
         <ImageButton
-            android:id="@+id/before2"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:background="#F5EEE0"
-            app:srcCompat="@drawable/before" />
+            android:layout_alignParentRight="true"
+            android:id="@+id/back"
+            android:layout_width="70dp"
+            android:layout_height="76dp"
+            android:background="#CFB997"
+            app:srcCompat="@drawable/back" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,7 +38,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:orientation="vertical">
 
             <TextView
@@ -40,7 +48,7 @@
                 android:gravity="center"
                 android:text="아이디 찾기"
                 android:textColor="@color/black"
-                android:textSize="28dp" />
+                android:textSize="20dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -165,7 +173,6 @@
                     android:textSize="20dp" />
 
                 <View
-                    android:id="@+id/divider3"
                     android:layout_width="350dp"
                     android:layout_height="2dp"
                     android:layout_gravity="center"
@@ -187,7 +194,7 @@
                     android:gravity="center"
                     android:text="비밀번호 찾기"
                     android:textColor="@color/black"
-                    android:textSize="28dp" />
+                    android:textSize="20dp" />
 
             </LinearLayout>
 

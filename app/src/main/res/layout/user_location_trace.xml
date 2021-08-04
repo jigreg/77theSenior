@@ -13,8 +13,7 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/location2"
-            android:layout_width="410dp"
+            android:layout_width="match_parent"
             android:layout_height="76dp"
             android:background="#CFB997"
             android:drawableLeft="@drawable/location1"
@@ -28,11 +27,11 @@
 
         <ImageButton
             android:layout_alignParentRight="true"
-            android:id="@+id/before4"
+            android:id="@+id/back"
             android:layout_width="70dp"
             android:layout_height="76dp"
             android:background="#CFB997"
-            app:srcCompat="@drawable/before" />
+            app:srcCompat="@drawable/back" />
 
     </RelativeLayout>
 
@@ -59,7 +58,6 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView15"
             android:layout_width="340dp"
             android:layout_height="40dp"
             android:layout_marginTop="35dp"
@@ -71,7 +69,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/address"
             android:layout_width="340dp"
             android:layout_height="80dp"
             android:background="@drawable/textview7"
@@ -81,6 +79,5 @@
             android:textSize="17dp" />
 
     </LinearLayout>
-
 
 </LinearLayout>

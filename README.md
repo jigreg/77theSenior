@@ -47,4 +47,3 @@
 - issue 1. Don't have Criteria for Scores
 
 - issue 2. Watermelongame's Difficulty or Necessity
-    >>>>>>> 5d4dbc745fcf2fc9dda8886efb794f80a0228d2e

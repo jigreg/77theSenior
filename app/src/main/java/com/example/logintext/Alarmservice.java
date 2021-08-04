@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import com.example.logintext.user.User_WalkActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -16,7 +17,7 @@ import java.util.Map;
 
 
 public class Alarmservice extends BroadcastReceiver {
-    private int mStepDetector = WalkActivity.mStepDetector;
+    private int mStepDetector = User_WalkActivity.mStepDetector;
     String uid;
 
     @Override
