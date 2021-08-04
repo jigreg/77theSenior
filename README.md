@@ -44,7 +44,7 @@
 ### 0804 Back Su Jung
     : BrainMain, CatFindActivity add
 
-- isuue 1. Don't have Criteria for Scores
+- issue 1. Don't have Criteria for Scores
 
-- isuue 2. Watermelongame's Difficulty or Necessity
+- issue 2. Watermelongame's Difficulty or Necessity
     >>>>>>> 5d4dbc745fcf2fc9dda8886efb794f80a0228d2e
