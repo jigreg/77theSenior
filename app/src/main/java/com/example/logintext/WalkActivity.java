@@ -4,7 +4,6 @@ package com.example.logintext;
 import android.Manifest;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,10 +19,8 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -40,8 +37,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -57,13 +52,13 @@ public class WalkActivity extends AppCompatActivity implements SensorEventListen
     static int mStepDetector;
     ImageButton before, calen;
     private Sensor stepCountSensor;
-    TextView tvStepCount, tv;
+    TextView  tv;
     float dis1;
     ProgressBar pb;
     CircleProgressBar cp;
-    String  uid, walkin, name, walkk;
+    String  uid, name;
     Handler handler;
-    int cnt = 0;
+    int walkk;
     DatePicker datePicker;
     public static int context_walk;
 
@@ -109,13 +104,6 @@ public class WalkActivity extends AppCompatActivity implements SensorEventListen
             }
         });
 
-//        calen.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(WalkActivity.this, Calendar.class));
-//            }
-//        });
-
         datePicker.init(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth(),
                 new DatePicker.OnDateChangedListener() {
 
@@ -141,26 +129,11 @@ public class WalkActivity extends AppCompatActivity implements SensorEventListen
         calen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SimpleDateFormat format = new SimpleDateFormat ( "yyyy년 MM월dd일 ");
-
-                Calendar time = Calendar.getInstance();
-
-                String format_time = format.format(time.getTime());
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                String uid = user.getUid();
-                final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference("Users");
-                DatabaseReference mReference = ref.child("user").child(uid).child("walk").child(format_time);
-
-                Map<String, Object> his = new HashMap<>();
-                his.put("walked", mStepDetector);
-                his.put("time", ""+format_time);
-
-                mReference.updateChildren(his);
+                startActivity(new Intent(WalkActivity.this, CalendarActivity.class));
             }
         });
 
-        SimpleDateFormat format = new SimpleDateFormat ( "yyyy년 MM월dd일 ");
+        SimpleDateFormat format = new SimpleDateFormat ( "yyyy년 MM월dd일");
 
         Calendar time = Calendar.getInstance();
 
@@ -169,15 +142,15 @@ public class WalkActivity extends AppCompatActivity implements SensorEventListen
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("Users").child(uid).child("user").child("walk").child(format_time);
+        DatabaseReference ref = database.getReference("Users").child(uid).child("walk").child(format_time);
 
         ref.child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(!dataSnapshot.child("walk").getValue().toString().equals("0")) {
-                    walkk = dataSnapshot.child("walk").child(format_time).getValue().toString();
+                if(dataSnapshot.child("walk").child(format_time).child("walked") == 0) {
+                    walkk = dataSnapshot.child("walk").child(format_time).child("walked");
                 } else {
-                    walkk = "0";
+                    walkk = 0;
                 }
                 name = dataSnapshot.child("name").getValue().toString();
                 us1.setText("닉네임 : "+ name );
@@ -248,10 +221,26 @@ public class WalkActivity extends AppCompatActivity implements SensorEventListen
     public void onSensorChanged (SensorEvent event){
         if (event.sensor.getType() == Sensor.TYPE_STEP_DETECTOR) {
             if (event.values[0] == 1.0f) {
+                //실시간 걸음수 체크
                 mStepDetector += event.values[0];
                 wk3.setText(String.valueOf(mStepDetector) + "걸음");
                 pb.setProgress(mStepDetector);
                 cp.setProgress(mStepDetector);
+                //변하는 걸음수 업로드
+                SimpleDateFormat format = new SimpleDateFormat ( "yyyy년 MM월dd일 ");
+                Calendar time = Calendar.getInstance();
+                String format_time = format.format(time.getTime());
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = user.getUid();
+                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ref = database.getReference("Users");
+                DatabaseReference mReference = ref.child("user").child(uid).child("walk").child(format_time);
+
+                Map<String, Object> his = new HashMap<>();
+                his.put("walked", mStepDetector);
+                his.put("time", ""+format_time);
+
+                mReference.updateChildren(his);
                 try {
                     dis1 = (float)mStepDetector;
                     dis.setText(String.format("%.2f Km ", (dis1 * 0.0007f)));
@@ -260,9 +249,6 @@ public class WalkActivity extends AppCompatActivity implements SensorEventListen
                 }
             }
         }
-//        else if (event.sensor.getType() == Sensor.TYPE_STEP_COUNTER) {
-//            tvStepCount.setText("총 걸음수 : " + String.valueOf(event.values[0]));
-//        }
     }
 
     @Override
