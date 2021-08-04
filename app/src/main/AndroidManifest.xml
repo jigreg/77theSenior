@@ -16,7 +16,6 @@
         android:roundIcon="@mipmap/myicon"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".BrainMain"></activity>
 
         <receiver
             android:name=".Alarmservice"
@@ -29,24 +28,26 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCSs-7XKcBnHDYf-P2bXXyj7X6JruWCy4U" />
 
-        <activity android:name=".WalkRankActivity" />
-        <activity android:name=".TrainRankActivity" />
-        <activity android:name=".ProtectorRegisterCodeActivity" />
-        <activity android:name=".CalendarActivity" />
-        <activity android:name=".UserSettingActivity" />
-        <activity android:name=".UserRegisterCodeActivity" />
-        <activity android:name=".GPSHistoryActivity" />
-        <activity android:name=".ChooseActivity" />
-        <activity android:name=".UserMainActivity" />
-        <activity android:name=".WalkActivity" />
-        <activity android:name=".FindIdPwActivity" />
-        <activity android:name=".LocationActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".UserLocationActivity" />
-        <activity android:name=".ProtectorMainActivity" />
-        <activity android:name=".SafeZoneActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".LoadingActivity">
+        <activity android:name=".user.User_BrainMain"></activity>
+        <activity android:name=".user.User_CatFindActivity" />
+        <activity android:name=".user.User_WalkRankActivity" />
+        <activity android:name=".user.User_TrainRankActivity" />
+        <activity android:name=".user.User_RegisterCodeActivity" />
+        <activity android:name=".user.User_CalendarActivity" />
+        <activity android:name=".user.User_SettingActivity" />
+        <activity android:name=".protector.Pro_RegisterCodeActivity" />
+        <activity android:name=".protector.Pro_GPSHistoryActivity" />
+        <activity android:name=".common.ChooseActivity" />
+        <activity android:name=".user.User_MainActivity" />
+        <activity android:name=".user.User_WalkActivity" />
+        <activity android:name=".common.FindIdPwActivity" />
+        <activity android:name=".protector.Pro_LocationActivity" />
+        <activity android:name=".common.RegisterActivity" />
+        <activity android:name=".user.User_LocationActivity" />
+        <activity android:name=".protector.Pro_MainActivity" />
+        <activity android:name=".protector.Pro_SafeZoneActivity" />
+        <activity android:name=".common.LoginActivity" />
+        <activity android:name=".common.LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

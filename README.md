@@ -47,4 +47,12 @@
 - issue 1. Don't have Criteria for Scores
 
 - issue 2. Watermelongame's Difficulty or Necessity
-    >>>>>>> 5d4dbc745fcf2fc9dda8886efb794f80a0228d2e
+
+---
+
+### 0805 All
+    : Adjust Code Style, Rename Filing & ReGroup Package
+
+- issue 1. Yu Jun & Back Su Jung 's AVD is Dead.. :..(
+
+- issue 2. drawable needs Renaming

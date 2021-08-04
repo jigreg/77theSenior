@@ -11,6 +11,12 @@
     <string name="success_signup">회원가입 성공</string>
     <string name="failed_signup">회원가입 실패</string>
 
+    <string name="info">고객센터 | 1588-1588 | 경기도 성남시 신구대학교</string>
+    <string name="info_1">Copyright © 2021 GB Inc. All rights reserved.</string>
+
+
+    <string name="pro_explane">보호자 등록 관련하여 아래 내용을 인지하십시오.</string>
+
     <string name="explane">사용자 등록 방법</string>
     <string name="explane_1">1. 사용자에게 인증코드를 전달받습니다.</string>
     <string name="explane_1_1">[메인화면]에서 [설정]버튼을 클릭</string>

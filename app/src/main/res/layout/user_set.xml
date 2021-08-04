@@ -25,12 +25,12 @@
             android:textStyle="bold" />
 
         <ImageButton
-            android:id="@+id/before8"
+            android:id="@+id/back"
             android:layout_width="70dp"
             android:layout_height="76dp"
             android:layout_alignParentRight="true"
             android:background="#CFB997"
-            app:srcCompat="@drawable/before" />
+            app:srcCompat="@drawable/back" />
 
     </RelativeLayout>
 

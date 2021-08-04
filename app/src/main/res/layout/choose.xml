@@ -7,38 +7,29 @@
     android:background="#F5EEE0"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/before12"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="10dp"
-            android:background="#F5EEE0"
-            app:srcCompat="@drawable/before" />
+        android:layout_height="wrap_content" >
 
         <TextView
-            android:paddingRight="40dp"
-            android:layout_gravity="center"
-            android:id="@+id/sign2"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="76dp"
+            android:background="#CFB997"
             android:gravity="center"
             android:text="회원가입"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="25dp"
             android:textStyle="bold" />
-    </LinearLayout>
 
-    <View
-        android:id="@+id/divider12"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/black"></View>
+        <ImageButton
+            android:layout_alignParentRight="true"
+            android:id="@+id/back"
+            android:layout_width="70dp"
+            android:layout_height="76dp"
+            android:background="#CFB997"
+            app:srcCompat="@drawable/back" />
+
+    </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"

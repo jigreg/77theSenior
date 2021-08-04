@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5EEE0"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/before12"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="10dp"
+            android:background="#F5EEE0"
+            app:srcCompat="@drawable/before" />
+
+        <TextView
+            android:paddingRight="40dp"
+            android:layout_gravity="center"
+            android:id="@+id/sign2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="회원가입"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider12"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black"></View>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/protector"
+                android:layout_width="300dp"
+                android:layout_height="220dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="#5AC8D3"
+                android:drawableTop="@drawable/family4"
+                android:text="보호자"
+                android:textColor="@color/black"
+                android:textSize="28dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/user"
+                    android:layout_width="300dp"
+                    android:layout_height="220dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="35dp"
+                    android:backgroundTint="#5AC8D3"
+                    android:drawableTop="@drawable/family3"
+                    android:text="사용자"
+                    android:textColor="@color/black"
+                    android:textSize="28dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

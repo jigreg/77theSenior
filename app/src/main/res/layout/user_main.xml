@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5EEE0"
     android:orientation="vertical"
-    android:id="@+id/layout_main"
-    tools:context=".UserMainActivity">
+    android:id="@+id/layout_main">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,7 +25,7 @@
 
         <Button
             android:id="@+id/locate"
-            android:layout_toLeftOf="@+id/my"
+            android:layout_toLeftOf="@+id/myPage"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,8 +36,8 @@
             android:textSize="15dp" />
 
         <Button
-            android:id="@+id/my"
-            android:layout_toLeftOf="@+id/set2"
+            android:id="@+id/myPage"
+            android:layout_toLeftOf="@+id/setting"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,7 +48,7 @@
             android:textSize="15dp" />
 
         <Button
-            android:id="@+id/set2"
+            android:id="@+id/setting"
             android:layout_alignParentRight="true"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
@@ -81,7 +79,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/myHealth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -92,7 +89,6 @@
                     android:textStyle="bold" />
 
                 <View
-                    android:id="@+id/divider8"
                     android:layout_width="250dp"
                     android:layout_height="2dp"
                     android:layout_gravity="center"
@@ -101,7 +97,6 @@
 
 
                 <ImageButton
-                    android:id="@+id/imageButton"
                     android:layout_width="290dp"
                     android:layout_height="110dp"
                     android:layout_gravity="center"
@@ -110,7 +105,7 @@
                     app:srcCompat="@drawable/circle1" />
 
                 <Button
-                    android:id="@+id/calendar2"
+                    android:id="@+id/calendar"
                     android:layout_width="290dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -133,7 +128,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/walk"
+                    android:id="@+id/walking"
                     android:layout_width="180dp"
                     android:layout_height="70dp"
                     android:background="@drawable/textview9"
@@ -146,7 +141,7 @@
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/training"
+                    android:id="@+id/brainTraining"
                     android:layout_width="180dp"
                     android:layout_height="70dp"
                     android:layout_marginLeft="10dp"
@@ -203,7 +198,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/walk1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -214,7 +208,6 @@
                     android:textStyle="bold" />
 
                 <View
-                    android:id="@+id/divider9"
                     android:layout_width="250dp"
                     android:layout_height="2dp"
                     android:layout_gravity="center"
@@ -222,7 +215,6 @@
                     android:background="?android:attr/listDivider" />
 
                 <ImageView
-                    android:id="@+id/imageView2"
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -252,16 +244,15 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="고객센터 | 1588-1588 | 경기도 성남시 신구대학교" />
+                        android:text="@string/info" />
 
                     <TextView
                         android:id="@+id/textView14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Copyright © 2021 GB Inc. All rights reserved.    " />
+                        android:text="@string/info_1" />
 
                 </LinearLayout>
 
