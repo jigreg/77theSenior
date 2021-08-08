@@ -56,3 +56,10 @@
 - issue 1. Yu Jun & Back Su Jung 's AVD is Dead.. :..(
 
 - issue 2. drawable needs Renaming
+
+### 0808 Hwang Won Tae
+    : Testing Auto-Login Function
+
+- issue 1. Auto-Login Function to set coverage
+
+- issue 2. Change of plan ( Foreground Function -> Auto-Login )
