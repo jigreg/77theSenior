@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintext.R;
 import com.example.logintext.common.LoginActivity;
+import com.example.logintext.common.LoginMaintainService;
+import com.example.logintext.user.User_MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Pro_MainActivity extends AppCompatActivity {
@@ -31,6 +33,7 @@ public class Pro_MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
+                LoginMaintainService.clearUserName(Pro_MainActivity.this);
                 Toast.makeText(getApplicationContext(), "로그아웃 합니다.", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(Pro_MainActivity.this, LoginActivity.class));
                 finish();
