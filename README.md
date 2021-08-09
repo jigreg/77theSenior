@@ -56,3 +56,12 @@
 - issue 1. Yu Jun & Back Su Jung 's AVD is Dead.. :..(
 
 - issue 2. drawable needs Renaming
+
+---
+
+### 0809 Yu Seo Jun
+    : AVD bug fix!! Calendar xml, java fix
+
+- issue 1. Need WalkData and BrainData coding in Calendar
+
+- issue 2. Fix walkdata for int and sort by date in WalkActivity
