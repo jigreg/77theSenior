@@ -49,4 +49,10 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:background="#C0C0C0"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"/>
+
 </LinearLayout>

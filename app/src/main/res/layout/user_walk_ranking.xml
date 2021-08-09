@@ -81,7 +81,7 @@
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
-                android:background="#D3D1D1" ></View>
+                android:background="#D3D1D1"/>
 
             <ListView
                 android:id="@+id/walk_item"
@@ -91,7 +91,6 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:background="#D3D1D1" ></View>
 
@@ -109,14 +108,11 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
                     android:layout_gravity="center"
                     android:background="#D3D1D1" ></View>
 
                 <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginRight="25dp"
+                    android:layout_margin="25dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -172,9 +168,8 @@
                 android:gravity="center"
                 android:text="걸음수"
                 android:background="@drawable/stroke"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:textSize="18dp"
+                android:textColor="#B22222"/>
         </LinearLayout>
         <LinearLayout
             android:layout_weight="1"
