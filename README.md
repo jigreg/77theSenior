@@ -57,7 +57,15 @@
 
 - issue 2. drawable needs Renaming
 
-<<<<<<< HEAD
+---
+
+### 0808 Hwang Won Tae
+    : Testing Auto-Login Function
+
+- issue 1. Auto-Login Function to set coverage
+
+- issue 2. Change of plan ( Foreground Function -> Auto-Login )
+
 ---
 
 ### 0809 Yu Seo Jun
@@ -66,11 +74,3 @@
 - issue 1. Need WalkData and BrainData coding in Calendar
 
 - issue 2. Fix walkdata for int and sort by date in WalkActivity
-=======
-### 0808 Hwang Won Tae
-    : Testing Auto-Login Function
-
-- issue 1. Auto-Login Function to set coverage
-
-- issue 2. Change of plan ( Foreground Function -> Auto-Login )
->>>>>>> d3765952d1eed7efab320ee16ee3cfb78b774ba0
