@@ -9,7 +9,7 @@
     android:gravity="bottom"
     app:umanoDragView="@id/drawer"
     app:umanoOverlay="true"
-    app:umanoPanelHeight="68dp"
+    app:umanoPanelHeight="300dp"
     app:umanoShadowHeight="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,7 +29,7 @@
                 android:drawableLeft="@drawable/calender2"
                 android:gravity="center"
                 android:paddingLeft="23dp"
-                android:paddingRight="220dp"
+                android:paddingRight="260dp"
                 android:text="캘린더"
                 android:textColor="@color/black"
                 android:textSize="25dp"
@@ -93,54 +93,74 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="600dp">
+        android:layout_height="600dp"
+        android:background="#EEE6C4">
 
         <TextView
-            android:drawableLeft="@drawable/walk1"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:id="@+id/cal_Date"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:layout_marginLeft="140dp"
+            android:textSize="20dp"
             android:textStyle="bold"
             android:gravity="center"
-            android:text="걷기">
+            android:text="날짜를 선택하세요.">
         </TextView>
 
         <TextView
-            android:id="@+id/walkData"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:drawableLeft="@drawable/walk1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20dp"
             android:textStyle="bold"
             android:gravity="center"
-            android:text="0걸음">
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="60dp"
+            android:text="걷 기">
         </TextView>
 
         <TextView
             android:drawableLeft="@drawable/training"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="50dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginLeft="270dp"
+            android:text="두뇌 훈련">
+        </TextView>
+
+        <TextView
+            android:id="@+id/walkData"
+            android:layout_marginTop="150dp"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20dp"
             android:textStyle="bold"
-            android:gravity="center"
-            android:text="두뇌훈련">
+            android:layout_marginLeft="100dp"
+            android:text="0 걸음">
         </TextView>
 
         <TextView
             android:id="@+id/brainData"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="50dp"
+            android:layout_marginTop="150dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20dp"
             android:textStyle="bold"
-            android:gravity="center"
-            android:text="0점">
+            android:layout_marginLeft="340dp"
+            android:text="0 점">
         </TextView>
 
     </RelativeLayout>

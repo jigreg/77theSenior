@@ -25,7 +25,7 @@ public class User_CalendarActivity extends AppCompatActivity {
     private String name = null;
     private String uid = null;
 
-    private TextView myName, walkData, brainData;
+    private TextView myName, walkData, brainData, cal;
     private ImageButton back;
 
     private CalendarView calendarView;
@@ -37,6 +37,7 @@ public class User_CalendarActivity extends AppCompatActivity {
         setContentView(R.layout.user_calendar);
 
         myName = (TextView) findViewById(R.id.myName);
+        cal = (TextView) findViewById(R.id.cal_Date);
         walkData = (TextView) findViewById(R.id.walkData);
         brainData = (TextView) findViewById(R.id.brainData);
         back = (ImageButton) findViewById(R.id.back);
@@ -59,19 +60,12 @@ public class User_CalendarActivity extends AppCompatActivity {
             }
         });
 
-//        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-//            @Override
-//            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-//                diaryTextView.setVisibility(View.VISIBLE);
-//                save_Btn.setVisibility(View.VISIBLE);
-//                contextEditText.setVisibility(View.VISIBLE);
-//                textView2.setVisibility(View.INVISIBLE);
-//                cha_Btn.setVisibility(View.INVISIBLE);
-//                del_Btn.setVisibility(View.INVISIBLE);
-//                diaryTextView.setText(String.format("%d / %d / %d",year,month+1,dayOfMonth));
-//                contextEditText.setText("");
-//            }
-//        });
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                cal.setText(String.format("%d 년 %d 월 %d 일",year,month+1,dayOfMonth));
+                }
+        });
 
 
         back.setOnClickListener(new View.OnClickListener() {
