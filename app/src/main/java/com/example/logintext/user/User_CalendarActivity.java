@@ -1,5 +1,7 @@
 package com.example.logintext.user;
 
+import static java.lang.String.format;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintext.R;
+import com.example.logintext.protector.Pro_GPSHistoryActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -20,15 +23,28 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+
 public class User_CalendarActivity extends AppCompatActivity {
 
     private String name = null;
     private String uid = null;
+    private String date1, walkdata;
 
     private TextView myName, walkData, brainData, cal;
     private ImageButton back;
 
     private CalendarView calendarView;
+    private List<date2> dateList = new ArrayList<>();
+
+    class date2 {
+        String time;
+        date2(String time) {
+            this.time = time;
+        }
+    }
 
 
     @Override
@@ -46,6 +62,7 @@ public class User_CalendarActivity extends AppCompatActivity {
         //로그인 및 회원가입 엑티비티에서 이름을 받아옴
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("Users").child("user");
         ref.child(uid).addValueEventListener(new ValueEventListener() {
@@ -60,13 +77,42 @@ public class User_CalendarActivity extends AppCompatActivity {
             }
         });
 
+
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                cal.setText(String.format("%d 년 %d 월 %d 일",year,month+1,dayOfMonth));
+                cal.setText(format("%d 년 %d 월 %d 일",year,month+1,dayOfMonth));
+                //저장된 걸음 수 가져오기
+                date1 = (format("%d년 %d월 %d일",year,month+1,dayOfMonth));
+
+                ref.child(uid).child("walk").child("date").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        for (DataSnapshot messageData : snapshot.getChildren()) {
+                            String time = messageData.child("time").getValue().toString();
+                            dateList.add(new date2(time));
+                        }
+                          //  date2.add(snapshot.child("walk").child("date").getValue().toString());
+                            Toast.makeText(getApplicationContext(), dateList.toString(), Toast.LENGTH_SHORT).show();
+                            //dateList에 날짜만 넣는 방법이 없을까? ex) [2021년 08월 09일, 2021년 08월 10일]
+
+                            if (dateList.isEmpty()) {
+                                Toast.makeText(getApplicationContext(), "데이터가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
+                            } else if (dateList.contains(date1)) {
+                                Toast.makeText(getApplicationContext(), "성공", Toast.LENGTH_SHORT).show();
+                                walkdata = snapshot.child("walk").child("date").child(date1).child("walk").getValue().toString();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "해당 날짜에 데이터가 없습니다.", Toast.LENGTH_SHORT).show();
+                                walkdata = "0";
+                            }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(getApplicationContext(),"onCancelled", Toast.LENGTH_SHORT);
+                    }
+                });
                 }
         });
-
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

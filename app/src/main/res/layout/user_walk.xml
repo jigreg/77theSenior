@@ -85,7 +85,7 @@
                     android:id="@+id/circleBar"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     app:progress_end_color="#0100FF"
                     app:progress_start_color="#FF0000"
@@ -98,7 +98,7 @@
                 <LinearLayout
                     android:layout_width="160dp"
                     android:layout_height="160dp"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="50dp"
                     android:layout_marginTop="40dp"
                     android:background="@drawable/textview"
                     android:orientation="vertical">

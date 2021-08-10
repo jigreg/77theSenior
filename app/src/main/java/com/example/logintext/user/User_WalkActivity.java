@@ -37,6 +37,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -57,7 +58,7 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
     private DatePicker datePicker;
     private Calendar cal, time;
 
-    private String uid, nickname, walk;
+    private String uid, nickname, walk, dt;
     private float distance;
 
     private SimpleDateFormat format;
@@ -141,7 +142,8 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
             Toast.makeText(this, "No Step Detect Sensor", Toast.LENGTH_SHORT).show();
         }
 
-        format = new SimpleDateFormat ( "yyyy년 MM월dd일 ");
+        //걸음 데이터 데이터베이스에 업로드
+        format = new SimpleDateFormat ( "yyyy년 MM월 dd일");
         time = Calendar.getInstance();
 
         String format_time = format.format(time.getTime());
@@ -150,29 +152,23 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
         uid = user.getUid();
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("Users");
-        DatabaseReference mReference = ref.child("user").child(uid);
-//        DatabaseReference nReference = mReference.child("walk").child(format_time);
+        DatabaseReference mReference = ref.child("user").child(uid).child("walk").child("date").child(format_time);
+        DatabaseReference nReference = ref.child("user").child(uid);
+        Map<String, Object> his = new HashMap<>();
+        his.put("walk", mStepDetector);
+        his.put("time", ""+format_time);
 
-        calen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String format_time = format.format(time.getTime());
+        mReference.updateChildren(his);
+        mReference.setValue(his);
 
-                Map<String, Object> his = new HashMap<>();
-                his.put("walk", mStepDetector);
-                his.put("time", ""+format_time);
-
-                mReference.updateChildren(his);
-            }
-        });
-
-        mReference.addValueEventListener(new ValueEventListener() {
+        //걸음 데이터 불러오기
+        nReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(!dataSnapshot.child("walk").getValue().toString().equals("0")) {
-                    walk = dataSnapshot.child("walk").getValue().toString();
-                } else {
+                if((dataSnapshot.child("walk").child(format_time).child("walk")).equals(0)) {
                     walk = "0";
+                } else {
+                    walk = (String.valueOf(dataSnapshot.child("walk").child("date").child(format_time).child("walk").getValue()));
                 }
                 nickname = dataSnapshot.child("name").getValue().toString();
                 userNickName.setText("닉네임 : "+ nickname );
