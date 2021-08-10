@@ -83,22 +83,23 @@ public class User_CalendarActivity extends AppCompatActivity {
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 cal.setText(format("%d 년 %d 월 %d 일",year,month+1,dayOfMonth));
                 //저장된 걸음 수 가져오기
-                date1 = (format("%d년 %d월 %d일",year,month+1,dayOfMonth));
+                date1 = format("%d년 %d월 %d일",year,month+1,dayOfMonth);
 
                 ref.child(uid).child("walk").child("date").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
+                        dateList.clear();
                         for (DataSnapshot messageData : snapshot.getChildren()) {
                             String time = messageData.child("time").getValue().toString();
                             dateList.add(new date2(time));
                         }
                           //  date2.add(snapshot.child("walk").child("date").getValue().toString());
-                            Toast.makeText(getApplicationContext(), dateList.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), date1.equals("2021년 08월 10일")+"", Toast.LENGTH_SHORT).show();
                             //dateList에 날짜만 넣는 방법이 없을까? ex) [2021년 08월 09일, 2021년 08월 10일]
 
                             if (dateList.isEmpty()) {
                                 Toast.makeText(getApplicationContext(), "데이터가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
-                            } else if (dateList.contains(date1)) {
+                            } else if (dateList.get(1).time.equals(date1)) {
                                 Toast.makeText(getApplicationContext(), "성공", Toast.LENGTH_SHORT).show();
                                 walkdata = snapshot.child("walk").child("date").child(date1).child("walk").getValue().toString();
                             } else {
