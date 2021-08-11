@@ -143,7 +143,7 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
         }
 
         //걸음 데이터 데이터베이스에 업로드
-        format = new SimpleDateFormat ( "yyyy년 MM월 dd일");
+        format = new SimpleDateFormat ( "yyyybMbd");
         time = Calendar.getInstance();
 
         String format_time = format.format(time.getTime());

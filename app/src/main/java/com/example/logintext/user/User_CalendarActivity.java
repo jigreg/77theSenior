@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintext.R;
-import com.example.logintext.protector.Pro_GPSHistoryActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -31,9 +31,11 @@ public class User_CalendarActivity extends AppCompatActivity {
 
     private String name = null;
     private String uid = null;
-    private String date1, walkdata;
+    private String walkdata;
+    private float dis;
+    private ProgressBar progressBar;
 
-    private TextView myName, walkData, brainData, cal;
+    private TextView myName, walkData, brainData, cal, distance, calorie;
     private ImageButton back;
 
     private CalendarView calendarView;
@@ -56,8 +58,11 @@ public class User_CalendarActivity extends AppCompatActivity {
         cal = (TextView) findViewById(R.id.cal_Date);
         walkData = (TextView) findViewById(R.id.walkData);
         brainData = (TextView) findViewById(R.id.brainData);
+        distance = (TextView) findViewById(R.id.distance);
+        calorie = (TextView) findViewById(R.id.calorie);
         back = (ImageButton) findViewById(R.id.back);
         calendarView = (CalendarView) findViewById(R.id.calendarView);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         //로그인 및 회원가입 엑티비티에서 이름을 받아옴
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -81,9 +86,13 @@ public class User_CalendarActivity extends AppCompatActivity {
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                cal.setText(format("%d 년 %d 월 %d 일",year,month+1,dayOfMonth));
+                cal.setText(format("%d 년 %d 월 %d 일", year, month + 1, dayOfMonth));
+
                 //저장된 걸음 수 가져오기
-                date1 = format("%d년 %d월 %d일",year,month+1,dayOfMonth);
+                String selectyear = Integer.toString(year);
+                String selectmonth = Integer.toString(month + 1);
+                String selectday = Integer.toString(dayOfMonth);
+                String date = selectyear + selectmonth + selectday;
 
                 ref.child(uid).child("walk").child("date").addValueEventListener(new ValueEventListener() {
                     @Override
@@ -94,24 +103,35 @@ public class User_CalendarActivity extends AppCompatActivity {
                             dateList.add(new date2(time));
                         }
                         //  date2.add(snapshot.child("walk").child("date").getValue().toString());
-                        Toast.makeText(getApplicationContext(), date1.equals("2021년 08월 10일")+"", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(getApplicationContext(), dateList.indexOf(date)+"", Toast.LENGTH_SHORT).show();
                         //dateList에 날짜만 넣는 방법이 없을까? ex) [2021년 08월 09일, 2021년 08월 10일]
-
-                        if (dateList.isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "데이터가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
-                        } else if (dateList.get(1).time.equals(date1)) {
-                            Toast.makeText(getApplicationContext(), "성공", Toast.LENGTH_SHORT).show();
-                            walkdata = snapshot.child("walk").child("date").child(date1).child("walk").getValue().toString();
-                        } else {
-                            Toast.makeText(getApplicationContext(), "해당 날짜에 데이터가 없습니다.", Toast.LENGTH_SHORT).show();
-                            walkdata = "0";
+                        for (int i = 0; i < dateList.size(); i++) {
+                            if (dateList.isEmpty()) {
+                                Toast.makeText(getApplicationContext(), "데이터가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
+                            } else if (dateList.get(i).time.equals(date)) {
+                                walkdata = snapshot.child(date).child("walk").getValue().toString();
+                                walkData.setText(walkdata + " 걸음");
+                                Toast.makeText(getApplicationContext(), "데이터 불러오기 성공!", Toast.LENGTH_SHORT).show();
+                                break;
+                            } else {
+                                walkData.setText("걸어볼까요?");
+                            }
                         }
                     }
+
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        Toast.makeText(getApplicationContext(),"onCancelled", Toast.LENGTH_SHORT);
+                        Toast.makeText(getApplicationContext(), "onCancelled", Toast.LENGTH_SHORT);
                     }
                 });
+                // 프로그레스바, 거리, 칼로리 계산식
+                try {
+                    dis = Float.parseFloat(walkdata);
+                    distance.setText(String.format("%.2f Km ", (dis * 0.0007f)));
+                    calorie.setText(String.format("%.2f cal", (dis * 0.0374f)));
+                    progressBar.setProgress(Integer.parseInt(walkdata));
+                } catch (NullPointerException e) {
+                }
             }
         });
 
@@ -123,9 +143,6 @@ public class User_CalendarActivity extends AppCompatActivity {
             }
         });
 
-        //날짜 클릭했을 때 그 날짜 인식하기 --> 날짜 클릭시 그 날짜를 파베 데이터에 있는 날짜와 비교? 후에 없으면 0걸음 표시? 파베에 날짜별로 저장을 안함 어카지? 야호~
-        //로그인 된 회원의 데이터 불러오기 -- > 위랑 똑같이 하면 되는데 날짜별로 걷기데이터랑 두뇌훈련 점수 저장되어야함 어 야호 신나네
-        //인식된 날짜의 걷기 데이터와 두뇌훈련 데이터 불러오기 --> 데이터 없으면 0걸음 0점수 표시 근데 그 밑에 차트랑 그거 어케함 야호^^
 
     }
 

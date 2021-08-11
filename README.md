@@ -74,3 +74,12 @@
 - issue 1. Need WalkData and BrainData coding in Calendar
 
 - issue 2. Fix walkdata for int and sort by date in WalkActivity
+
+---
+
+### 0811 Yu Seo Jun
+    : Solved Calendar Error!! , Add progressbar, distance, calorie in Calendar
+
+- issue 1. Change date savetype in firebase 2021년 08월 11일 -> 2021811
+
+- issue 2. Need Braindata resource & more Walkdata api

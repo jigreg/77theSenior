@@ -102,7 +102,7 @@
             android:layout_height="100dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/black"
-            android:layout_marginLeft="140dp"
+            android:layout_marginLeft="150dp"
             android:textSize="20dp"
             android:textStyle="bold"
             android:gravity="center"
@@ -146,8 +146,8 @@
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:layout_marginLeft="100dp"
-            android:text="0 걸음">
+            android:layout_marginLeft="80dp"
+            android:text="걸음 수">
         </TextView>
 
         <TextView
@@ -162,6 +162,65 @@
             android:layout_marginLeft="340dp"
             android:text="0 점">
         </TextView>
+
+        <TextView
+            android:layout_below ="@+id/walkData"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="30dp"
+            android:text="↓ 더 자세한 정보 ↓"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_below ="@+id/progressBar"
+            android:id="@+id/distance"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:text="0 km"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_below="@+id/progressBar"
+            android:layout_width="2dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="100dp"
+            android:background="@color/black" />
+
+        <TextView
+            android:layout_below="@+id/progressBar"
+            android:id="@+id/calorie"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="120dp"
+            android:text="0 cal"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:layout_below="@+id/walkData"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="30dp"
+            android:progressDrawable="@drawable/progressbar"
+            android:max="100"
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"/>
 
     </RelativeLayout>
     </LinearLayout>
