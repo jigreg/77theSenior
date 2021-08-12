@@ -96,131 +96,153 @@
         android:layout_height="600dp"
         android:background="#EEE6C4">
 
-        <TextView
-            android:id="@+id/cal_Date"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/black"
-            android:layout_marginLeft="150dp"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:text="날짜를 선택하세요.">
-        </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:drawableLeft="@drawable/walk1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="60dp"
-            android:text="걷 기">
-        </TextView>
+            <TextView
+                android:id="@+id/cal_Date"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="날짜를 선택하세요."
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"></TextView>
 
-        <TextView
-            android:drawableLeft="@drawable/training"
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="50dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginLeft="270dp"
-            android:text="두뇌 훈련">
-        </TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/walkData"
-            android:layout_marginTop="150dp"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="80dp"
-            android:text="걸음 수">
-        </TextView>
+                <TextView
+                    android:id="@+id/walkicon"
+                    android:layout_width="150dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="50dp"
+                    android:drawableLeft="@drawable/walk1"
+                    android:gravity="center"
+                    android:text="걷 기"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"></TextView>
 
-        <TextView
-            android:id="@+id/brainData"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="150dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="340dp"
-            android:text="0 점">
-        </TextView>
+                <TextView
+                    android:id="@+id/brainicon"
+                    android:layout_width="150dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@+id/walkicon"
+                    android:drawableLeft="@drawable/training"
+                    android:gravity="center"
+                    android:text="두뇌 훈련"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"></TextView>
 
-        <TextView
-            android:layout_below ="@+id/walkData"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="170dp"
-            android:layout_marginTop="30dp"
-            android:text="↓ 더 자세한 정보 ↓"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginLeft="25dp">
 
-        <TextView
-            android:layout_below ="@+id/progressBar"
-            android:id="@+id/distance"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="30dp"
-            android:text="0 km"
-            android:textColor="@color/black"
-            android:textSize="17dp"
-            android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/walkData"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="70dp"
+                    android:text="걸음 수"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"></TextView>
 
-        <View
-            android:layout_below="@+id/progressBar"
-            android:layout_width="2dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="100dp"
-            android:background="@color/black" />
+                <TextView
+                    android:id="@+id/brainData"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="100dp"
+                    android:text="두뇌 점수"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"></TextView>
 
-        <TextView
-            android:layout_below="@+id/progressBar"
-            android:id="@+id/calorie"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="120dp"
-            android:text="0 cal"
-            android:textColor="@color/black"
-            android:textSize="17dp"
-            android:textStyle="bold" />
+            </LinearLayout>
 
-        <ProgressBar
-            android:layout_below="@+id/walkData"
-            android:layout_marginTop="80dp"
-            android:layout_marginLeft="30dp"
-            android:progressDrawable="@drawable/progressbar"
-            android:max="100"
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"/>
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="↓ 더 자세한 정보 ↓"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:max="100"
+                    android:progressDrawable="@drawable/progressbar" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+            <TextView
+                    android:id="@+id/distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="0 km"
+                    android:textColor="@color/black"
+                    android:textSize="17dp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/calorie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="0 cal"
+                    android:layout_marginLeft="9dp"
+                    android:textColor="@color/black"
+                    android:textSize="17dp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
 
     </RelativeLayout>
     </LinearLayout>
