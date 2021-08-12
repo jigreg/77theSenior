@@ -113,51 +113,65 @@
                 android:textSize="20dp"
                 android:textStyle="bold"></TextView>
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/walkicon"
-                    android:layout_width="150dp"
-                    android:layout_height="70dp"
-                    android:layout_marginLeft="50dp"
-                    android:drawableLeft="@drawable/walk1"
-                    android:gravity="center"
-                    android:text="걷 기"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold"></TextView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/walkicon"
+                        android:layout_width="150dp"
+                        android:layout_height="70dp"
+                        android:drawableLeft="@drawable/walk1"
+                        android:gravity="center"
+                        android:text="걷 기       "
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
 
-                <TextView
-                    android:id="@+id/brainicon"
-                    android:layout_width="150dp"
-                    android:layout_height="70dp"
-                    android:layout_marginLeft="50dp"
-                    android:layout_toRightOf="@+id/walkicon"
-                    android:drawableLeft="@drawable/training"
-                    android:gravity="center"
-                    android:text="두뇌 훈련"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold"></TextView>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/brainicon"
+                        android:layout_width="150dp"
+                        android:layout_height="70dp"
+                        android:layout_toRightOf="@+id/walkicon"
+                        android:drawableLeft="@drawable/training"
+                        android:gravity="center"
+                        android:text="두뇌 훈련"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
+                </LinearLayout>
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
-                android:orientation="horizontal"
-                android:layout_marginLeft="25dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/walkData"
-                    android:layout_width="100dp"
+                    android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:layout_marginLeft="70dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
                     android:text="걸음 수"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="@color/black"
@@ -166,9 +180,10 @@
 
                 <TextView
                     android:id="@+id/brainData"
-                    android:layout_width="100dp"
+                    android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:layout_marginLeft="100dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
                     android:text="두뇌 점수"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="@color/black"

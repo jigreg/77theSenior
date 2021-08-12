@@ -103,14 +103,21 @@ public class User_CalendarActivity extends AppCompatActivity {
                         }
 
                         for (int i = 0; i < dateList.size(); i++) {
-                            if (dateList.isEmpty()) {
-                                Toast.makeText(getApplicationContext(), "데이터가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
-                            } else if (dateList.get(i).time.equals(date)) {
+                            if (dateList.get(i).time.equals(date)) {
                                 walkdata = snapshot.child(date).child("walk").getValue().toString();
                                 walkData.setText(walkdata + " 걸음");
-                                Toast.makeText(getApplicationContext(), "데이터 불러오기 성공!", Toast.LENGTH_SHORT).show();
+
+                                dis = Float.parseFloat(walkdata);
+                                distance.setText(String.format("%.2f Km ", (dis * 0.0007f)));
+                                calorie.setText(String.format("%.2f cal", (dis * 0.0374f)));
+                                progressBar.setProgress(Integer.parseInt(walkdata));
                                 break;
                             } else {
+                                dis = 0;
+                                distance.setText(String.format("%.2f Km ", (dis * 0.0007f)));
+                                calorie.setText(String.format("%.2f cal", (dis * 0.0374f)));
+                                progressBar.setProgress(0);
+
                                 walkData.setText("걸어볼까요?");
                             }
                         }
@@ -121,14 +128,6 @@ public class User_CalendarActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "onCancelled", Toast.LENGTH_SHORT);
                     }
                 });
-                // 프로그레스바, 거리, 칼로리 계산식
-                try {
-                    dis = Float.parseFloat(walkdata);
-                    distance.setText(String.format("%.2f Km ", (dis * 0.0007f)));
-                    calorie.setText(String.format("%.2f cal", (dis * 0.0374f)));
-                    progressBar.setProgress(Integer.parseInt(walkdata));
-                } catch (NullPointerException e) {
-                }
             }
         });
 

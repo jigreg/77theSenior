@@ -36,6 +36,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.ktx.Firebase;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -58,10 +59,13 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
     private DatePicker datePicker;
     private Calendar cal, time;
 
-    private String uid, nickname, walk, dt;
+    private String uid, nickname, walk, dt, format_time;
     private float distance;
 
     private SimpleDateFormat format;
+
+    private FirebaseDatabase database;
+    private DatabaseReference ref, mReference, nReference;
     private FirebaseUser user;
 
     public static int mStepDetector;
@@ -72,6 +76,7 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_walk);
+
 
         back = (ImageButton) findViewById(R.id.back);
         calen = (ImageButton) findViewById(R.id.calendar);
@@ -146,22 +151,23 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
         format = new SimpleDateFormat ( "yyyybMbd");
         time = Calendar.getInstance();
 
-        String format_time = format.format(time.getTime());
+        format_time = format.format(time.getTime());
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("Users");
-        DatabaseReference mReference = ref.child("user").child(uid).child("walk").child("date").child(format_time);
-        DatabaseReference nReference = ref.child("user").child(uid);
+
+        database = FirebaseDatabase.getInstance();
+        ref = database.getReference("Users");
+        mReference = ref.child("user").child(uid).child("walk").child("date").child(format_time);
+
         Map<String, Object> his = new HashMap<>();
         his.put("walk", mStepDetector);
         his.put("time", ""+format_time);
 
-        mReference.updateChildren(his);
         mReference.setValue(his);
 
         //걸음 데이터 불러오기
+        nReference = ref.child("user").child(uid);
         nReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -241,6 +247,12 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
                 countWalk.setText(String.valueOf(mStepDetector) + "걸음");
                 progressBar.setProgress(mStepDetector);
                 circleProgressBar.setProgress(mStepDetector);
+
+                Map<String, Object> his = new HashMap<>();
+                his.put("walk", mStepDetector);
+
+                mReference.updateChildren(his);
+
                 try {
                     distance = (float) mStepDetector;
                     dis.setText(String.format("%.2f Km ", (distance * 0.0007f)));
