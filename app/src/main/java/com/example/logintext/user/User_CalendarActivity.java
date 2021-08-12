@@ -89,15 +89,10 @@ public class User_CalendarActivity extends AppCompatActivity {
                 cal.setText(format("%d 년 %d 월 %d 일", year, month + 1, dayOfMonth));
 
                 //저장된 걸음 수 가져오기
-<<<<<<< HEAD
                 String selectyear = Integer.toString(year);
                 String selectmonth = Integer.toString(month + 1);
                 String selectday = Integer.toString(dayOfMonth);
                 String date = selectyear + selectmonth + selectday;
-=======
-                date1 = format("%d년 %d월 %d일",year,month+1,dayOfMonth);
->>>>>>> 49120f9ffe08a42a9a4f584555bb0e15261e1b11
-
                 ref.child(uid).child("walk").child("date").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
@@ -106,10 +101,7 @@ public class User_CalendarActivity extends AppCompatActivity {
                             String time = messageData.child("time").getValue().toString();
                             dateList.add(new date2(time));
                         }
-<<<<<<< HEAD
-                        //  date2.add(snapshot.child("walk").child("date").getValue().toString());
-                        // Toast.makeText(getApplicationContext(), dateList.indexOf(date)+"", Toast.LENGTH_SHORT).show();
-                        //dateList에 날짜만 넣는 방법이 없을까? ex) [2021년 08월 09일, 2021년 08월 10일]
+
                         for (int i = 0; i < dateList.size(); i++) {
                             if (dateList.isEmpty()) {
                                 Toast.makeText(getApplicationContext(), "데이터가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
@@ -118,17 +110,6 @@ public class User_CalendarActivity extends AppCompatActivity {
                                 walkData.setText(walkdata + " 걸음");
                                 Toast.makeText(getApplicationContext(), "데이터 불러오기 성공!", Toast.LENGTH_SHORT).show();
                                 break;
-=======
-                          //  date2.add(snapshot.child("walk").child("date").getValue().toString());
-                            Toast.makeText(getApplicationContext(), date1.equals("2021년 08월 10일")+"", Toast.LENGTH_SHORT).show();
-                            //dateList에 날짜만 넣는 방법이 없을까? ex) [2021년 08월 09일, 2021년 08월 10일]
-
-                            if (dateList.isEmpty()) {
-                                Toast.makeText(getApplicationContext(), "데이터가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
-                            } else if (dateList.get(1).time.equals(date1)) {
-                                Toast.makeText(getApplicationContext(), "성공", Toast.LENGTH_SHORT).show();
-                                walkdata = snapshot.child("walk").child("date").child(date1).child("walk").getValue().toString();
->>>>>>> 49120f9ffe08a42a9a4f584555bb0e15261e1b11
                             } else {
                                 walkData.setText("걸어볼까요?");
                             }
