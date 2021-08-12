@@ -82,4 +82,15 @@
 
 - issue 1. Change date savetype in firebase 2021년 08월 11일 -> 2021811
 
-- issue 2. Need Braindata resource & more Walkdata api
+- issue 2. Need Braindata resource & more Walkdata 
+
+---
+
+### 0813 Yu Seo Jun, Hwang Won Tae
+    : Solved Calendar Error!! & Overall XML modification
+
+- issue 1. Need to prepare for the contest report ( Do not proceed today )
+
+- issue 2. UI change required & Dementia grade score & Dementia News Crawling
+
+- issue 3. Mrs. Back Penalty stack +1 ( Not attending the meeting )
