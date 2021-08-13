@@ -2,6 +2,7 @@ package com.example.logintext.common;
 
 import com.example.logintext.R;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -50,7 +51,6 @@ public class LoginActivity extends AppCompatActivity {
     private String uid;
 
     private Button regst, idpw;
-    private CheckBox autoLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,10 +64,11 @@ public class LoginActivity extends AppCompatActivity {
         editTextEmail = (EditText) findViewById(R.id.et_email);
         editTextPassword = (EditText) findViewById(R.id.et_password);
 
-        autoLogin = (CheckBox) findViewById(R.id.autoLogin);
-
         // 파이어베이스 인증 객체 선언
         firebaseAuth = FirebaseAuth.getInstance();
+
+        mDatabase = FirebaseDatabase.getInstance("https://oldman-eb51e-default-rtdb.firebaseio.com/");
+        mReference = mDatabase.getReference("Users");
 
         regst.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -85,6 +86,25 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
+        // 저장 정보가 있을 경우
+        if (LoginMaintainService.getEmail(LoginActivity.this).length() != 0) {
+            String type = LoginMaintainService.getType(LoginActivity.this).toString();
+            if (type.equals("user")) {
+                Intent intent = new Intent(LoginActivity.this, User_MainActivity.class)
+                        .putExtra("STD_NUM", LoginMaintainService.getEmail(LoginActivity.this).toString())
+                        .putExtra("STD_NUM", LoginMaintainService.getPasswd(LoginActivity.this).toString());
+                startActivity(intent);
+                finish();
+            } else if (type.equals("protector")) {
+                Intent intent = new Intent(LoginActivity.this, Pro_MainActivity.class)
+                        .putExtra("STD_NUM", LoginMaintainService.getEmail(LoginActivity.this).toString())
+                        .putExtra("STD_NUM", LoginMaintainService.getPasswd(LoginActivity.this).toString());
+                startActivity(intent);
+                finish();
+            }
+
+
+        }
     }
 
     public void signIn(View view) {
@@ -131,61 +151,33 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // 로그인 성공
-                            mDatabase = FirebaseDatabase.getInstance("https://oldman-eb51e-default-rtdb.firebaseio.com/");
-                            mReference = mDatabase.getReference("Users");
                             user = FirebaseAuth.getInstance().getCurrentUser();
                             uid = user.getUid();
 
                             mReference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DataSnapshot> task) {
-                                    if (autoLogin.isChecked()) {
-                                        if (LoginMaintainService.getUserName(LoginActivity.this).length() == 0) {
-                                            // 저장 정보가 없을 경우
-                                            LoginMaintainService.setUserName(LoginActivity.this, editTextEmail.getText().toString());
-                                        } else {
-                                            // 저장 정보가 있을 경우 -> 다음 화면 호출
-                                            try {
-                                                String user_type = task.getResult().child("user").child(uid).child("type").getValue().toString();
-                                                if (user_type.equals("user")) {
-
-                                                    Intent intent = new Intent(LoginActivity.this, User_MainActivity.class);
-                                                    intent.putExtra("STD_NUM", LoginMaintainService.getUserName(LoginActivity.this).toString());
-                                                    startActivity(intent);
-                                                    finish();
-
-                                                    Toast.makeText(LoginActivity.this, "유저 자동 로그인 ON", Toast.LENGTH_SHORT).show();
-                                                }
-                                            } catch (NullPointerException e) {
-                                                String pro_type = task.getResult().child("protector").child(uid).child("type").getValue().toString();
-                                                if (pro_type.equals("protector")) {
-
-                                                    Intent intent = new Intent(LoginActivity.this, Pro_MainActivity.class);
-                                                    intent.putExtra("STD_NUM", LoginMaintainService.getUserName(LoginActivity.this).toString());
-                                                    startActivity(intent);
-                                                    finish();
-
-                                                    Toast.makeText(LoginActivity.this, "보호자 자동 로그인 ON", Toast.LENGTH_SHORT).show();
-                                                }
-                                            }
-//                                            Toast.makeText(LoginActivity.this, R.string.success_login + "자동 로그인 ON", Toast.LENGTH_SHORT).show();
-                                        }
-                                    } else {
-                                        try {
-                                            String user_type = task.getResult().child("user").child(uid).child("type").getValue().toString();
-                                            if (user_type.equals("user")) {
-                                                startActivity(new Intent(LoginActivity.this, User_MainActivity.class));
-                                                finish();
-                                            }
-                                        } catch (NullPointerException e) {
-                                            String pro_type = task.getResult().child("protector").child(uid).child("type").getValue().toString();
-                                            if (pro_type.equals("protector")) {
-                                                startActivity(new Intent(LoginActivity.this, Pro_MainActivity.class));
-                                                finish();
-                                            }
-                                        }
-                                        Toast.makeText(LoginActivity.this, R.string.success_login, Toast.LENGTH_SHORT).show();
+                                    if (LoginMaintainService.getEmail(LoginActivity.this).length() == 0) {
+                                        // 저장 정보가 없을 경우
+                                        LoginMaintainService.setEmail(LoginActivity.this, email);
+                                        LoginMaintainService.setPasswd(LoginActivity.this, password);
                                     }
+                                    try {
+                                        String user_type = task.getResult().child("user").child(uid).child("type").getValue().toString();
+                                        if (user_type.equals("user")) {
+                                            LoginMaintainService.setType(LoginActivity.this, user_type);
+                                            startActivity(new Intent(LoginActivity.this, User_MainActivity.class));
+                                            finish();
+                                        }
+                                    } catch (NullPointerException e) {
+                                        String pro_type = task.getResult().child("protector").child(uid).child("type").getValue().toString();
+                                        if (pro_type.equals("protector")) {
+                                            LoginMaintainService.setType(LoginActivity.this, pro_type);
+                                            startActivity(new Intent(LoginActivity.this, Pro_MainActivity.class));
+                                            finish();
+                                        }
+                                    }
+                                    Toast.makeText(LoginActivity.this, R.string.success_login, Toast.LENGTH_SHORT).show();
                                 }
                             });
                         } else {

@@ -96,19 +96,6 @@
                 android:layout_gravity="center"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="자동 로그인"/>
-
-                <CheckBox
-                    android:id="@+id/autoLogin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:checked="true"/>
-
                 <Button
                     android:id="@+id/idPw"
                     style="?android:attr/borderlessButtonStyle"
