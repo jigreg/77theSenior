@@ -105,6 +105,7 @@ public class User_MainActivity extends AppCompatActivity {
         });
     }
 
+//    포그라운드 기능
 //    private void startForegroundService() {
 //        user = FirebaseAuth.getInstance().getCurrentUser();
 //        uid = user.getUid();
