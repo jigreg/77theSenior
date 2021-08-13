@@ -97,8 +97,7 @@
 
 ---
 
-### 0813 Yu Seo Jun
-    : ADD Pro_Calendar Pro can access User's Calendar
+### 0813 Yu Seo Jun, Hwang Won Tae
+    : Add Pro_Calendar Pro can access User's Calendar, Imported User's walking to User_Main, Add Auto-Login
 
-- issue 1. NEED Pro Calendar data test
-
+- (Clear) issue 1. Need to Pro Calendar data test
