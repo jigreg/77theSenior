@@ -94,3 +94,11 @@
 - issue 2. UI change required & Dementia grade score & Dementia News Crawling
 
 - issue 3. Mrs. Back Penalty stack +1 ( Not attending the meeting )
+
+---
+
+### 0813 Yu Seo Jun
+    : ADD Pro_Calendar Pro can access User's Calendar
+
+- issue 1. NEED Pro Calendar data test
+
