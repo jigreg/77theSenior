@@ -50,11 +50,10 @@
 
                 <TextView
                     android:id="@+id/date"
-                    android:layout_width="100dp"
+                    android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:layout_marginLeft="10dp"
                     android:textSize="20dp" />
 
                 <DatePicker
@@ -83,23 +82,24 @@
 
                 <com.dinuscxj.progressbar.CircleProgressBar
                     android:id="@+id/circleBar"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_width="220dp"
+                    android:layout_height="220dp"
                     app:progress_end_color="#0100FF"
                     app:progress_start_color="#FF0000"
                     app:progress_stroke_width="13dp"
                     app:progress_text_size="15dp"
                     app:progress_text_color="#BDBDBD"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
                     app:style="line"
                     app:line_count="30"/>
 
                 <LinearLayout
                     android:layout_width="160dp"
                     android:layout_height="160dp"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
                     android:background="@drawable/textview"
                     android:orientation="vertical">
 
@@ -108,7 +108,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="50dp"
                         android:text="닉네임 :   "
                         android:textSize="15dp" />
 
@@ -116,7 +115,6 @@
                         android:id="@+id/count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
                         android:layout_marginTop="10dp"
                         android:text="걸음수 : 0"
                         android:textSize="15dp" />

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,14 +22,22 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class User_MainActivity extends AppCompatActivity {
 
     private Button logout, walk, training, locate, setting, ranking, calendar;
+    private TextView walkstep;
 
     private FirebaseAuth mAuth;
     private FirebaseUser user;
+    private FirebaseDatabase database;
+    private DatabaseReference ref, mReference, nReference;
 
-    private String uid;
+    private String uid, format_time, mywalk;
+    private SimpleDateFormat format;
+    private Calendar time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +51,7 @@ public class User_MainActivity extends AppCompatActivity {
         ranking = (Button) findViewById(R.id.ranking);
         setting = (Button) findViewById(R.id.setting);
         calendar = (Button) findViewById(R.id.calendar);
+        walkstep = (TextView) findViewById(R.id.walk_step);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -101,6 +111,34 @@ public class User_MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(User_MainActivity.this, User_CalendarActivity.class));
                 finish();
+            }
+        });
+        format = new SimpleDateFormat("yyyybMbd");
+        time = Calendar.getInstance();
+
+        format_time = format.format(time.getTime());
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        uid = user.getUid();
+
+        database = FirebaseDatabase.getInstance();
+        ref = database.getReference("Users");
+
+        nReference = ref.child("user").child(uid);
+
+        nReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                mywalk = (String.valueOf(dataSnapshot.child("walk").child("date").child(format_time).child("walk").getValue()));
+                if(mywalk.equals("null")) {
+                    walkstep.setText("오늘도 걸어봅시다!");
+                } else {
+                    walkstep.setText(mywalk + "걸음");
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(getApplicationContext(),"onCancelled", Toast.LENGTH_SHORT);
             }
         });
     }

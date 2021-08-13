@@ -59,7 +59,7 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
     private DatePicker datePicker;
     private Calendar cal, time;
 
-    private String uid, nickname, walk, dt, format_time;
+    private String uid, nickname, walk, format_time;
     private float distance;
 
     private SimpleDateFormat format;
@@ -171,14 +171,14 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
         nReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if((dataSnapshot.child("walk").child(format_time).child("walk")).equals(0)) {
-                    walk = "0";
+                walk = (String.valueOf(dataSnapshot.child("walk").child("date").child(format_time).child("walk").getValue()));
+                if(walk.equals("null")) {
+                    count.setText("오늘도 걸어봅시다!");
                 } else {
-                    walk = (String.valueOf(dataSnapshot.child("walk").child("date").child(format_time).child("walk").getValue()));
+                    count.setText("걸음 수 : " + walk);
                 }
                 nickname = dataSnapshot.child("name").getValue().toString();
                 userNickName.setText("닉네임 : "+ nickname );
-                count.setText("걸음 수 : " + walk);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
