@@ -45,6 +45,7 @@
         <activity android:name=".common.RegisterActivity" />
         <activity android:name=".user.User_LocationActivity" />
         <activity android:name=".protector.Pro_MainActivity" />
+        <activity android:name=".protector.Pro_CalendarActivity" />
         <activity android:name=".protector.Pro_SafeZoneActivity" />
         <activity android:name=".common.LoginActivity" />
         <activity android:name=".common.LoadingActivity">

@@ -131,7 +131,7 @@ public class User_MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mywalk = (String.valueOf(dataSnapshot.child("walk").child("date").child(format_time).child("walk").getValue()));
                 if(mywalk.equals("null")) {
-                    walkstep.setText("오늘도 걸어봅시다!");
+                    walkstep.setText("오늘도 걸어 봅시다!");
                 } else {
                     walkstep.setText(mywalk + "걸음");
                 }
