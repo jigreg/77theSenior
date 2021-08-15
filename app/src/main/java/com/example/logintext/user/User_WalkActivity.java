@@ -65,7 +65,7 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
     private SimpleDateFormat format;
 
     private FirebaseDatabase database;
-    private DatabaseReference ref, mReference, nReference;
+    private DatabaseReference ref, mReference, nReference, today_reference;
     private FirebaseUser user;
 
     public static int mStepDetector;
@@ -159,19 +159,24 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
         database = FirebaseDatabase.getInstance();
         ref = database.getReference("Users");
         mReference = ref.child("user").child(uid).child("walk").child("date").child(format_time);
+        today_reference = ref.child("user").child(uid);
 
         Map<String, Object> his = new HashMap<>();
-        his.put("walk", mStepDetector);
-        his.put("time", ""+format_time);
+        his.put("walking", mStepDetector);
+        his.put("time", format_time);
+
+        Map<String, Object> towalk = new HashMap<>();
+        towalk.put("today_walking", mStepDetector);
 
         mReference.setValue(his);
+        today_reference.updateChildren(towalk);
 
         //걸음 데이터 불러오기
         nReference = ref.child("user").child(uid);
         nReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                walk = (String.valueOf(dataSnapshot.child("walk").child("date").child(format_time).child("walk").getValue()));
+                walk = (String.valueOf(dataSnapshot.child("walk").child("date").child(format_time).child("walking").getValue()));
                 if(walk.equals("null")) {
                     count.setText("오늘도 걸어봅시다!");
                 } else {
@@ -249,9 +254,13 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
                 circleProgressBar.setProgress(mStepDetector);
 
                 Map<String, Object> his = new HashMap<>();
-                his.put("walk", mStepDetector);
+                his.put("walking", mStepDetector);
+
+                Map<String, Object> towalk = new HashMap<>();
+                towalk.put("today_walking", mStepDetector);
 
                 mReference.updateChildren(his);
+                today_reference.updateChildren(towalk);
 
                 try {
                     distance = (float) mStepDetector;

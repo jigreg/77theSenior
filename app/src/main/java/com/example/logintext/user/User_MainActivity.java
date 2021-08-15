@@ -129,7 +129,7 @@ public class User_MainActivity extends AppCompatActivity {
         nReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                mywalk = (String.valueOf(dataSnapshot.child("walk").child("date").child(format_time).child("walk").getValue()));
+                mywalk = (String.valueOf(dataSnapshot.child("walk").child("date").child(format_time).child("walking").getValue()));
                 if(mywalk.equals("null")) {
                     walkstep.setText("오늘도 걸어 봅시다!");
                 } else {

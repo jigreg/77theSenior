@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintext.R;
@@ -22,9 +23,12 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 @SuppressWarnings("deprecation")
@@ -37,8 +41,11 @@ public class User_WalkRankActivity extends AppCompatActivity {
     private ImageButton back;
     private TextView myRankNum, myNickname, myWalked;
 
+    private SimpleDateFormat format;
+    private Calendar time;
+
     private int myRank;
-    private String uid;
+    private String uid, format_time;
     private ListView walk_listView;
     private ListAdapter walk_adapter;
     private List<Walking> TempList = new ArrayList<>();
@@ -84,20 +91,38 @@ public class User_WalkRankActivity extends AppCompatActivity {
         walk_adapter = new ListAdapter(this);
         walk_listView.setAdapter(walk_adapter);
 
+        format = new SimpleDateFormat ( "yyyybMbd");
+        time = Calendar.getInstance();
+
+        format_time = format.format(time.getTime());
+
         mDatabase = FirebaseDatabase.getInstance("https://oldman-eb51e-default-rtdb.firebaseio.com/");
-        mReference = mDatabase.getReference("Users");
+        mReference = mDatabase.getReference("Users").child("user");
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
 
+//        mReference.child("user").child("walk").child(format.toString()).orderByChild("walk").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+
         // limitToFirst(숫자) 한정 메소드
-        mReference.child("user").orderByChild("walk").addValueEventListener(new ValueEventListener() {
+        mReference.orderByChild("today_walking").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int rank = 1;
+                TempList.clear();
                 for (DataSnapshot messageData : dataSnapshot.getChildren()) {
                     String myUid = messageData.child("uid").getValue().toString();
                     String name = messageData.child("name").getValue().toString();
-                    String walked = messageData.child("walk").getValue().toString();
+                    String walked = messageData.child("today_walking").getValue().toString();
 
                     TempList.add(new Walking(name, walked));
 
@@ -107,6 +132,7 @@ public class User_WalkRankActivity extends AppCompatActivity {
                     rank++;
                 }
                 int size = TempList.size()-1;
+                WalkingList.clear();
                 for (int i = 0; i <= size; i++) {
                     Walking temp = TempList.get(size-i);
                     WalkingList.add(i, temp);
@@ -122,11 +148,11 @@ public class User_WalkRankActivity extends AppCompatActivity {
             }
         });
 
-        mReference.child("user").child(uid).addValueEventListener(new ValueEventListener() {
+        mReference.child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String name = dataSnapshot.child("name").getValue().toString();
-                String walked = dataSnapshot.child("walk").getValue().toString();
+                String walked = dataSnapshot.child("today_walking").getValue().toString();
                 myNickname.setText(name);
                 myWalked.setText(walked);
             }

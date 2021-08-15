@@ -101,3 +101,11 @@
     : Add Pro_Calendar Pro can access User's Calendar, Imported User's walking to User_Main, Add Auto-Login
 
 - (Clear) issue 1. Need to Pro Calendar data test
+
+
+---
+
+### 0815 Hwang Won Tae
+    : Fix Ranking Function & Modifying some DB entries
+
+- (Clear) issue 1. Fix Ranking Activity's WalkData

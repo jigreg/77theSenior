@@ -103,7 +103,7 @@ public class User_CalendarActivity extends AppCompatActivity {
 
                         for (int i = 0; i < dateList.size(); i++) {
                             if (dateList.get(i).time.equals(date)) {
-                                walkdata = snapshot.child(date).child("walk").getValue().toString();
+                                walkdata = snapshot.child(date).child("walking").getValue().toString();
                                 walkData.setText(walkdata + " 걸음");
 
                                 dis = Float.parseFloat(walkdata);
