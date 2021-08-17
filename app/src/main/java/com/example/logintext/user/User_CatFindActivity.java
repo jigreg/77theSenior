@@ -1,5 +1,6 @@
 package com.example.logintext.user;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintext.R;
@@ -66,6 +68,8 @@ public class User_CatFindActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_brain_cat);
 
+        showstartDialog();
+
         t1 = (TableLayout) findViewById(R.id.t1);
         t2 = (TableLayout) findViewById(R.id.t2);
         f1 = (ImageView) findViewById(R.id.f1);
@@ -80,8 +84,8 @@ public class User_CatFindActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(User_CatFindActivity.this, User_BrainMain.class));
-                finish();
+                showbackDialog();
+
             }
         });
 
@@ -194,6 +198,31 @@ public class User_CatFindActivity extends AppCompatActivity {
                             grade += 50;
                             round++;
                             gradeTV.setText("점수 : "+grade);
+
+                            //점수 데이터베이스에 업로드
+                            format = new SimpleDateFormat( "yyyybMbd");
+                            time = Calendar.getInstance();
+
+                            format_time = format.format(time.getTime());
+
+                            user = FirebaseAuth.getInstance().getCurrentUser();
+                            uid = user.getUid();
+
+                            database = FirebaseDatabase.getInstance();
+                            ref = database.getReference("Users");
+                            mReference = ref.child("user").child(uid).child("grade").child("date").child(format_time);
+                            today_reference = ref.child("user").child(uid);
+
+                            Map<String, Object> his = new HashMap<>();
+                            his.put("cat_grade", grade);
+                            his.put("time", format_time);
+
+                            Map<String, Object> totraining = new HashMap<>();
+                            totraining.put("today_training", grade);
+
+                            mReference.setValue(his);
+                            today_reference.updateChildren(totraining);
+
                             if(round == 5){
                                 startActivity(new Intent(User_CatFindActivity.this, User_BrainMain.class));
                                 finish();
@@ -226,46 +255,38 @@ public class User_CatFindActivity extends AppCompatActivity {
                 }
             });
         }
-
-
-        //점수 데이터베이스에 업로드
-        format = new SimpleDateFormat( "yyyybMbd");
-        time = Calendar.getInstance();
-
-        format_time = format.format(time.getTime());
-
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        uid = user.getUid();
-
-        database = FirebaseDatabase.getInstance();
-        ref = database.getReference("Users");
-        mReference = ref.child("user").child(uid).child("grade").child("date").child(format_time);
-        today_reference = ref.child("user").child(uid);
-
-        Map<String, Object> his = new HashMap<>();
-        his.put("cat_grade", grade);
-        his.put("time", format_time);
-
-        Map<String, Object> totraining = new HashMap<>();
-        totraining.put("today_training", mStepDetector);
-
-        mReference.setValue(his);
-        today_reference.updateChildren(totraining);
-
-        //고양이 성적 불러오기
-        nReference = ref.child("user").child(uid);
-        nReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                catgrade = (String.valueOf(dataSnapshot.child("grade").child("date").child(format_time).child("cat_grade").getValue()));
-
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(getApplicationContext(),"onCancelled", Toast.LENGTH_SHORT);
-            }
-        });
-
-        return;
     }
+    void showbackDialog() {
+        AlertDialog.Builder msgBuilder = new AlertDialog.Builder(User_CatFindActivity.this)
+                .setTitle("일시정지")
+                .setMessage("훈련을 종료하시겠습니까?")
+                .setPositiveButton("네",
+                        new DialogInterface.OnClickListener() {
+                    @Override public void onClick(DialogInterface dialogInterface, int i) {
+                        startActivity(new Intent(User_CatFindActivity.this, User_BrainMain.class));
+                        finish();
+                    }
+                }).setNegativeButton("아니오",
+                        new DialogInterface.OnClickListener() {
+                    @Override public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+        AlertDialog msgDlg = msgBuilder.create();
+        msgDlg.show();
+    }
+
+    void showstartDialog() {
+        AlertDialog.Builder msgBuilder = new AlertDialog.Builder(User_CatFindActivity.this)
+                .setTitle("고양이 찾기")
+                .setMessage("상자에 숨은 고양이를 찾아보세요! \n 기회는 총 5번입니다")
+                .setPositiveButton("네",
+                        new DialogInterface.OnClickListener() {
+                            @Override public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        });
+        AlertDialog msgDlg = msgBuilder.create();
+        msgDlg.show();
+    }
+
 }
