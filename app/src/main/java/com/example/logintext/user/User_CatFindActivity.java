@@ -38,7 +38,7 @@ public class User_CatFindActivity extends AppCompatActivity {
     private ImageButton [] IB = new ImageButton[20];
     private ImageButton back;
     private ImageView f1,f2,f3;
-    private TextView tv;
+    private TextView tv, gradeTV;
     private int round = 0;
 
     private SimpleDateFormat format;
@@ -65,7 +65,6 @@ public class User_CatFindActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_brain_cat);
-        getSupportActionBar().setTitle("Cat in the box");
 
         t1 = (TableLayout) findViewById(R.id.t1);
         t2 = (TableLayout) findViewById(R.id.t2);
@@ -73,6 +72,7 @@ public class User_CatFindActivity extends AppCompatActivity {
         f2 = (ImageView) findViewById(R.id.f2);
         f3 = (ImageView) findViewById(R.id.f3);
         tv = (TextView) findViewById(R.id.tv);
+        gradeTV = (TextView)findViewById(R.id.gradeTextView);
 
         btnStart = (Button) findViewById(R.id.btnStart);
         back = (ImageButton) findViewById(R.id.back);
@@ -193,6 +193,7 @@ public class User_CatFindActivity extends AppCompatActivity {
                             t2.setVisibility(View.INVISIBLE);
                             grade += 50;
                             round++;
+                            gradeTV.setText("점수 : "+grade);
                             if(round == 5){
                                 startActivity(new Intent(User_CatFindActivity.this, User_BrainMain.class));
                                 finish();

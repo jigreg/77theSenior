@@ -70,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:id="@+id/grade"
+            android:id="@+id/gradeTextView"
             android:text="점수 :" />
 
         </LinearLayout>
