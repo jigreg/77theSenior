@@ -31,7 +31,7 @@ public class User_CalendarActivity extends AppCompatActivity {
 
     private String name = null;
     private String uid = null;
-    private String walkdata;
+    private String walkdata,braindata;
     private float dis;
     private ProgressBar progressBar;
 
@@ -86,12 +86,42 @@ public class User_CalendarActivity extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 cal.setText(format("%d 년 %d 월 %d 일", year, month + 1, dayOfMonth));
-
-                //저장된 걸음 수 가져오기
                 String selectyear = Integer.toString(year);
                 String selectmonth = Integer.toString(month + 1);
                 String selectday = Integer.toString(dayOfMonth);
                 String date = selectyear + selectmonth + selectday;
+
+                //저장된 두뇌훈련 점수 불러오기
+                ref.child(uid).child("grade").child("date").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        dateList.clear();
+                        for (DataSnapshot messageData : snapshot.getChildren()) {
+                            String time = messageData.child("time").getValue().toString();
+                            dateList.add(new date2(time));
+                        }
+
+                        for (int i = 0; i < dateList.size(); i++) {
+                            if (dateList.get(i).time.equals(date)) {
+                                braindata = snapshot.child(date).child("cat_grade").getValue().toString();
+                                brainData.setText(braindata + " 점");
+
+                                break;
+                            } else {
+                                brainData.setText("두뇌훈련 해볼까요?");
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(getApplicationContext(), "onCancelled", Toast.LENGTH_SHORT);
+                    }
+
+                });
+
+                //저장된 걸음 수 가져오기
+
                 ref.child(uid).child("walk").child("date").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
@@ -126,6 +156,7 @@ public class User_CalendarActivity extends AppCompatActivity {
                     public void onCancelled(@NonNull DatabaseError error) {
                         Toast.makeText(getApplicationContext(), "onCancelled", Toast.LENGTH_SHORT);
                     }
+
                 });
             }
         });

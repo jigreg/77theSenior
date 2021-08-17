@@ -109,3 +109,10 @@
     : Fix Ranking Function & Modifying some DB entries
 
 - (Clear) issue 1. Fix Ranking Activity's WalkData
+
+---
+
+### 0817 Back Su Jung
+    : CatFind ADD, BrainData add
+
+- issue 1. Reapply Watermelon Game with Unitiy
