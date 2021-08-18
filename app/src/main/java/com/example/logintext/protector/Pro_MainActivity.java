@@ -33,10 +33,10 @@ public class Pro_MainActivity extends AppCompatActivity {
     private FirebaseDatabase mDatabase;
     private DatabaseReference mReference;
     private FirebaseAuth mAuth;
-    private String uid, myUser, format_time, mywalk;
+    private String uid, myUser, format_time, mywalk, mytrain;
     private SimpleDateFormat format;
     private Calendar time;
-    private TextView walkstep;
+    private TextView walkstep, brain_train;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +48,7 @@ public class Pro_MainActivity extends AppCompatActivity {
         userReg = (Button) findViewById(R.id.userRegister);
         calendar = (Button) findViewById(R.id.myUserCalendar);
         walkstep = (TextView) findViewById(R.id.walk_step);
+        brain_train = (TextView) findViewById(R.id.brain_train);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance("https://oldman-eb51e-default-rtdb.firebaseio.com/");
@@ -81,6 +82,32 @@ public class Pro_MainActivity extends AppCompatActivity {
                     });
                 }else {
                     walkstep.setText("사용자와 연동해주세요.");
+                }
+            }
+        });
+
+        mReference.child("protector").child(uid).child("myUser").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                myUser = task.getResult().getValue().toString();
+                if (!myUser.equals("none")) {
+                    mReference.child("user").child(myUser).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            mytrain = dataSnapshot.child("today_training").getValue().toString();
+                            if (mytrain.equals("0")) {
+                                brain_train.setText("오늘도 훈련해봐요");
+                            } else {
+                                brain_train.setText(mytrain + " 점");
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    });
+                }else {
+                    brain_train.setText("사용자와 연동해주세요.");
                 }
             }
         });

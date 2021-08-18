@@ -28,14 +28,14 @@ import java.util.Calendar;
 public class User_MainActivity extends AppCompatActivity {
 
     private Button logout, walk, training, locate, setting, ranking, calendar;
-    private TextView walkstep;
+    private TextView walkstep, brain_train;
 
     private FirebaseAuth mAuth;
     private FirebaseUser user;
     private FirebaseDatabase database;
     private DatabaseReference ref, mReference, nReference;
 
-    private String uid, format_time, mywalk;
+    private String uid, format_time, mywalk, mytrain;
     private SimpleDateFormat format;
     private Calendar time;
 
@@ -46,12 +46,14 @@ public class User_MainActivity extends AppCompatActivity {
 
         logout = (Button) findViewById(R.id.logout);
         walk = (Button) findViewById(R.id.walking);
-        training = (Button)findViewById(R.id.brainTraining);
+        training = (Button) findViewById(R.id.brainTraining);
         locate = (Button) findViewById(R.id.locate);
         ranking = (Button) findViewById(R.id.ranking);
         setting = (Button) findViewById(R.id.setting);
         calendar = (Button) findViewById(R.id.calendar);
+
         walkstep = (TextView) findViewById(R.id.walk_step);
+        brain_train = (TextView) findViewById(R.id.brain_train);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -130,19 +132,36 @@ public class User_MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mywalk = (String.valueOf(dataSnapshot.child("walk").child("date").child(format_time).child("walking").getValue()));
-                if(mywalk.equals("null")) {
+                if (mywalk.equals("null")) {
                     walkstep.setText("오늘도 걸어 봅시다!");
                 } else {
-                    walkstep.setText(mywalk + "걸음");
+                    walkstep.setText(mywalk + " 걸음");
                 }
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(getApplicationContext(),"onCancelled", Toast.LENGTH_SHORT);
+                Toast.makeText(getApplicationContext(), "onCancelled", Toast.LENGTH_SHORT);
+            }
+        });
+
+        nReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                mytrain = dataSnapshot.child("today_training").getValue().toString();
+                if (mytrain.equals("0")) {
+                    brain_train.setText("오늘도 훈련해봐요");
+                } else {
+                    brain_train.setText(mytrain + " 점");
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(getApplicationContext(), "onCancelled", Toast.LENGTH_SHORT);
             }
         });
     }
-
 //    포그라운드 기능
 //    private void startForegroundService() {
 //        user = FirebaseAuth.getInstance().getCurrentUser();

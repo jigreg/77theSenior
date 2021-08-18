@@ -102,7 +102,6 @@
 
 - (Clear) issue 1. Need to Pro Calendar data test
 
-
 ---
 
 ### 0815 Hwang Won Tae
@@ -116,3 +115,10 @@
     : CatFind ADD, BrainData add
 
 - issue 1. Reapply Watermelon Game with Unitiy
+
+---
+
+### 0818 Hwang Won Tae
+    : Adding brain training scores to 'User_main & Pro_main'
+
+- issue 1. Need a standard for brain training scores
