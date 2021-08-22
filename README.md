@@ -122,3 +122,11 @@
     : Adding brain training scores to 'User_main & Pro_main'
 
 - issue 1. Need a standard for brain training scores
+
+---
+
+### 0822 Hwang Won Tae
+    : Add ForegroundService, but not interlocked
+
+- issue 1. Failed to read "User_WalkActivity.mStepDetector" in foreground
+
