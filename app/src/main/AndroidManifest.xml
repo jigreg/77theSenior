@@ -29,7 +29,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCSs-7XKcBnHDYf-P2bXXyj7X6JruWCy4U" />
 
-        <service android:name=".user.User_Walk_ForegroundService"/>
+        <service android:name=".user.User_Walk_ForegroundService"
+            android:foregroundServiceType="location"/>
         
         <activity android:name=".user.User_BrainMain"/>
         <activity android:name=".user.User_CatFindActivity" />

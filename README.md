@@ -133,7 +133,8 @@
 ---
 
 ### 0823 Hwang Won Tae
-    : Fix RegisterActivity Error
+    : Fix RegisterActivity Error, Implementing 'foreground', there are many errors, Touch the notification window to call 'User_WalkActivity'
 
 - (Clear) issue 1. Put 'today_walking', 'today_training' on the hashMap
 
+- issue 1. Failed to read "User_WalkActivity.mStepDetector" in foreground :(
