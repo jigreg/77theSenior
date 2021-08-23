@@ -130,3 +130,10 @@
 
 - issue 1. Failed to read "User_WalkActivity.mStepDetector" in foreground
 
+---
+
+### 0823 Hwang Won Tae
+    : Fix RegisterActivity Error
+
+- (Clear) issue 1. Put 'today_walking', 'today_training' on the hashMap
+
