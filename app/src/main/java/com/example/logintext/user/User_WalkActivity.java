@@ -75,8 +75,6 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_walk);
 
-
-
         back = (ImageButton) findViewById(R.id.back);
         calen = (ImageButton) findViewById(R.id.calendar);
 
@@ -122,9 +120,8 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
         calen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(User_WalkActivity.this, User_CalendarActivity.class));
-//                finish();
-                onStartForegroundService(v);
+                startActivity(new Intent(User_WalkActivity.this, User_CalendarActivity.class));
+                finish();
             }
         });
 
@@ -194,15 +191,7 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
         return;
 
     }
-    public void onStartForegroundService(View view) {
-        Intent intent = new Intent(this, User_Walk_ForegroundService.class);
-        intent.setAction("startForeground");
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
-            startForegroundService(intent);
-        } else {
-            startService(intent);
-        }
-    }
+
 
     public static void resetAlarm(Context context){
         AlarmManager resetAlarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);

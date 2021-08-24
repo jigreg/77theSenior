@@ -3,9 +3,9 @@ package com.example.logintext.user;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
+import android.os.PowerManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -57,8 +57,10 @@ public class User_MainActivity extends AppCompatActivity {
     private NewsAdapter adapter;
     private ListView listView;
 
-    StringBuilder news_title;
-    StringBuilder news_link;
+    private StringBuilder news_title;
+    private StringBuilder news_link;
+
+    private Intent serviceIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +87,25 @@ public class User_MainActivity extends AppCompatActivity {
         adapter = new NewsAdapter(this, R.layout.news_item, arrayList);
         listView.setAdapter(adapter);
 
+        PowerManager pm = (PowerManager) getApplicationContext().getSystemService(POWER_SERVICE);
+        boolean isWhiteListing = false;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            isWhiteListing = pm.isIgnoringBatteryOptimizations(getApplicationContext().getPackageName());
+        }
+        if (!isWhiteListing) {
+            Intent intent = new Intent();
+            intent.setAction(android.provider.Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+            intent.setData(Uri.parse("package:" + getApplicationContext().getPackageName()));
+            startActivity(intent);
+        }
+
+        if (RealService.serviceIntent == null) {
+            serviceIntent = new Intent(this, RealService.class);
+            startService(serviceIntent);
+        } else {
+            serviceIntent = RealService.serviceIntent; //getInstance().getApplication();
+            Toast.makeText(getApplicationContext(), "already", Toast.LENGTH_LONG).show();
+        }
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -194,48 +215,29 @@ public class User_MainActivity extends AppCompatActivity {
             }
         });
 
-//    포그라운드 기능
-//    private void startForegroundService() {
-//        user = FirebaseAuth.getInstance().getCurrentUser();
-//        uid = user.getUid();
-//        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference ref = database.getReference("Users");
-//        DatabaseReference mReference = ref.child("user").child(uid);
-//
-//        mReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                String walked = snapshot.child("walk").getValue().toString();
-//
-//
-//                NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "default");
-//                builder.setSmallIcon(R.mipmap.myicon);
-//                builder.setContentTitle("77 맞은 어르신");
-//                builder.setContentText("현재 걸음수 : "+ walked);
-//
-//                Intent notificationIntent = new Intent(this, );
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//    }
-        //뉴스 링크 타기 에러~~
-        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 String link = ((NewsItem) adapter.getItem(i)).getLink();
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.dementianews.co.kr"+link));
                 startActivity(intent);
-
             }
         });
-*/
+
         NewsAsyncTask newsAsyncTask = new NewsAsyncTask();
         newsAsyncTask.execute();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (serviceIntent!=null) {
+            stopService(serviceIntent);
+            serviceIntent = null;
+        }
     }
 
     /* 뉴스 크롤링하기 */
@@ -251,7 +253,7 @@ public class User_MainActivity extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             try {
 
-                Document doc = Jsoup.connect("http://www.dementianews.co.kr/news/articleList.html?sc_sub_section_code=S2N2&view_type=sm").get();
+                Document doc = Jsoup.connect("http://www.dementianews.co.kr/news/articleList.html?view_type=sm").get();
                 Element detemeniaNews = doc.select("div.article-list").get(0);
                 Elements news = detemeniaNews.select("div.list-titles");
 
