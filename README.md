@@ -138,3 +138,11 @@
 - (Clear) issue 1. Put 'today_walking', 'today_training' on the hashMap
 
 - issue 1. Failed to read "User_WalkActivity.mStepDetector" in foreground :(
+
+---
+
+### 0824 Yu Seo Jun
+    : ADD NEWs Crawling in MainActivity
+
+- issue 1. News link intent error
+
