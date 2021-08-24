@@ -1,9 +1,15 @@
 package com.example.logintext.user;
 
 import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,8 +28,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+
+import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.StringTokenizer;
 
 public class User_MainActivity extends AppCompatActivity {
 
@@ -35,9 +51,15 @@ public class User_MainActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference ref, mReference, nReference;
 
-    private String uid, format_time, mywalk;
+    private String uid, format_time, mywalk, msg;
     private SimpleDateFormat format;
     private Calendar time;
+    private ArrayList<NewsItem> arrayList;
+    private NewsAdapter adapter;
+    private ListView listView;
+
+    StringBuilder news_title;
+    StringBuilder news_link;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,14 +68,21 @@ public class User_MainActivity extends AppCompatActivity {
 
         logout = (Button) findViewById(R.id.logout);
         walk = (Button) findViewById(R.id.walking);
-        training = (Button)findViewById(R.id.brainTraining);
+        training = (Button) findViewById(R.id.brainTraining);
         locate = (Button) findViewById(R.id.locate);
         ranking = (Button) findViewById(R.id.ranking);
         setting = (Button) findViewById(R.id.setting);
         calendar = (Button) findViewById(R.id.calendar);
         walkstep = (TextView) findViewById(R.id.walk_step);
-
         mAuth = FirebaseAuth.getInstance();
+
+        news_title = new StringBuilder();
+        news_link = new StringBuilder();
+        listView = (ListView) findViewById(R.id.usernews);
+        arrayList = new ArrayList<NewsItem>();
+        adapter = new NewsAdapter(this, R.layout.news_item, arrayList);
+        listView.setAdapter(adapter);
+
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,6 +142,8 @@ public class User_MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        //걸음 수 표시
         format = new SimpleDateFormat("yyyybMbd");
         time = Calendar.getInstance();
 
@@ -130,18 +161,19 @@ public class User_MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mywalk = (String.valueOf(dataSnapshot.child("walk").child("date").child(format_time).child("walking").getValue()));
-                if(mywalk.equals("null")) {
+                if (mywalk.equals("null")) {
                     walkstep.setText("오늘도 걸어 봅시다!");
                 } else {
                     walkstep.setText(mywalk + "걸음");
                 }
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(getApplicationContext(),"onCancelled", Toast.LENGTH_SHORT);
+                Toast.makeText(getApplicationContext(), "onCancelled", Toast.LENGTH_SHORT);
             }
         });
-    }
+
 
 //    포그라운드 기능
 //    private void startForegroundService() {
@@ -171,5 +203,65 @@ public class User_MainActivity extends AppCompatActivity {
 //            }
 //        });
 //    }
+        //뉴스 링크 타기 에러~~
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+                String link = ((NewsItem) adapter.getItem(i)).getLink();
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+                startActivity(intent);
+
+            }
+        });
+
+        NewsAsyncTask newsAsyncTask = new NewsAsyncTask();
+        newsAsyncTask.execute();
+    }
+
+    /* 뉴스 크롤링하기 */
+    private class NewsAsyncTask extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+
+                Document doc = Jsoup.connect("http://www.dementianews.co.kr/news/articleList.html?sc_sub_section_code=S2N2&view_type=sm").get();
+                Element detemeniaNews = doc.select("div.article-list").get(0);
+                Elements news = detemeniaNews.select("div.list-titles");
+
+                for(Element e : news){
+                    news_title.append( e.text().trim()).append("\n");
+                    news_link.append( e.getElementsByAttribute("href").attr("href")).append("\n");
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+
+            final StringTokenizer title = new StringTokenizer(news_title.toString(),"\n"); //뉴스 제목
+            final StringTokenizer link = new StringTokenizer(news_link.toString(),"\n");   //뉴스 링크
+
+            arrayList.clear(); // 리스트 초기화
+
+            while(title.hasMoreTokens()) //\n 제거
+            {
+                String n_title = title.nextToken();
+                String n_link = link.nextToken();
+                arrayList.add(new NewsItem(n_title,n_link));
+            }
+            adapter.notifyDataSetChanged();
+        }
+    }
 }

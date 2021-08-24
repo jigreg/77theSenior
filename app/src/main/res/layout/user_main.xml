@@ -235,7 +235,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="주간 걸음 수"
+                    android:text="치매 뉴스 보기"
                     android:textColor="#4C4B4B"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -247,12 +247,13 @@
                     android:layout_marginTop="5dp"
                     android:background="?android:attr/listDivider" />
 
-                <ImageView
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    app:srcCompat="@drawable/chart1" />
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/usernews"/>
+
+
 
             </LinearLayout>
 
