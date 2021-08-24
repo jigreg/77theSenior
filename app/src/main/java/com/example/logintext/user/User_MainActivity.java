@@ -49,11 +49,8 @@ public class User_MainActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference ref, mReference, nReference;
 
-<<<<<<< HEAD
-    private String uid, format_time, mywalk, msg;
-=======
     private String uid, format_time, mywalk, mytrain;
->>>>>>> d74e0fcb765bdd0a45175632887d2b952ced48c4
+
     private SimpleDateFormat format;
     private Calendar time;
     private ArrayList<NewsItem> arrayList;
@@ -77,11 +74,8 @@ public class User_MainActivity extends AppCompatActivity {
         calendar = (Button) findViewById(R.id.calendar);
 
         walkstep = (TextView) findViewById(R.id.walk_step);
-<<<<<<< HEAD
-=======
         brain_train = (TextView) findViewById(R.id.brain_train);
 
->>>>>>> d74e0fcb765bdd0a45175632887d2b952ced48c4
         mAuth = FirebaseAuth.getInstance();
 
         news_title = new StringBuilder();
@@ -181,10 +175,7 @@ public class User_MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "onCancelled", Toast.LENGTH_SHORT);
             }
         });
-<<<<<<< HEAD
 
-=======
->>>>>>> d74e0fcb765bdd0a45175632887d2b952ced48c4
 
         nReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -202,7 +193,7 @@ public class User_MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "onCancelled", Toast.LENGTH_SHORT);
             }
         });
-    }
+
 //    포그라운드 기능
 //    private void startForegroundService() {
 //        user = FirebaseAuth.getInstance().getCurrentUser();
