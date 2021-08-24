@@ -223,7 +223,7 @@ public class User_MainActivity extends AppCompatActivity {
 //        });
 //    }
         //뉴스 링크 타기 에러~~
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
@@ -233,7 +233,7 @@ public class User_MainActivity extends AppCompatActivity {
 
             }
         });
-
+*/
         NewsAsyncTask newsAsyncTask = new NewsAsyncTask();
         newsAsyncTask.execute();
     }
