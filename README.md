@@ -141,8 +141,7 @@
 
 ---
 
-### 0824 Yu Seo Jun
-    : ADD NEWs Crawling in MainActivity
+### 0824 Yu Seo Jun, Hwang Won Tae
+    : ADD NEWs Crawling in MainActivity, Fix link intent error, Clone Foreground & Testing
 
-- issue 1. News link intent error
-
+- (Clear) issue 1. News link intent error
