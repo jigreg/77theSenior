@@ -36,9 +36,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.ktx.Firebase;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -78,6 +76,7 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
         setContentView(R.layout.user_walk);
 
 
+
         back = (ImageButton) findViewById(R.id.back);
         calen = (ImageButton) findViewById(R.id.calendar);
 
@@ -101,7 +100,7 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
 
         date.setText(cal.get(Calendar.YEAR) + "-" + (cal.get(Calendar.MONTH) + 1) + "-" + cal.get(Calendar.DATE));
 
-        if(ContextCompat.checkSelfPermission(this,
+        if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACTIVITY_RECOGNITION) == PackageManager.PERMISSION_DENIED){
 
             requestPermissions(new String[]{Manifest.permission.ACTIVITY_RECOGNITION}, 0);
@@ -123,8 +122,9 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
         calen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(User_WalkActivity.this, User_CalendarActivity.class));
-                finish();
+//                startActivity(new Intent(User_WalkActivity.this, User_CalendarActivity.class));
+//                finish();
+                onStartForegroundService(v);
             }
         });
 
@@ -195,7 +195,7 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
 
     }
     public void onStartForegroundService(View view) {
-        Intent intent = new Intent(this, User_WalkActivity.class);
+        Intent intent = new Intent(this, User_Walk_ForegroundService.class);
         intent.setAction("startForeground");
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
             startForegroundService(intent);
@@ -268,8 +268,6 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
                     calorie.setText(String.format("%.2f cal", (distance * 0.0374f)));
                 } catch (Exception e) {
                 }
-
-
             }
         }
     }

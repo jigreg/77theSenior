@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
 
 
     <application
@@ -30,7 +31,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCSs-7XKcBnHDYf-P2bXXyj7X6JruWCy4U" />
 
-        <activity android:name=".user.User_BrainMain" />
+        <service android:name=".user.User_Walk_ForegroundService"
+            android:foregroundServiceType="location"/>
+        
+        <activity android:name=".user.User_BrainMain"/>
         <activity android:name=".user.User_CatFindActivity" />
         <activity android:name=".user.User_WalkRankActivity" />
         <activity android:name=".user.User_TrainRankActivity" />

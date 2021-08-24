@@ -225,6 +225,9 @@ public class RegisterActivity extends AppCompatActivity {
                                                     hashMap.put("phonenum", pnum);
                                                     hashMap.put("type", type);
                                                     hashMap.put("joined", format_time);
+                                                    hashMap.put("today_walking", 0);
+                                                    hashMap.put("today_training", 0);
+
                                                     if (type.equals("user")) {
                                                         hashMap.put("myProtector", "none");
                                                         hashMap.put("gps", "none");

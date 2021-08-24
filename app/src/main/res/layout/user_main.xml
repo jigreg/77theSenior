@@ -130,8 +130,26 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
+                        <ImageView
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:src="@drawable/training"/>
+
+                        <TextView
+                            android:id="@+id/brain_train"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="0 점수"
+                            android:textStyle="bold"/>
                     </LinearLayout>
 
                 </LinearLayout>

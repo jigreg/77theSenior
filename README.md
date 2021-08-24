@@ -102,7 +102,6 @@
 
 - (Clear) issue 1. Need to Pro Calendar data test
 
-
 ---
 
 ### 0815 Hwang Won Tae
@@ -116,3 +115,26 @@
     : CatFind ADD, BrainData add
 
 - issue 1. Reapply Watermelon Game with Unitiy
+
+---
+
+### 0818 Hwang Won Tae
+    : Adding brain training scores to 'User_main & Pro_main'
+
+- issue 1. Need a standard for brain training scores
+
+---
+
+### 0822 Hwang Won Tae
+    : Add ForegroundService, but not interlocked
+
+- issue 1. Failed to read "User_WalkActivity.mStepDetector" in foreground
+
+---
+
+### 0823 Hwang Won Tae
+    : Fix RegisterActivity Error, Implementing 'foreground', there are many errors, Touch the notification window to call 'User_WalkActivity'
+
+- (Clear) issue 1. Put 'today_walking', 'today_training' on the hashMap
+
+- issue 1. Failed to read "User_WalkActivity.mStepDetector" in foreground :(
