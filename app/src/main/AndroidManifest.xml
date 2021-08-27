@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/myicon"
@@ -25,32 +26,31 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCSs-7XKcBnHDYf-P2bXXyj7X6JruWCy4U" />
 
-        <service
-            android:name=".user.RealService"
-            android:enabled="true"
-            android:exported="true" />
+<!--        <service-->
+<!--            android:name=".user.RealService"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true" />-->
 
-        <service
-            android:name=".user.RestartService"
-            android:enabled="true"
-            android:exported="true" />
+<!--        <service-->
+<!--            android:name=".user.RestartService"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true" />-->
 
-        <receiver android:name=".user.AlarmRecever"/>
+<!--        <receiver android:name=".user.AlarmRecever"/>-->
 
-        <receiver
-            android:name=".user.RebootRecever"
-            android:enabled="true"
-            android:exported="false"
-            android:process=":remote">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
+<!--        <receiver-->
+<!--            android:name=".user.RebootRecever"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="false"-->
+<!--            android:process=":remote">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.BOOT_COMPLETED" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
         
         <activity android:name=".user.User_BrainMain"/>
         <activity android:name=".user.User_CatFindActivity" />
-        <activity android:name=".user.User_WalkRankActivity" />
-        <activity android:name=".user.User_TrainRankActivity" />
+        <activity android:name=".user.User_RankActivity" />
         <activity android:name=".user.User_RegisterCodeActivity" />
         <activity android:name=".user.User_CalendarActivity" />
         <activity android:name=".user.User_SettingActivity" />

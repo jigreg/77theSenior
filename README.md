@@ -145,3 +145,10 @@
     : ADD NEWs Crawling in MainActivity, Fix link intent error, Clone Foreground & Testing
 
 - (Clear) issue 1. News link intent error
+
+---
+
+### 0827 Hwang Won Tae
+    : Change Ranking Activity to TabHost, Annotation all Foreground ( Can't destroy )
+
+- (Non-Clear) issue 1. Foreground error ( Can't Use )

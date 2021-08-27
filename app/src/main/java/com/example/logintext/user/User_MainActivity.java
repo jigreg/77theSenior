@@ -99,18 +99,20 @@ public class User_MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-        if (RealService.serviceIntent == null) {
-            serviceIntent = new Intent(this, RealService.class);
-            startService(serviceIntent);
-        } else {
-            serviceIntent = RealService.serviceIntent; //getInstance().getApplication();
-            Toast.makeText(getApplicationContext(), "already", Toast.LENGTH_LONG).show();
-        }
+//        if (RealService.serviceIntent == null) {
+//            serviceIntent = new Intent(this, RealService.class);
+//            startService(serviceIntent);
+//        } else {
+//            serviceIntent = RealService.serviceIntent; //getInstance().getApplication();
+//            Toast.makeText(getApplicationContext(), "already", Toast.LENGTH_LONG).show();
+//        }
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
+//                ((RealService)RealService.mContext).onDestroy();
+//                ((RestartService)RestartService.mContext).onDestroy();
                 LoginMaintainService.clearUserName(User_MainActivity.this);
                 Toast.makeText(getApplicationContext(), "로그아웃 합니다.", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(User_MainActivity.this, LoginActivity.class));
@@ -145,7 +147,7 @@ public class User_MainActivity extends AppCompatActivity {
         ranking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(User_MainActivity.this, User_WalkRankActivity.class));
+                startActivity(new Intent(User_MainActivity.this, User_RankActivity.class));
                 finish();
             }
         });
