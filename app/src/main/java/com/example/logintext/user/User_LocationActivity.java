@@ -1,6 +1,8 @@
 package com.example.logintext.user;
 
 import android.Manifest;
+import android.app.IntentService;
+import android.app.Service;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -14,7 +16,6 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -75,14 +76,17 @@ public class User_LocationActivity extends AppCompatActivity
 
     private static final String TAG = "googlemap_example";
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
-    private static final int UPDATE_INTERVAL_MS = 120000;  // 60초
+    private static final int UPDATE_INTERVAL_MS = 20000;  // 10초
+    private static final int FAST_UPDATE_INTERVAL_MS = UPDATE_INTERVAL_MS / 2;  // 5초
+    private static final int MAX_WAIT_TIME = 120000;  // 60초
     private static final int PERMISSIONS_REQUEST_CODE = 100;
 
     private boolean needRequest = false;
 
     //필요한 권한 정의
     private String uid;
-    private String[] REQUIRED_PERMISSIONS  = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};  // 외부 저장소
+    private String[] REQUIRED_PERMISSIONS  = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_BACKGROUND_LOCATION};  // 외부 저장소
 
     private TextView address;
     private ImageButton back;
@@ -102,6 +106,7 @@ public class User_LocationActivity extends AppCompatActivity
     private FirebaseUser user;
 
     private View mLayout;  // Snackbar 사용하기 위해서 View 필요
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,7 +133,9 @@ public class User_LocationActivity extends AppCompatActivity
 
         locationRequest = new LocationRequest()
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
-                .setInterval(UPDATE_INTERVAL_MS);
+                .setInterval(UPDATE_INTERVAL_MS)
+                .setFastestInterval(FAST_UPDATE_INTERVAL_MS)
+                .setMaxWaitTime(MAX_WAIT_TIME);
         //.setFastestInterval(FASTEST_UPDATE_INTERVAL_MS);
 
         LocationSettingsRequest.Builder builder =
@@ -198,9 +205,12 @@ public class User_LocationActivity extends AppCompatActivity
                 Manifest.permission.ACCESS_FINE_LOCATION);
         int hasCoarseLocationPermission = ContextCompat.checkSelfPermission(User_LocationActivity.this,
                 Manifest.permission.ACCESS_COARSE_LOCATION);
+        int hasBackgroundLocationPermission = ContextCompat.checkSelfPermission(User_LocationActivity.this,
+                Manifest.permission.ACCESS_BACKGROUND_LOCATION);
 
         if (hasFineLocationPermission == PackageManager.PERMISSION_GRANTED &&
-                hasCoarseLocationPermission == PackageManager.PERMISSION_GRANTED) {
+                hasCoarseLocationPermission == PackageManager.PERMISSION_GRANTED &&
+                hasBackgroundLocationPermission == PackageManager.PERMISSION_GRANTED) {
             // 권한이 있을 경우 + 6.0 이하 버전은 권한이 자동 동의
             startLocationUpdates(); // 위치 업데이트 시작
 
@@ -452,7 +462,8 @@ public class User_LocationActivity extends AppCompatActivity
             } else { // 거부된 권한이 있는 경우
 
                 if (ActivityCompat.shouldShowRequestPermissionRationale(this, REQUIRED_PERMISSIONS[0])
-                        || ActivityCompat.shouldShowRequestPermissionRationale(this, REQUIRED_PERMISSIONS[1])) {
+                        || ActivityCompat.shouldShowRequestPermissionRationale(this, REQUIRED_PERMISSIONS[1])
+                        || ActivityCompat.shouldShowRequestPermissionRationale(this, REQUIRED_PERMISSIONS[2])) {
 
                     // 사용자가 스낵바만 거부만 선택한 경우 -> 앱 재시작 해결
                     Snackbar.make(mLayout, "권한이 거부되었습니다. 앱을 다시 실행하여 권한을 허용해주세요. ",

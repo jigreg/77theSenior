@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.logintext">
 
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 위치 권한 -->
@@ -7,9 +8,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+<!--    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />-->
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
-    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+<!--    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>-->
 
 
     <application
@@ -26,28 +27,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCSs-7XKcBnHDYf-P2bXXyj7X6JruWCy4U" />
 
-<!--        <service-->
-<!--            android:name=".user.RealService"-->
-<!--            android:enabled="true"-->
-<!--            android:exported="true" />-->
-
-<!--        <service-->
-<!--            android:name=".user.RestartService"-->
-<!--            android:enabled="true"-->
-<!--            android:exported="true" />-->
 
 <!--        <receiver android:name=".user.AlarmRecever"/>-->
 
-<!--        <receiver-->
-<!--            android:name=".user.RebootRecever"-->
-<!--            android:enabled="true"-->
-<!--            android:exported="false"-->
-<!--            android:process=":remote">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.BOOT_COMPLETED" />-->
-<!--            </intent-filter>-->
-<!--        </receiver>-->
-        
         <activity android:name=".user.User_BrainMain"/>
         <activity android:name=".user.User_CatFindActivity" />
         <activity android:name=".user.User_RankActivity" />

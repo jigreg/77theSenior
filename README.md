@@ -152,3 +152,10 @@
     : Change Ranking Activity to TabHost, Annotation all Foreground ( Can't destroy )
 
 - (Non-Clear) issue 1. Foreground error ( Can't Use )
+
+---
+
+### 0831 Hwang Won Tae
+    : Add Manifest 'ACCESS_BACKGROUND_LOCATION'(Function not implemented)
+
+- (Clear) issue 1. Solve RankActivity XML error
