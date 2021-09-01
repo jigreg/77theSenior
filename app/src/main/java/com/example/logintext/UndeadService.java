@@ -8,6 +8,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.IBinder;
 import android.widget.Toast;
@@ -23,10 +24,16 @@ public class UndeadService extends Service {
 
     public static Intent serviceIntent = null;
 
+    private BackgroundTask task;
+    private int value = 0;
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         serviceIntent = intent;
-        Toast.makeText(getApplicationContext(),"떠버렷", Toast.LENGTH_SHORT).show();
+
+        task = new BackgroundTask();
+        task.execute();
+
         initializeNotification();
 
         return super.onStartCommand(intent, flags, startId);
@@ -75,6 +82,8 @@ public class UndeadService extends Service {
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), sender);
+
+        task.cancel(true);
     }
 
     @Override
@@ -97,5 +106,23 @@ public class UndeadService extends Service {
     public IBinder onBind(Intent intent) {
 
         return null;
+    }
+
+    class BackgroundTask extends AsyncTask<Integer, String, Integer> {
+
+        String result = "";
+
+        @Override
+        protected Integer doInBackground(Integer... integers) {
+            while(isCancelled() == false) {
+                try {
+                    Toast.makeText(getApplicationContext(),value+"번째 실행중", Toast.LENGTH_SHORT).show();
+                    Thread.sleep(1000);
+                    value++;
+                } catch (InterruptedException e) {}
+            }
+
+            return value;
+        }
     }
 }

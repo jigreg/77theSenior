@@ -28,6 +28,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.logintext.R;
+import com.example.logintext.UndeadService;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -76,7 +77,7 @@ public class User_LocationActivity extends AppCompatActivity
 
     private static final String TAG = "googlemap_example";
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
-    private static final int UPDATE_INTERVAL_MS = 20000;  // 10초
+    private static final int UPDATE_INTERVAL_MS = 10000;  // 10초
     private static final int FAST_UPDATE_INTERVAL_MS = UPDATE_INTERVAL_MS / 2;  // 5초
     private static final int MAX_WAIT_TIME = 120000;  // 60초
     private static final int PERMISSIONS_REQUEST_CODE = 100;
@@ -105,6 +106,8 @@ public class User_LocationActivity extends AppCompatActivity
     private DatabaseReference mReference;
     private FirebaseUser user;
 
+    private Intent foregroundServiceIntent;
+
     private View mLayout;  // Snackbar 사용하기 위해서 View 필요
 
 
@@ -131,12 +134,20 @@ public class User_LocationActivity extends AppCompatActivity
             }
         });
 
+        if(null == UndeadService.serviceIntent) {
+            foregroundServiceIntent = new Intent(this, UndeadService.class);
+            startService(foregroundServiceIntent);
+            Toast.makeText(getApplicationContext(),"Start Service", Toast.LENGTH_SHORT).show();
+        } else {
+            foregroundServiceIntent = UndeadService.serviceIntent;
+            Toast.makeText(getApplicationContext(),"Already", Toast.LENGTH_SHORT).show();
+        }
+
         locationRequest = new LocationRequest()
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
                 .setInterval(UPDATE_INTERVAL_MS)
                 .setFastestInterval(FAST_UPDATE_INTERVAL_MS)
                 .setMaxWaitTime(MAX_WAIT_TIME);
-        //.setFastestInterval(FASTEST_UPDATE_INTERVAL_MS);
 
         LocationSettingsRequest.Builder builder =
                 new LocationSettingsRequest.Builder();
@@ -370,15 +381,15 @@ public class User_LocationActivity extends AppCompatActivity
             if (mMap!=null) mMap.setMyLocationEnabled(true);
         }
     }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (mFusedLocationClient != null) {
-            Log.d(TAG, "onStop : call stopLocationUpdates");
-            mFusedLocationClient.removeLocationUpdates(locationCallback);
-        }
-    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        if (mFusedLocationClient != null) {
+//            Log.d(TAG, "onStop : call stopLocationUpdates");
+//            mFusedLocationClient.removeLocationUpdates(locationCallback);
+//        }
+//    }
 
     public String getCurrentAddress(LatLng latlng) {
         // GPS를 주소로 변환
@@ -528,6 +539,16 @@ public class User_LocationActivity extends AppCompatActivity
                     }
                 }
                 break;
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (null != foregroundServiceIntent) {
+            stopService(foregroundServiceIntent);
+            foregroundServiceIntent = null;
         }
     }
 
