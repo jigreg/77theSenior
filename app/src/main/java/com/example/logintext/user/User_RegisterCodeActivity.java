@@ -33,7 +33,7 @@ public class User_RegisterCodeActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(User_RegisterCodeActivity.this, User_MainActivity.class));
+                startActivity(new Intent(User_RegisterCodeActivity.this, User_SettingActivity.class));
                 finish();
             }
         });

@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="76dp"
             android:background="#CFB997"
-            android:drawableLeft="@drawable/alarm1"
+            android:drawableLeft="@drawable/ic_bell__fill"
             android:gravity="center"
             android:paddingLeft="20dp"
             android:paddingRight="150dp"
@@ -50,10 +50,10 @@
                 android:layout_height="80dp"
                 android:layout_gravity="center"
                 android:background="@drawable/textview5"
-                android:paddingLeft="20dp"
+                android:paddingLeft="30dp"
                 android:text="전체 알림"
                 android:textColor="#4C4B4B"
-                android:textSize="25dp"
+                android:textSize="23dp"
                 android:textStyle="bold"></Switch>
 
             <LinearLayout

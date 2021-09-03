@@ -159,3 +159,10 @@
     : Add Manifest 'ACCESS_BACKGROUND_LOCATION'(Function not implemented)
 
 - (Clear) issue 1. Solve RankActivity XML error
+
+---
+
+### 0903 Hwang Won Tae
+    : Developing internal capabilities in User_Setting
+
+- issue 1. check out in R.string ^^.. ( Need a better way )

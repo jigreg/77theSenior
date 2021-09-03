@@ -20,13 +20,13 @@
         android:roundIcon="@mipmap/myicon"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:requestLegacyExternalStorage="true">
 
         <!-- 구글맵 API 가져오기 -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCSs-7XKcBnHDYf-P2bXXyj7X6JruWCy4U" />
-
 
 <!--        <receiver android:name=".user.AlarmRecever"/>-->
 
@@ -44,19 +44,21 @@
         <activity android:name=".user.User_RegisterCodeActivity" />
         <activity android:name=".user.User_CalendarActivity" />
         <activity android:name=".user.User_SettingActivity" />
-        <activity android:name=".protector.Pro_RegisterCodeActivity" />
-        <activity android:name=".protector.Pro_GPSHistoryActivity" />
-        <activity android:name=".common.ChooseActivity" />
+        <activity android:name=".user.User_LocationActivity" />
         <activity android:name=".user.User_MainActivity" />
         <activity android:name=".user.User_WalkActivity" />
-        <activity android:name=".common.FindIdPwActivity" />
+        <activity android:name=".protector.Pro_RegisterCodeActivity" />
+        <activity android:name=".protector.Pro_GPSHistoryActivity" />
         <activity android:name=".protector.Pro_LocationActivity" />
-        <activity android:name=".common.RegisterActivity" />
-        <activity android:name=".user.User_LocationActivity" />
         <activity android:name=".protector.Pro_MainActivity" />
         <activity android:name=".protector.Pro_CalendarActivity" />
         <activity android:name=".protector.Pro_SafeZoneActivity" />
+        <activity android:name=".common.RegisterActivity" />
+        <activity android:name=".common.ChooseActivity" />
         <activity android:name=".common.LoginActivity" />
+        <activity android:name=".common.FindIdPwActivity" />
+        <activity android:name=".common.PushAlramActivity" />
+        <activity android:name=".common.AppInfoActivity" />
         <activity android:name=".common.LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
