@@ -50,7 +50,7 @@
                     android:layout_margin="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_01"/>
+                    android:src="@drawable/ic_one"/>
 
                 <LinearLayout
                     android:layout_marginLeft="5dp"
@@ -83,7 +83,7 @@
                     android:layout_margin="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_01"/>
+                    android:src="@drawable/ic_two"/>
 
                 <LinearLayout
                     android:layout_marginLeft="5dp"
@@ -115,7 +115,7 @@
                     android:layout_margin="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_01"/>
+                    android:src="@drawable/ic_three"/>
 
                 <LinearLayout
                     android:layout_marginLeft="5dp"
@@ -146,7 +146,7 @@
                     android:layout_margin="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_01"/>
+                    android:src="@drawable/ic_four"/>
 
                 <LinearLayout
                     android:layout_marginLeft="5dp"
