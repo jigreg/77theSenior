@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:background="#CFB997"
-            android:text="서비스 이용약관"
+            android:text="위치기반 서비스 이용약관"
             android:textStyle="bold"
             android:textSize="15dp"/>
 
@@ -36,7 +36,7 @@
                     android:id="@+id/personal_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/service_content"/>
+                    android:text="@string/location_service_content"/>
 
             </ScrollView>
 

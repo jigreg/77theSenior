@@ -14,11 +14,11 @@
             android:layout_width="match_parent"
             android:layout_height="76dp"
             android:background="#CFB997"
-            android:drawableLeft="@drawable/ic_open_book_fill"
+            android:drawableLeft="@drawable/ic_stars"
             android:gravity="center"
             android:paddingLeft="20dp"
-            android:paddingRight="80dp"
-            android:text="치매와 앱의 연관성"
+            android:paddingRight="190dp"
+            android:text="치매 등급"
             android:textColor="@color/black"
             android:textSize="25dp"
             android:textStyle="bold" />
@@ -36,7 +36,7 @@
         <LinearLayout
             android:background="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -51,7 +51,7 @@
                     android:layout_margin="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_one"/>
+                    android:src="@drawable/ic_dice_1"/>
 
                 <LinearLayout
                     android:layout_marginLeft="5dp"
@@ -86,7 +86,7 @@
                     android:layout_margin="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_two"/>
+                    android:src="@drawable/ic_dice_2"/>
 
                 <LinearLayout
                     android:layout_marginLeft="5dp"
@@ -120,7 +120,7 @@
                     android:layout_margin="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_three"/>
+                    android:src="@drawable/ic_dice_3"/>
 
                 <LinearLayout
                     android:layout_marginLeft="5dp"
@@ -153,7 +153,7 @@
                     android:layout_margin="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_four"/>
+                    android:src="@drawable/ic_dice_4"/>
 
                 <LinearLayout
                     android:layout_marginLeft="5dp"
@@ -183,73 +183,86 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_margin="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_dice_5"/>
+
+                <LinearLayout
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_info_04_01"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_info_04_02" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_info_04_03"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_margin="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_dice_6"/>
+
+                <LinearLayout
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_info_04_01"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_info_04_02" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_info_04_03"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_info_05_01"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/app_info_05_02" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:textColor="@color/teal_700"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_info_06_01"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_info_07_01"/>
-
-            <TextView
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_info_07_02"/>
-
-        </LinearLayout>
-    </LinearLayout>
-
 
 </LinearLayout>

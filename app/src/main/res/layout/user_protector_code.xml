@@ -44,13 +44,12 @@
         <LinearLayout
             android:background="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="400dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/text17"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -67,6 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -93,6 +93,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_marginBottom="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -115,14 +116,12 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/text22"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="벗어날 경우"
                         android:textSize="17dp" />
 
                     <TextView
-                        android:id="@+id/text23"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
@@ -132,7 +131,6 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/text24"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="됩니다."
@@ -151,6 +149,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
                     <TextView

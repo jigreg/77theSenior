@@ -98,7 +98,7 @@
                         <ListView
                             android:id="@+id/walk_item"
                             android:layout_width="match_parent"
-                            android:layout_height="480dp" />
+                            android:layout_height="550dp" />
 
                         <View
                             android:layout_width="match_parent"

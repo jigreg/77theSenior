@@ -302,11 +302,11 @@
                         android:layout_height="30dp" />
 
                     <Button
-                        android:id="@+id/location1"
+                        android:id="@+id/location"
                         android:layout_width="268dp"
                         android:layout_height="30dp"
                         android:background="#00ff0000"
-                        android:text="위치기반 서비스 이용약관"
+                        android:text="위치기반 서비스 이용약관 (필수)"
                         android:textAlignment="textStart"
                         android:textSize="13dp" />
 
@@ -323,7 +323,26 @@
                         android:layout_height="30dp" />
 
                     <Button
-                        android:id="@+id/allCheck"
+                        android:layout_width="268dp"
+                        android:layout_height="30dp"
+                        android:background="#00ff0000"
+                        android:text="마케팅 수신 정보 동의 (선택)"
+                        android:textAlignment="textStart"
+                        android:textSize="13dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
+
+                    <CheckBox
+                        android:id="@+id/checkbox5"
+                        android:layout_width="32dp"
+                        android:layout_height="30dp" />
+
+                    <Button
                         android:layout_width="268dp"
                         android:layout_height="30dp"
                         android:background="#00ff0000"

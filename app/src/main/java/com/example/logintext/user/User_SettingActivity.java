@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintext.R;
 import com.example.logintext.common.AppInfoActivity;
+import com.example.logintext.common.DementiaGradeActivity;
 import com.example.logintext.common.PushAlramActivity;
 
 public class User_SettingActivity extends AppCompatActivity {
@@ -67,7 +68,7 @@ public class User_SettingActivity extends AppCompatActivity {
         dementia_grade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(User_SettingActivity.this, User_RegisterCodeActivity.class));
+                startActivity(new Intent(User_SettingActivity.this, DementiaGradeActivity.class));
                 finish();
             }
         });

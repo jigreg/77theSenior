@@ -166,3 +166,10 @@
     : Developing internal capabilities in User_Setting
 
 - issue 1. check out in R.string ^^.. ( Need a better way )
+
+---
+
+### 0907 Hwang Won Tae
+    : Add Pro_set & Several XML modifications, Adjust RegisterActivity
+
+- issue 1. Need to select dementia grade icon

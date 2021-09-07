@@ -3,17 +3,21 @@ package com.example.logintext.common;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.example.logintext.R;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -57,16 +61,17 @@ public class RegisterActivity extends AppCompatActivity {
 
     // 이메일과 비밀번호
     private EditText mEmailText, mPasswordText, mPasswordcheckText, et_name, et_nickname, phonenum, tellText;
-    private Button mregisterBtn, tell, tellCheck;
+    private Button mregisterBtn, tell, tellCheck, personal_btn, service_btn, location_btn;
     private ImageButton back;
 
-    private CheckBox ch1, ch2, ch3, allCheck;
+    private CheckBox ch1, ch2, ch3, ch4, allCheck;
 
     private RadioGroup sex;
     private RadioButton mrbtn, frbtn;
 
-
     private Spinner yspinner, mspinner, dspinner;
+
+    private int gen_check = 0;
 
     private String name = "";
     private String nickname = "";
@@ -131,7 +136,13 @@ public class RegisterActivity extends AppCompatActivity {
         ch1 = (CheckBox)findViewById(R.id.checkbox1);
         ch2 = (CheckBox)findViewById(R.id.checkbox2);
         ch3 = (CheckBox) findViewById(R.id.checkbox3);
-        allCheck = (CheckBox) findViewById(R.id.checkbox4);
+        ch4 = (CheckBox) findViewById(R.id.checkbox4);
+        allCheck = (CheckBox) findViewById(R.id.checkbox5);
+
+        personal_btn = (Button) findViewById(R.id.privacy);
+        service_btn = (Button) findViewById(R.id.service);
+        location_btn = (Button) findViewById(R.id.location);
+
 
         //성별 리스너
         sex.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -139,6 +150,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == R.id.male) {
                     gender = "m";
+                    gen_check++;
                 } else {
                     gender = "f";
                 }
@@ -160,7 +172,76 @@ public class RegisterActivity extends AppCompatActivity {
                     ch1.setChecked(true);
                     ch2.setChecked(true);
                     ch3.setChecked(true);
+                    ch4.setChecked(true);
                 }
+            }
+        });
+
+        service_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+                LinearLayout linear = (LinearLayout) inflater.inflate(R.layout.service_info, null);
+
+                linear.setBackgroundColor(Color.parseColor("#99000000"));
+
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT
+                        , LinearLayout.LayoutParams.FILL_PARENT);
+                addContentView(linear, params);
+
+                linear.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ((ViewManager) linear.getParent()).removeView(linear);
+                    }
+                });
+            }
+        });
+
+        personal_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+                LinearLayout linear = (LinearLayout) inflater.inflate(R.layout.personal_info, null);
+
+                linear.setBackgroundColor(Color.parseColor("#99000000"));
+
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT
+                        , LinearLayout.LayoutParams.FILL_PARENT);
+                addContentView(linear, params);
+
+                linear.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ((ViewManager) linear.getParent()).removeView(linear);
+                    }
+                });
+            }
+        });
+
+        location_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+                LinearLayout linear = (LinearLayout) inflater.inflate(R.layout.location_info, null);
+
+                linear.setBackgroundColor(Color.parseColor("#99000000"));
+
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT
+                        , LinearLayout.LayoutParams.FILL_PARENT);
+                addContentView(linear, params);
+
+                linear.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ((ViewManager) linear.getParent()).removeView(linear);
+                    }
+                });
             }
         });
 
@@ -181,9 +262,9 @@ public class RegisterActivity extends AppCompatActivity {
                 password = mPasswordText.getText().toString();
                 pwdcheck = mPasswordcheckText.getText().toString();
 
-                if (ch1.isChecked() && ch2.isChecked()) {
+                if (isValidName() && isValidNickName() && isValidSex() && isValidEmail() && isValidPasswd() && isValidPasswdCheck()) {
 
-                    if (isValidName() && isValidNickName() && isValidEmail() && isValidPasswd() && isValidPasswdCheck()) {
+                    if (ch1.isChecked() && ch2.isChecked()) {
 
                         if (authSuccess) {
 
@@ -264,9 +345,9 @@ public class RegisterActivity extends AppCompatActivity {
                         } else {
                             Toast.makeText(RegisterActivity.this, "전화번호 인증을 해주세요.", Toast.LENGTH_SHORT).show();
                         }
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "약관 동의를 해주세요.", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    Toast.makeText(RegisterActivity.this, "약관 동의를 해주세요.", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -345,6 +426,16 @@ public class RegisterActivity extends AppCompatActivity {
         if (nickname.isEmpty()) {
             // 닉네임 공백
             Toast.makeText(getApplicationContext(),"닉네임을 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+    // 성별 유효성 검사
+    private boolean isValidSex() {
+        if (gen_check == 0) {
+            // 성별 미선택
+            Toast.makeText(getApplicationContext(),"성별을 선택해주세요.", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

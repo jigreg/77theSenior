@@ -58,6 +58,7 @@
         <activity android:name=".common.LoginActivity" />
         <activity android:name=".common.FindIdPwActivity" />
         <activity android:name=".common.PushAlramActivity" />
+        <activity android:name=".common.DementiaGradeActivity" />
         <activity android:name=".common.AppInfoActivity" />
         <activity android:name=".common.LoadingActivity">
             <intent-filter>
