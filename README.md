@@ -173,3 +173,10 @@
     : Add Pro_set & Several XML modifications, Adjust RegisterActivity
 
 - issue 1. Need to select dementia grade icon
+
+---
+
+### 0908 Yu Seo Jun
+    : Fix FindIdPW xml & FINDID complete
+
+- issue 1. Need FINDPW method
