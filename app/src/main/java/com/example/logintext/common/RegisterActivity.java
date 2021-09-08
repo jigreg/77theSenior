@@ -153,6 +153,7 @@ public class RegisterActivity extends AppCompatActivity {
                     gen_check++;
                 } else {
                     gender = "f";
+                    gen_check++;
                 }
             }
         });
