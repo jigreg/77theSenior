@@ -120,7 +120,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:background="@drawable/login1"
-                    android:hint="핸드폰 번호 입력"
+                    android:hint="전화번호 입력"
                     android:textColor="#777777"
                     android:textSize="15dp" />
 
@@ -175,12 +175,12 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/nameText4"
+                    android:id="@+id/pw_name"
                     android:layout_width="300dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:background="@drawable/login1"
-                    android:text="  이름"
+                    android:hint="이름"
                     android:textColor="#777777"
                     android:textSize="15dp" />
 
@@ -193,13 +193,13 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/idText3"
+                    android:id="@+id/pw_id"
                     android:layout_width="300dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:background="@drawable/login1"
                     android:inputType="text"
-                    android:text="  아이디"
+                    android:hint="아이디"
                     android:textColor="#777777"
                     android:textSize="15dp" />
 
@@ -212,26 +212,48 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
                 <EditText
-                    android:id="@+id/tellText2"
-                    android:layout_width="160dp"
+                    android:id="@+id/pw_birth"
+                    android:layout_width="145dp"
                     android:layout_height="40dp"
                     android:background="@drawable/login1"
-                    android:inputType="phone"
-                    android:text="  전화번호( '-' 제외 )"
+                    android:hint="생년월일(ex19200101)"
                     android:textColor="#777777"
                     android:textSize="15dp" />
 
-                <Button
-                    android:id="@+id/tell2"
-                    android:layout_width="130dp"
-                    android:layout_height="50dp"
+                <RadioGroup
+                    android:id="@+id/pw_userpro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:backgroundTint="#bbbbbb"
-                    android:text="인증번호 전송"
-                    android:textColor="@color/black"
-                    android:textSize="13dp" />
+                    android:layout_marginTop="1dp"
+                    android:orientation="horizontal">
 
+                    <RadioButton
+                        android:id="@+id/pw_pro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="보호자" />
+
+                    <RadioButton
+                        android:id="@+id/pw_user"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="사용자" />
+
+                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -241,12 +263,12 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/tellCheck2"
+                    android:id="@+id/pw_phonenum"
                     android:layout_width="300dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:background="@drawable/login1"
-                    android:text="  인증번호 입력"
+                    android:hint="전화번호 입력"
                     android:textColor="#777777"
                     android:textSize="15dp" />
 
@@ -259,7 +281,7 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/check2"
+                    android:id="@+id/pw_check"
                     android:layout_width="306dp"
                     android:layout_height="55dp"
                     android:layout_gravity="center"

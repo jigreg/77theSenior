@@ -177,6 +177,6 @@
 ---
 
 ### 0908 Yu Seo Jun
-    : Fix FindIdPW xml & FINDID complete
+    : Fix FindIdPW xml & FINDIDPW complete & add alertDialog
 
-- issue 1. Need FINDPW method
+- issue 1. Wrong Id or PW Toast message error
