@@ -31,20 +31,22 @@ public class FindIdPwActivity extends AppCompatActivity {
 
     private ImageButton back;
     private EditText id_name, id_phonenum, id_birth;
-    private RadioButton id_male, id_female;
+    private RadioButton id_pro, id_user;
+    private RadioGroup id_userpro;
     private Button id_check;
     private FirebaseUser user;
     private FirebaseDatabase mDatabase;
     private DatabaseReference mReference, nReference;
     private FirebaseAuth mAuth;
-    private String uid, myUser, id_gender,id_email;
+    private String uid, myUser,id_email, userpro;
     private List<AllData> DatainfoList = new ArrayList<>();
+    private List<AllData1> DatainfoList1 = new ArrayList<>();
+    private int user_check = 0;
 
     private class AllData {
-        String name, phonenum, email, birth, gender;
-        AllData(String name, String birth,String phonenum,String gender,String email) {
+        String name, phonenum, email, birth;
+        AllData(String name, String birth,String phonenum,String email) {
             this.name = name;
-            this.gender = gender;
             this.phonenum = phonenum;
             this.email = email;
             this.birth = birth;
@@ -54,7 +56,20 @@ public class FindIdPwActivity extends AppCompatActivity {
         public String getPhonenum() { return phonenum; }
         public String getEmail() { return email; }
         public String getBirth() { return birth; }
-        public String getGender() { return gender; }
+    }
+    private class AllData1 {
+        String name, phonenum, email, birth;
+        AllData1(String name, String birth,String phonenum,String email) {
+            this.name = name;
+            this.phonenum = phonenum;
+            this.email = email;
+            this.birth = birth;
+
+        }
+        public String getName() { return name; }
+        public String getPhonenum() { return phonenum; }
+        public String getEmail() { return email; }
+        public String getBirth() { return birth; }
     }
 
 
@@ -68,14 +83,16 @@ public class FindIdPwActivity extends AppCompatActivity {
         id_phonenum = (EditText) findViewById(R.id.id_phonenum);
 
         id_check = (Button)findViewById(R.id.id_check);
-        id_male = (RadioButton) findViewById(R.id.id_male);
-        id_female = (RadioButton) findViewById(R.id.id_female);
+        id_pro = (RadioButton) findViewById(R.id.id_pro);
+        id_user = (RadioButton) findViewById(R.id.id_user);
+        id_userpro = (RadioGroup)findViewById(R.id.userpro);
 
         back = (ImageButton) findViewById(R.id.back);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance("https://oldman-eb51e-default-rtdb.firebaseio.com/");
         mReference = mDatabase.getReference("Users").child("user");
+        nReference = mDatabase.getReference("Users").child("protector");
         user = FirebaseAuth.getInstance().getCurrentUser();
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -86,12 +103,20 @@ public class FindIdPwActivity extends AppCompatActivity {
             }
         });
 
-        if ( id_male.isChecked() ) {
-            id_gender = "m";
-        } else if( id_female.isChecked() ) {
-            id_gender = "f";
-        }
+        id_userpro.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.id_pro) {
+                    userpro = "p";
+                    user_check++;
+                } else {
+                    userpro = "u";
+                    user_check++;
+                }
+            }
+        });
 
+    // user 데이터리스트
         mReference.orderByChild("uid").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -100,10 +125,9 @@ public class FindIdPwActivity extends AppCompatActivity {
                     String birth = messageData.child("birth").getValue().toString();
                     String name = messageData.child("name").getValue().toString();
                     String phonenum = messageData.child("phonenum").getValue().toString();
-                    String gender = messageData.child("gender").getValue().toString();
                     String email = messageData.child("email").getValue().toString();
 
-                    DatainfoList.add(new AllData(name, birth, phonenum, gender, email));
+                    DatainfoList.add(new AllData(name, birth, phonenum, email));
                 }
             }
                 @Override
@@ -111,7 +135,27 @@ public class FindIdPwActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "onCancelled", Toast.LENGTH_SHORT);
                 }
         });
+    // protector 데이터리스트
+        nReference.orderByChild("uid").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                DatainfoList1.clear();
+                for (DataSnapshot messageData : dataSnapshot.getChildren()) {
+                    String birth = messageData.child("birth").getValue().toString();
+                    String name = messageData.child("name").getValue().toString();
+                    String phonenum = messageData.child("phonenum").getValue().toString();;
+                    String email = messageData.child("email").getValue().toString();
 
+                    DatainfoList1.add(new AllData1(name, birth, phonenum, email));
+                }
+            }
+            @Override
+            public void onCancelled (DatabaseError databaseError){
+                Toast.makeText(getApplicationContext(), "onCancelled", Toast.LENGTH_SHORT);
+            }
+        });
+
+    //id check start
         id_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,25 +163,40 @@ public class FindIdPwActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "이름을 입력해주세요.", Toast.LENGTH_SHORT).show();
                 } else if (id_birth.getText().toString().equals("") || id_birth.getText().toString() == null) {
                     Toast.makeText(getApplicationContext(), "생년월일을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                } else if (user_check == 0) {
+                    Toast.makeText(getApplicationContext(), "버튼을 선택해주세요.", Toast.LENGTH_SHORT).show();
                 } else if (id_phonenum.getText().toString().equals("") || id_phonenum.getText().toString() == null) {
                     Toast.makeText(getApplicationContext(), "핸드폰 번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
-                } else if (!id_male.isChecked() && id_female.isChecked()) {
-                    Toast.makeText(getApplicationContext(), "버튼을 체크해주세요.", Toast.LENGTH_SHORT).show();
-                } else {
+                } else if (userpro.equals("u")) {
                     for (AllData D : DatainfoList) {
                         if (D.getName().equals(id_name.getText().toString()) && D.getBirth().equals(id_birth.getText().toString())
-                                && D.getPhonenum().equals(id_phonenum.getText().toString())) { // && D.getGender().equals(id_gender)
+                                && D.getPhonenum().equals(id_phonenum.getText().toString())) {
                             id_email = D.getEmail();
                             Toast.makeText(getApplicationContext(), id_email, Toast.LENGTH_SHORT).show();
-                            break;
                         } else {
-//                            Toast.makeText(getApplicationContext(), DatainfoList.get(3).toString(), Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(getApplicationContext(), D.getName().equals(id_name.getText().toString()) +"", Toast.LENGTH_SHORT).show();
+                          Toast.makeText(getApplicationContext(), "해당 데이터가 없습니다.", Toast.LENGTH_SHORT).show();
+                          break;
                         }
+                    }
+                } else {
+                    for (AllData1 D : DatainfoList1) {
+                        if (D.getName().equals(id_name.getText().toString()) && D.getBirth().equals(id_birth.getText().toString())
+                                && D.getPhonenum().equals(id_phonenum.getText().toString())) {
+                            id_email = D.getEmail();
+                            Toast.makeText(getApplicationContext(), id_email, Toast.LENGTH_SHORT).show();
 
+                        } else {
+                           // Toast.makeText(getApplicationContext(), D.getEmail(), Toast.LENGTH_SHORT).show();
+                           Toast.makeText(getApplicationContext(), "해당 데이터가 없습니다.", Toast.LENGTH_SHORT).show();
+                           break;
+                        }
                     }
                 }
             }
         });//id check end
+
+        //pw check start
 
     }//oncreate end
 }//public end
