@@ -181,6 +181,8 @@
 
 - issue 1. Wrong Id or PW Toast message error
 
+---
+
 ### 0911 Yu Seo Jun
     : ADD Mypage xml & java(add protector info dialog)
 
