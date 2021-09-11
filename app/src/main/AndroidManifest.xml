@@ -47,6 +47,7 @@
         <activity android:name=".user.User_LocationActivity" />
         <activity android:name=".user.User_MainActivity" />
         <activity android:name=".user.User_WalkActivity" />
+        <activity android:name=".user.User_MypageActivity" />
         <activity android:name=".protector.Pro_RegisterCodeActivity" />
         <activity android:name=".protector.Pro_GPSHistoryActivity" />
         <activity android:name=".protector.Pro_LocationActivity" />

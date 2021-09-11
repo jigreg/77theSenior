@@ -180,3 +180,8 @@
     : Fix FindIdPW xml & FINDIDPW complete & add alertDialog
 
 - issue 1. Wrong Id or PW Toast message error
+
+### 0911 Yu Seo Jun
+    : ADD Mypage xml & java(add protector info dialog)
+
+- issue 1. Need to Add walk,brain rank info & dementia grade info

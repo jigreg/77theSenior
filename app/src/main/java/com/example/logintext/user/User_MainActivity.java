@@ -41,7 +41,7 @@ import java.util.StringTokenizer;
 
 public class User_MainActivity extends AppCompatActivity {
 
-    private Button logout, walk, training, locate, setting, ranking, calendar;
+    private Button logout, walk, training, locate, setting, ranking, calendar,mypage;
     private TextView walkstep, brain_train;
 
     private FirebaseAuth mAuth;
@@ -74,6 +74,7 @@ public class User_MainActivity extends AppCompatActivity {
         ranking = (Button) findViewById(R.id.ranking);
         setting = (Button) findViewById(R.id.setting);
         calendar = (Button) findViewById(R.id.calendar);
+        mypage = (Button) findViewById(R.id.myPage);
 
         walkstep = (TextView) findViewById(R.id.walk_step);
         brain_train = (TextView) findViewById(R.id.brain_train);
@@ -164,6 +165,13 @@ public class User_MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(User_MainActivity.this, User_CalendarActivity.class));
+                finish();
+            }
+        });
+        mypage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(User_MainActivity.this, User_MypageActivity.class));
                 finish();
             }
         });

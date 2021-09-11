@@ -20,7 +20,7 @@
                 android:drawableLeft="@drawable/rank"
                 android:gravity="center"
                 android:paddingLeft="23dp"
-                android:paddingRight="220dp"
+                android:paddingRight="150dp"
                 android:text="순위"
                 android:textColor="@color/black"
                 android:textSize="25dp"

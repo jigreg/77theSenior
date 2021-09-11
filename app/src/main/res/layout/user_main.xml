@@ -37,10 +37,10 @@
 
         <Button
             android:id="@+id/myPage"
-            android:layout_toLeftOf="@+id/setting"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/setting"
             android:backgroundTint="#F5EEE0"
             android:drawableLeft="@drawable/ic_user"
             android:text="  my"
