@@ -187,3 +187,4 @@
     : ADD Mypage xml & java(add protector info dialog)
 
 - issue 1. Need to Add walk,brain rank info & dementia grade info
+- issue 2. Galaxy S21 avd --> need to xml change!!!
