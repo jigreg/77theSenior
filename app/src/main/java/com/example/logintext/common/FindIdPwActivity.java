@@ -274,7 +274,7 @@ public class FindIdPwActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                Toast.makeText(getApplicationContext(), pw_id + " 로 비밀번호 재설정 링크 전송", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getApplicationContext(), pw_id.getText().toString() + " 로 비밀번호 재설정 링크 전송", Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
