@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5EEE0"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:background="#CFB997"
+                android:drawableLeft="@drawable/ic_profile_user"
+                android:gravity="center"
+                android:paddingLeft="23dp"
+                android:paddingRight="150dp"
+                android:text=" 마이페이지"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:layout_alignParentRight="true"
+                android:id="@+id/back"
+                android:layout_width="70dp"
+                android:layout_height="76dp"
+                android:background="#CFB997"
+                android:src="@drawable/back"/>
+
+        </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:background="@drawable/textview5"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/allrank"
+                    android:layout_width="220dp"
+                    android:layout_height="100dp"
+                    android:gravity="center"
+                    android:text="      전체 순위"
+                    android:drawableLeft="@drawable/rank"
+                    android:textColor="#4C4B4B"
+                    android:textSize="25dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/allpercent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="상위"
+                    android:textColor="#4C4B4B"
+                    android:textSize="25dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/walkrank"
+                    android:layout_width="220dp"
+                    android:layout_height="100dp"
+                    android:gravity="center"
+                    android:text="      걷기 순위"
+                    android:drawableLeft="@drawable/walk1"
+                    android:textColor="#4C4B4B"
+                    android:textSize="25dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/walkpercent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="상위"
+                    android:textColor="#4C4B4B"
+                    android:textSize="25dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/brainrank"
+                    android:layout_width="220dp"
+                    android:layout_height="100dp"
+                    android:gravity="center"
+                    android:text="      두뇌 순위"
+                    android:drawableLeft="@drawable/training"
+                    android:textColor="#4C4B4B"
+                    android:textSize="25dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/brainpercent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="상위"
+                    android:textColor="#4C4B4B"
+                    android:textSize="25dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="350dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:background="@drawable/textview5"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/grade"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="치매 등급"
+                    android:drawableLeft="@drawable/grade"
+                    android:textColor="#4C4B4B"
+                    android:textSize="25dp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="350dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/textview5"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp">
+
+                    <Button
+                        android:id="@+id/proinfo"
+                        android:layout_width="350dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/textview5"
+                        android:drawableLeft="@drawable/ic_family"
+                        android:paddingLeft="25dp"
+                        android:text="보호자 등록 정보"
+                        android:textColor="#4C4B4B"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+    </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
