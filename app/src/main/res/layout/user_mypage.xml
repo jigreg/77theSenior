@@ -62,7 +62,8 @@
                     android:layout_height="100dp"
                     android:gravity="center"
                     android:text="      전체 순위"
-                    android:drawableLeft="@drawable/rank"
+                    android:drawableLeft="@drawable/ic_crown_fill"
+                    android:paddingLeft="17dp"
                     android:textColor="#4C4B4B"
                     android:textSize="25dp"
                     android:textStyle="bold"/>
@@ -88,6 +89,7 @@
                     android:gravity="center"
                     android:text="      걷기 순위"
                     android:drawableLeft="@drawable/walk1"
+                    android:paddingLeft="10dp"
                     android:textColor="#4C4B4B"
                     android:textSize="25dp"
                     android:textStyle="bold"/>
@@ -113,6 +115,7 @@
                     android:gravity="center"
                     android:text="      두뇌 순위"
                     android:drawableLeft="@drawable/training"
+                    android:paddingLeft="16dp"
                     android:textColor="#4C4B4B"
                     android:textSize="25dp"
                     android:textStyle="bold"/>
@@ -138,19 +141,32 @@
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:background="@drawable/textview5"
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_marginTop="20dp">
 
                 <TextView
                     android:id="@+id/grade"
-                    android:layout_width="match_parent"
+                    android:layout_width="220dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="치매 등급"
-                    android:drawableLeft="@drawable/grade"
+                    android:text="      치매 등급"
+                    android:drawableLeft="@drawable/ic_review"
+                    android:paddingLeft="18dp"
                     android:textColor="#4C4B4B"
                     android:textSize="25dp"
                     android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_grade_00"/>
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -174,7 +190,7 @@
                         android:layout_gravity="center"
                         android:background="@drawable/textview5"
                         android:drawableLeft="@drawable/ic_family"
-                        android:paddingLeft="25dp"
+                        android:paddingLeft="20dp"
                         android:text="보호자 등록 정보"
                         android:textColor="#4C4B4B"
                         android:textSize="25dp"

@@ -188,3 +188,12 @@
 
 - issue 1. Need to Add walk,brain rank info & dementia grade info
 - issue 2. Galaxy S21 avd --> need to xml change!!!
+
+---
+
+### 0914 Hwang Won Tae
+    : Solve All_Setting_Activity(user, pro) & Several XML modifications
+
+- issue 1. I have an idea about brain training.
+    : two_btn, a_btn is the practice & b_btn is the test // Use LayoutInflater
+    : Can take the test only once a day

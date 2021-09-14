@@ -28,7 +28,7 @@ import java.util.Calendar;
 
 public class Pro_MainActivity extends AppCompatActivity {
 
-    private Button gps, userReg, logout,calendar;
+    private Button gps, userReg, logout,calendar, setting;
     private FirebaseUser user;
     private FirebaseDatabase mDatabase;
     private DatabaseReference mReference;
@@ -47,6 +47,8 @@ public class Pro_MainActivity extends AppCompatActivity {
         gps = (Button) findViewById(R.id.locationTrace);
         userReg = (Button) findViewById(R.id.userRegister);
         calendar = (Button) findViewById(R.id.myUserCalendar);
+        setting = (Button) findViewById(R.id.setting);
+
         walkstep = (TextView) findViewById(R.id.walk_step);
         brain_train = (TextView) findViewById(R.id.brain_train);
 
@@ -154,6 +156,15 @@ public class Pro_MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //intent함수를 통해 register액티비티 함수를 호출한다.
                 startActivity(new Intent(Pro_MainActivity.this, Pro_RegisterCodeActivity.class));
+                finish();
+            }
+        });
+
+        setting.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                //intent함수를 통해 register액티비티 함수를 호출한다.
+                startActivity(new Intent(Pro_MainActivity.this, Pro_SettingActivity.class));
                 finish();
             }
         });

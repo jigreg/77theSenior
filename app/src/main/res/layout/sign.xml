@@ -56,6 +56,7 @@
                     android:layout_gravity="center"
                     android:background="@drawable/login1"
                     android:hint="  이름"
+                    android:paddingLeft="5dp"
                     android:textColor="#777777"
                     android:textSize="15dp" />
 
@@ -74,6 +75,7 @@
                     android:layout_height="40dp"
                     android:background="@drawable/login1"
                     android:hint="  닉네임"
+                    android:paddingLeft="5dp"
                     android:textColor="#777777"
                     android:textSize="15dp" />
 
@@ -142,6 +144,7 @@
                     android:background="@drawable/login1"
                     android:hint="  이메일(아이디) "
                     android:inputType="text"
+                    android:paddingLeft="5dp"
                     android:textColor="#777777"
                     android:textSize="15dp" />
 
@@ -160,6 +163,7 @@
                     android:layout_height="40dp"
                     android:background="@drawable/login1"
                     android:hint="  비밀번호 ( 4자에서 16자 사이 )"
+                    android:paddingLeft="5dp"
                     android:textColor="#777777"
                     android:password="true"
                     android:textSize="15dp" />
@@ -179,6 +183,7 @@
                     android:layout_height="40dp"
                     android:background="@drawable/login1"
                     android:hint="  비밀번호 확인"
+                    android:paddingLeft="5dp"
                     android:password="true"
                     android:textColor="#777777"
                     android:textSize="15dp" />
@@ -198,6 +203,7 @@
                     android:layout_height="40dp"
                     android:background="@drawable/login1"
                     android:hint="  전화번호( '-' 제외 )"
+                    android:paddingLeft="5dp"
                     android:inputType="phone"
                     android:textColor="#777777"
                     android:textSize="15dp" />
@@ -226,6 +232,7 @@
                     android:layout_height="40dp"
                     android:background="@drawable/login1"
                     android:hint="  인증번호 입력"
+                    android:paddingLeft="5dp"
                     android:textColor="#777777"
                     android:textSize="15dp"
                     android:visibility="invisible"/>

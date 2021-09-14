@@ -35,7 +35,8 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:background="@drawable/login1"
-                android:hint="ID"
+                android:hint="  ID"
+                android:paddingLeft="5dp"
                 android:inputType="text"
                 android:textColor="#777777"
                 android:textSize="15dp" />
@@ -55,7 +56,8 @@
                     android:textColor="#777777"
                     android:textSize="15dp"
                     android:background="@drawable/login1"
-                    android:hint="PW" />
+                    android:hint="  PW"
+                    android:paddingLeft="5dp"/>
 
             </LinearLayout>
 

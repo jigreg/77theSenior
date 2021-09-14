@@ -168,13 +168,13 @@ public class User_MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-        mypage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(User_MainActivity.this, User_MypageActivity.class));
-                finish();
-            }
-        });
+       mypage.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               startActivity(new Intent(User_MainActivity.this, User_MypageActivity.class));
+               finish();
+           }
+       });
 
         //걸음 수 표시
         format = new SimpleDateFormat("yyyybMbd");

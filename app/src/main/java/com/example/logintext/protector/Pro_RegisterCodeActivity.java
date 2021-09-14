@@ -66,7 +66,7 @@ public class Pro_RegisterCodeActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Pro_RegisterCodeActivity.this, Pro_MainActivity.class));
+                startActivity(new Intent(Pro_RegisterCodeActivity.this, Pro_SettingActivity.class));
                 finish();
             }
         });

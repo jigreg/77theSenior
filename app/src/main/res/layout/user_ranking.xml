@@ -17,10 +17,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="76dp"
                 android:background="#CFB997"
-                android:drawableLeft="@drawable/rank"
+                android:drawableLeft="@drawable/ic_crown_fill"
                 android:gravity="center"
                 android:paddingLeft="23dp"
-                android:paddingRight="150dp"
+                android:paddingRight="200dp"
                 android:text="순위"
                 android:textColor="@color/black"
                 android:textSize="25dp"
@@ -98,7 +98,7 @@
                         <ListView
                             android:id="@+id/walk_item"
                             android:layout_width="match_parent"
-                            android:layout_height="550dp" />
+                            android:layout_height="500dp" />
 
                         <View
                             android:layout_width="match_parent"
@@ -217,7 +217,7 @@
                         <ListView
                             android:id="@+id/train_item"
                             android:layout_width="match_parent"
-                            android:layout_height="550dp" />
+                            android:layout_height="500dp" />
 
                         <View
                             android:layout_width="match_parent"
