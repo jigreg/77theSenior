@@ -195,5 +195,7 @@
     : Solve All_Setting_Activity(user, pro) & Several XML modifications
 
 - issue 1. I have an idea about brain training.
+
     two_btn, a_btn is the practice & b_btn is the test // Use LayoutInflater
+    
     Can take the test only once a day
