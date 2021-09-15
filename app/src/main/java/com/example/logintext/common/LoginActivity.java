@@ -120,9 +120,11 @@ public class LoginActivity extends AppCompatActivity {
     private boolean isValidEmail() {
         if (email.isEmpty()) {
             // 이메일 공백
+            Toast.makeText(LoginActivity.this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show();
             return false;
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             // 이메일 형식 불일치
+            Toast.makeText(LoginActivity.this, "잘못된 이메일입니다.", Toast.LENGTH_SHORT).show();
             return false;
         } else {
             return true;
@@ -133,10 +135,11 @@ public class LoginActivity extends AppCompatActivity {
     private boolean isValidPasswd() {
         if (password.isEmpty()) {
             // 비밀번호 공백
+            Toast.makeText(LoginActivity.this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
             return false;
         } else if (!PASSWORD_PATTERN.matcher(password).matches()) {
             // 비밀번호 형식 불일치
-            Toast.makeText(LoginActivity.this, "이메일 형식과 맞지 않습니다.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "잘못된 비밀번호입니다.", Toast.LENGTH_SHORT).show();
             return false;
         } else {
             return true;
@@ -149,40 +152,42 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // 로그인 성공
-                            user = FirebaseAuth.getInstance().getCurrentUser();
-                            uid = user.getUid();
+                        if (isValidEmail() && isValidPasswd()) {
+                            if (task.isSuccessful()) {
+                                // 로그인 성공
+                                user = FirebaseAuth.getInstance().getCurrentUser();
+                                uid = user.getUid();
 
-                            mReference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<DataSnapshot> task) {
-                                    if (LoginMaintainService.getEmail(LoginActivity.this).length() == 0) {
-                                        // 저장 정보가 없을 경우
-                                        LoginMaintainService.setEmail(LoginActivity.this, email);
-                                        LoginMaintainService.setPasswd(LoginActivity.this, password);
-                                    }
-                                    try {
-                                        String user_type = task.getResult().child("user").child(uid).child("type").getValue().toString();
-                                        if (user_type.equals("user")) {
-                                            LoginMaintainService.setType(LoginActivity.this, user_type);
-                                            startActivity(new Intent(LoginActivity.this, User_MainActivity.class));
-                                            finish();
+                                mReference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                        if (LoginMaintainService.getEmail(LoginActivity.this).length() == 0) {
+                                            // 저장 정보가 없을 경우
+                                            LoginMaintainService.setEmail(LoginActivity.this, email);
+                                            LoginMaintainService.setPasswd(LoginActivity.this, password);
                                         }
-                                    } catch (NullPointerException e) {
-                                        String pro_type = task.getResult().child("protector").child(uid).child("type").getValue().toString();
-                                        if (pro_type.equals("protector")) {
-                                            LoginMaintainService.setType(LoginActivity.this, pro_type);
-                                            startActivity(new Intent(LoginActivity.this, Pro_MainActivity.class));
-                                            finish();
+                                        try {
+                                            String user_type = task.getResult().child("user").child(uid).child("type").getValue().toString();
+                                            if (user_type.equals("user")) {
+                                                LoginMaintainService.setType(LoginActivity.this, user_type);
+                                                startActivity(new Intent(LoginActivity.this, User_MainActivity.class));
+                                                finish();
+                                            }
+                                        } catch (NullPointerException e) {
+                                            String pro_type = task.getResult().child("protector").child(uid).child("type").getValue().toString();
+                                            if (pro_type.equals("protector")) {
+                                                LoginMaintainService.setType(LoginActivity.this, pro_type);
+                                                startActivity(new Intent(LoginActivity.this, Pro_MainActivity.class));
+                                                finish();
+                                            }
                                         }
+                                        Toast.makeText(LoginActivity.this, R.string.success_login, Toast.LENGTH_SHORT).show();
                                     }
-                                    Toast.makeText(LoginActivity.this, R.string.success_login, Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        } else {
-                            // 로그인 실패
-                            Toast.makeText(LoginActivity.this, R.string.failed_login, Toast.LENGTH_SHORT).show();
+                                });
+                            } else {
+                                // 로그인 실패
+                                Toast.makeText(LoginActivity.this, R.string.failed_login, Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
                 });

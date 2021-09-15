@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintext.R;
+import com.example.logintext.UndeadService;
 import com.example.logintext.common.LoginActivity;
 import com.example.logintext.common.LoginMaintainService;
 import com.google.firebase.auth.FirebaseAuth;
@@ -90,30 +92,27 @@ public class User_MainActivity extends AppCompatActivity {
 
         PowerManager pm = (PowerManager) getApplicationContext().getSystemService(POWER_SERVICE);
         boolean isWhiteListing = false;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             isWhiteListing = pm.isIgnoringBatteryOptimizations(getApplicationContext().getPackageName());
         }
         if (!isWhiteListing) {
             Intent intent = new Intent();
-            intent.setAction(android.provider.Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+            intent.setAction(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
             intent.setData(Uri.parse("package:" + getApplicationContext().getPackageName()));
             startActivity(intent);
         }
 
-//        if (RealService.serviceIntent == null) {
-//            serviceIntent = new Intent(this, RealService.class);
-//            startService(serviceIntent);
-//        } else {
-//            serviceIntent = RealService.serviceIntent; //getInstance().getApplication();
-//            Toast.makeText(getApplicationContext(), "already", Toast.LENGTH_LONG).show();
-//        }
+
+        Intent foregroundServiceIntent = new Intent(User_MainActivity.this, UndeadService.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(foregroundServiceIntent);
+        }
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
-//                ((RealService)RealService.mContext).onDestroy();
-//                ((RestartService)RestartService.mContext).onDestroy();
+                stopService(foregroundServiceIntent);
                 LoginMaintainService.clearUserName(User_MainActivity.this);
                 Toast.makeText(getApplicationContext(), "로그아웃 합니다.", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(User_MainActivity.this, LoginActivity.class));

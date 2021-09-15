@@ -30,6 +30,8 @@
 
 <!--        <receiver android:name=".user.AlarmRecever"/>-->
 
+        <service android:name=".UndeadService"/>
+
         <receiver android:name=".BootCompletedReceiver"
             android:enabled="true"
             android:exported="true">
@@ -39,7 +41,6 @@
         </receiver>
 
         <activity android:name=".user.User_BrainMain"/>
-        <activity android:name=".user.User_CatFindActivity" />
         <activity android:name=".user.User_RankActivity" />
         <activity android:name=".user.User_RegisterCodeActivity" />
         <activity android:name=".user.User_CalendarActivity" />
