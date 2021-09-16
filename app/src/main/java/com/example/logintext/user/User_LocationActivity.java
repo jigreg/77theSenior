@@ -106,7 +106,7 @@ public class User_LocationActivity extends AppCompatActivity
     private DatabaseReference mReference;
     private FirebaseUser user;
 
-//    private Intent foregroundServiceIntent;
+    private Intent foregroundServiceIntent;
 
     private View mLayout;  // Snackbar 사용하기 위해서 View 필요
 
@@ -134,14 +134,14 @@ public class User_LocationActivity extends AppCompatActivity
             }
         });
 
-//        if(null == UndeadService.serviceIntent) {
-//            foregroundServiceIntent = new Intent(this, UndeadService.class);
-//            startService(foregroundServiceIntent);
-//            Toast.makeText(getApplicationContext(),"Start Service", Toast.LENGTH_SHORT).show();
-//        } else {
-//            foregroundServiceIntent = UndeadService.serviceIntent;
-//            Toast.makeText(getApplicationContext(),"Already", Toast.LENGTH_SHORT).show();
-//        }
+        if(null == UndeadService.serviceIntent) {
+            foregroundServiceIntent = new Intent(this, UndeadService.class);
+            startService(foregroundServiceIntent);
+            Toast.makeText(getApplicationContext(),"Start Service", Toast.LENGTH_SHORT).show();
+        } else {
+            foregroundServiceIntent = UndeadService.serviceIntent;
+            Toast.makeText(getApplicationContext(),"Already", Toast.LENGTH_SHORT).show();
+        }
 
         locationRequest = new LocationRequest()
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)

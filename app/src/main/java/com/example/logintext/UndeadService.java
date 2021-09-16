@@ -17,8 +17,17 @@ import com.example.logintext.user.User_WalkActivity;
 
 public class UndeadService extends Service {
 
+    public static Intent serviceIntent = null;
+
     public static final String CHANNEL_ID = "WalkService_Channel";
     public static final String CHANNEL_NAME = "WalkService_Channel";
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        serviceIntent = intent;
+
+        return super.onStartCommand(intent, flags, startId);
+    }
 
     @Override
     public void onCreate() {

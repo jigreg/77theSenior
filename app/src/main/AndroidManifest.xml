@@ -43,6 +43,7 @@
         <activity android:name=".user.User_BrainMain"/>
         <activity android:name=".user.User_RankActivity" />
         <activity android:name=".user.User_RegisterCodeActivity" />
+        <activity android:name=".user.User_CatFindActivity" />
         <activity android:name=".user.User_CalendarActivity" />
         <activity android:name=".user.User_SettingActivity" />
         <activity android:name=".user.User_LocationActivity" />
