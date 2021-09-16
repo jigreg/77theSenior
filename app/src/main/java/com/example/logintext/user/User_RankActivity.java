@@ -14,6 +14,8 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
 import com.example.logintext.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,12 +28,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @SuppressWarnings("deprecation")
 public class User_RankActivity extends TabActivity {
     private FirebaseDatabase mDatabase;
-    private DatabaseReference mReference;
+    private DatabaseReference mReference,nReference;
     private FirebaseUser user;
 
     private ImageButton back;
@@ -40,8 +44,8 @@ public class User_RankActivity extends TabActivity {
     private SimpleDateFormat format;
     private Calendar time;
 
-    private int myWalkRank, myTrainRank, myWalkpercent, myTrainpercent;
-    private String uid, format_time, mypagewalkrank, mypagetrainrank;
+    private int myWalkRank, myTrainRank;
+    private String uid, format_time, Walkrank, Trainrank,Walkpercent,Trainpercent;
     private ListView walk_listView, train_listView;
     private WalkAdapter walk_adapter;
     private TrainAdapter train_adapter;
@@ -74,12 +78,6 @@ public class User_RankActivity extends TabActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_ranking);
-
-        Intent intent = new Intent(getApplicationContext(),User_MypageActivity.class);
-        intent.putExtra("mywalkrank",mypagewalkrank);
-        intent.putExtra("mytrainrank",mypagetrainrank);
-        startActivity();
-        finish();
 
         tabHost = getTabHost();
 
@@ -123,10 +121,12 @@ public class User_RankActivity extends TabActivity {
 
         format_time = format.format(time.getTime());
 
-        mDatabase = FirebaseDatabase.getInstance("https://oldman-eb51e-default-rtdb.firebaseio.com/");
-        mReference = mDatabase.getReference("Users").child("user");
+        mDatabase = FirebaseDatabase.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
+        mReference = mDatabase.getReference("Users").child("user");
+        nReference = mDatabase.getReference("Users").child("user").child(uid).child("today");
+
 
         // limitToFirst(숫자) 한정 메소드
         mReference.orderByChild("today_walking").addValueEventListener(new ValueEventListener() {
@@ -153,9 +153,10 @@ public class User_RankActivity extends TabActivity {
                     WalkingList.add(i, temp);
                 }
                 walk_adapter.notifyDataSetChanged();
-                mypagewalkrank = String.valueOf(WalkingList.size()-myWalkRank+1);
-                myWalkpercent = ((WalkingList.size()/(WalkingList.size()-myWalkRank+1))*100);
-                myWalkRankNum.setText((WalkingList.size()-myWalkRank+1)+"");
+                Walkrank = String.valueOf(WalkingList.size()-myWalkRank+1);
+                int walkpercent = (int) ((double)((WalkingList.size()-myWalkRank+1))/(double)(WalkingList.size())*100);
+                Walkpercent = String.valueOf(walkpercent);
+                myWalkRankNum.setText((WalkingList.size()-(myWalkRank+1))+"");
             }
 
             @Override
@@ -201,7 +202,9 @@ public class User_RankActivity extends TabActivity {
                     TrainingList.add(i, temp);
                 }
                 train_adapter.notifyDataSetChanged();
-                mypagetrainrank = String.valueOf(TrainingList.size()-myTrainRank+1);
+                Trainrank =String.valueOf(TrainingList.size()-(myTrainRank)+1);
+                int trainpercent = (int) ((double)((TrainingList.size()-myTrainRank+1))/(double)(TrainingList.size())*100);
+                Trainpercent = String.valueOf(trainpercent);
                 myTrainRankNum.setText((TrainingList.size()-myTrainRank+1)+"");
             }
 
@@ -223,6 +226,21 @@ public class User_RankActivity extends TabActivity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Toast.makeText(getApplicationContext(), "onCancelled", Toast.LENGTH_SHORT);
+            }
+        });
+        nReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    Map<String, Object> towalk = new HashMap<>();
+                    towalk.put("today_walkrank", Walkrank);
+                    towalk.put("today_trainrank", Trainrank);
+                    towalk.put("today_walkpercent", Walkpercent);
+                    towalk.put("today_trainpercent", Trainpercent);
+                    nReference.updateChildren(towalk);
+                };
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }
