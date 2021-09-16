@@ -29,6 +29,7 @@ import androidx.core.content.ContextCompat;
 import com.dinuscxj.progressbar.CircleProgressBar;
 import com.example.logintext.Alarmservice;
 import com.example.logintext.R;
+import com.example.logintext.UndeadService;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -74,6 +75,11 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_walk);
+
+        Intent foregroundServiceIntent = new Intent(User_WalkActivity.this, UndeadService.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(foregroundServiceIntent);
+        }
 
         back = (ImageButton) findViewById(R.id.back);
         calen = (ImageButton) findViewById(R.id.calendar);
@@ -241,6 +247,8 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
                 countWalk.setText(String.valueOf(mStepDetector) + "걸음");
                 progressBar.setProgress(mStepDetector);
                 circleProgressBar.setProgress(mStepDetector);
+
+                Toast.makeText(getApplicationContext(), mStepDetector+"걸음",Toast.LENGTH_SHORT).show();
 
                 Map<String, Object> his = new HashMap<>();
                 his.put("walking", mStepDetector);

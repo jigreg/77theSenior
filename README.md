@@ -199,3 +199,10 @@
     two_btn, a_btn is the practice & b_btn is the test // Use LayoutInflater
     
     Can take the test only once a day
+
+---
+
+### 0916 Hwang Won Tae
+    : Add Background Service
+
+- issue 1. Need to solve Foreground Service :(

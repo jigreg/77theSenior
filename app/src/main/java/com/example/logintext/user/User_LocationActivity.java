@@ -546,10 +546,10 @@ public class User_LocationActivity extends AppCompatActivity
     protected void onDestroy() {
         super.onDestroy();
 
-        if (null != foregroundServiceIntent) {
-            stopService(foregroundServiceIntent);
-            foregroundServiceIntent = null;
-        }
+//        if (null != foregroundServiceIntent) {
+//            stopService(foregroundServiceIntent);
+//            foregroundServiceIntent = null;
+//        }
     }
 
     public class MyItem implements ClusterItem {
