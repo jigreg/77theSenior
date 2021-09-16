@@ -28,12 +28,15 @@ public class User_MypageActivity extends AppCompatActivity {
    private ImageButton back;
    private Button proinfo;
    private TextView allrank,allpercent,walkrank,walkpercent,brainrank,brainpercent,grade;
-   private String uid, proname, prophonenum, prouid;
+   private String uid, proname, prophonenum, prouid,mywalkrank, mytrainrank;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
        super.onCreate(savedInstanceState);
        setContentView(R.layout.user_mypage);
+       Intent intent = getIntent();
+       mywalkrank = intent.getStringExtra("mywalkrank");
+       mytrainrank = intent.getStringExtra("mytrainrank");
 
        back = (ImageButton)findViewById(R.id.back);
        proinfo = (Button)findViewById(R.id.proinfo);
@@ -44,6 +47,9 @@ public class User_MypageActivity extends AppCompatActivity {
        brainrank = (TextView)findViewById(R.id.brainrank);
        brainpercent = (TextView)findViewById(R.id.brainpercent);
        grade = (TextView)findViewById(R.id.grade);
+
+       walkrank.setText(mywalkrank + "위");
+       brainrank.setText(mytrainrank + "위");
 
        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
        uid = user.getUid();

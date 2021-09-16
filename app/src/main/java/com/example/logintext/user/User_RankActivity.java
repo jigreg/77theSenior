@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TabHost;
@@ -41,8 +40,8 @@ public class User_RankActivity extends TabActivity {
     private SimpleDateFormat format;
     private Calendar time;
 
-    private int myWalkRank, myTrainRank;
-    private String uid, format_time;
+    private int myWalkRank, myTrainRank, myWalkpercent, myTrainpercent;
+    private String uid, format_time, mypagewalkrank, mypagetrainrank;
     private ListView walk_listView, train_listView;
     private WalkAdapter walk_adapter;
     private TrainAdapter train_adapter;
@@ -53,6 +52,7 @@ public class User_RankActivity extends TabActivity {
     private List<Training> TrainingList = new ArrayList<>();
 
     private TabHost tabHost;
+
 
     class Walking {
         String nickname, walked;
@@ -74,6 +74,12 @@ public class User_RankActivity extends TabActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_ranking);
+
+        Intent intent = new Intent(getApplicationContext(),User_MypageActivity.class);
+        intent.putExtra("mywalkrank",mypagewalkrank);
+        intent.putExtra("mytrainrank",mypagetrainrank);
+        startActivity();
+        finish();
 
         tabHost = getTabHost();
 
@@ -147,7 +153,8 @@ public class User_RankActivity extends TabActivity {
                     WalkingList.add(i, temp);
                 }
                 walk_adapter.notifyDataSetChanged();
-
+                mypagewalkrank = String.valueOf(WalkingList.size()-myWalkRank+1);
+                myWalkpercent = ((WalkingList.size()/(WalkingList.size()-myWalkRank+1))*100);
                 myWalkRankNum.setText((WalkingList.size()-myWalkRank+1)+"");
             }
 
@@ -194,7 +201,7 @@ public class User_RankActivity extends TabActivity {
                     TrainingList.add(i, temp);
                 }
                 train_adapter.notifyDataSetChanged();
-
+                mypagetrainrank = String.valueOf(TrainingList.size()-myTrainRank+1);
                 myTrainRankNum.setText((TrainingList.size()-myTrainRank+1)+"");
             }
 
