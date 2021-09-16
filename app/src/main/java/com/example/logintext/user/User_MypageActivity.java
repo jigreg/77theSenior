@@ -92,17 +92,18 @@ public class User_MypageActivity extends AppCompatActivity {
            }
        });
 
-       nreference.child(uid).child("today").addValueEventListener(new ValueEventListener() {
+       nreference.child(uid).addValueEventListener(new ValueEventListener() {
            @Override
-           public void onDataChange(@NonNull DataSnapshot snapshot) {
-               if(snapshot.getValue().equals("none") && snapshot.getValue()== null){
+           public void onDataChange(DataSnapshot snapshot) {
+               String todaydata = String.valueOf(snapshot.child("today").getValue());
+               if(todaydata.equals("none") && snapshot.child("today") == null){
                     RankDialog();
                }else{
-                   mywalkrank = snapshot.child("today_walkrank").getValue().toString();
-                   mytrainrank = snapshot.child("today_trainrank").getValue().toString();
+                   mywalkrank = snapshot.child("today").child("today_walkrank").getValue().toString();
+                   mytrainrank = snapshot.child("today").child("today_trainrank").getValue().toString();
                    allmyrank = String.valueOf((Integer.parseInt(mywalkrank) + Integer.parseInt(mytrainrank))/2);
-                   mywalkpercent = snapshot.child("today_walkpercent").getValue().toString();
-                   mytrainpercent = snapshot.child("today_trainpercent").getValue().toString();
+                   mywalkpercent = snapshot.child("today").child("today_walkpercent").getValue().toString();
+                   mytrainpercent = snapshot.child("today").child("today_trainpercent").getValue().toString();
                    allmypercent = String.valueOf((Integer.parseInt(mywalkpercent) + Integer.parseInt(mytrainpercent))/2);
                    walkrank.setText(mywalkrank + "위");
                    brainrank.setText(mytrainrank+ "위");
@@ -114,7 +115,7 @@ public class User_MypageActivity extends AppCompatActivity {
            }
 
            @Override
-           public void onCancelled(@NonNull DatabaseError error) {
+           public void onCancelled(DatabaseError error) {
 
            }
        });
