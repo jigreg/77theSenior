@@ -96,21 +96,25 @@ public class User_MypageActivity extends AppCompatActivity {
            @Override
            public void onDataChange(DataSnapshot snapshot) {
                String todaydata = String.valueOf(snapshot.child("today").getValue());
-               if(todaydata.equals("none") && snapshot.child("today") == null){
-                    RankDialog();
-               }else{
-                   mywalkrank = snapshot.child("today").child("today_walkrank").getValue().toString();
-                   mytrainrank = snapshot.child("today").child("today_trainrank").getValue().toString();
-                   allmyrank = String.valueOf((Integer.parseInt(mywalkrank) + Integer.parseInt(mytrainrank))/2);
-                   mywalkpercent = snapshot.child("today").child("today_walkpercent").getValue().toString();
-                   mytrainpercent = snapshot.child("today").child("today_trainpercent").getValue().toString();
-                   allmypercent = String.valueOf((Integer.parseInt(mywalkpercent) + Integer.parseInt(mytrainpercent))/2);
-                   walkrank.setText(mywalkrank + "위");
-                   brainrank.setText(mytrainrank+ "위");
-                   walkpercent.setText("상위 " +mywalkpercent + "%");
-                   brainpercent.setText("상위 " +mytrainpercent + "%");
-                   allrank.setText(allmyrank + "위");
-                   allpercent.setText("상위 "+allmypercent +"%");
+               try {
+                   if (todaydata.equals("none") && snapshot.child("today") == null) {
+                       RankDialog();
+                   } else {
+                       mywalkrank = snapshot.child("today").child("today_walkrank").getValue().toString();
+                       mytrainrank = snapshot.child("today").child("today_trainrank").getValue().toString();
+                       allmyrank = String.valueOf((Integer.parseInt(mywalkrank) + Integer.parseInt(mytrainrank)) / 2);
+                       mywalkpercent = snapshot.child("today").child("today_walkpercent").getValue().toString();
+                       mytrainpercent = snapshot.child("today").child("today_trainpercent").getValue().toString();
+                       allmypercent = String.valueOf((Integer.parseInt(mywalkpercent) + Integer.parseInt(mytrainpercent)) / 2);
+                       walkrank.setText(mywalkrank + "위");
+                       brainrank.setText(mytrainrank + "위");
+                       walkpercent.setText("상위 " + mywalkpercent + "%");
+                       brainpercent.setText("상위 " + mytrainpercent + "%");
+                       allrank.setText(allmyrank + "위");
+                       allpercent.setText("상위 " + allmypercent + "%");
+                   }
+               }catch(NullPointerException e) {
+                   RankDialog();
                }
            }
 
