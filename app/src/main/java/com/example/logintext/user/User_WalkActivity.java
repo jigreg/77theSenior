@@ -69,12 +69,15 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
 
     public static int mStepDetector;
     public static int context_walk;
+    public static Context mContext;
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_walk);
+
+        mContext = this;
 
         Intent foregroundServiceIntent = new Intent(User_WalkActivity.this, UndeadService.class);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -195,9 +198,7 @@ public class User_WalkActivity extends AppCompatActivity implements SensorEventL
         });
 
         return;
-
     }
-
 
     public static void resetAlarm(Context context){
         AlarmManager resetAlarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);

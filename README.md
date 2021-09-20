@@ -206,3 +206,10 @@
     : Add Background Service
 
 - issue 1. Need to solve Foreground Service :(
+
+---
+
+### 0920 Hwang Won Tae
+    : Create Walk_Foreground Module & Implement notification tap's XML
+
+- issue 1. Need to merge new Module and User_WalkActivity

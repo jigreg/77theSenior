@@ -137,10 +137,10 @@ public class User_LocationActivity extends AppCompatActivity
         if(null == UndeadService.serviceIntent) {
             foregroundServiceIntent = new Intent(this, UndeadService.class);
             startService(foregroundServiceIntent);
-            Toast.makeText(getApplicationContext(),"Start Service", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(),"Start Service", Toast.LENGTH_SHORT).show();
         } else {
             foregroundServiceIntent = UndeadService.serviceIntent;
-            Toast.makeText(getApplicationContext(),"Already", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(),"Already", Toast.LENGTH_SHORT).show();
         }
 
         locationRequest = new LocationRequest()
@@ -577,6 +577,4 @@ public class User_LocationActivity extends AppCompatActivity
             return null;
         }
     }
-
-
 }

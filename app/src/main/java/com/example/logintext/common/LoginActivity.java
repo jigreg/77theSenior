@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.logintext.TestingActivity;
 import com.example.logintext.protector.Pro_MainActivity;
 import com.example.logintext.user.User_MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -83,6 +84,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this, FindIdPwActivity.class));
+//                startActivity(new Intent(LoginActivity.this, TestingActivity.class));
                 finish();
             }
         });

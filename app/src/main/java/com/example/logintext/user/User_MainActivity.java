@@ -1,10 +1,13 @@
 package com.example.logintext.user;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.view.View;
@@ -17,6 +20,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintext.R;
+import com.example.logintext.TestingActivity;
 import com.example.logintext.UndeadService;
 import com.example.logintext.common.LoginActivity;
 import com.example.logintext.common.LoginMaintainService;
@@ -113,6 +117,7 @@ public class User_MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mAuth.signOut();
                 stopService(foregroundServiceIntent);
+                ((UndeadService) UndeadService.context_main).onUnbind(serviceIntent);
                 LoginMaintainService.clearUserName(User_MainActivity.this);
                 Toast.makeText(getApplicationContext(), "로그아웃 합니다.", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(User_MainActivity.this, LoginActivity.class));
@@ -123,7 +128,8 @@ public class User_MainActivity extends AppCompatActivity {
         walk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(User_MainActivity.this, User_WalkActivity.class));
+//                startActivity(new Intent(User_MainActivity.this, User_WalkActivity.class));
+                startActivity(new Intent(User_MainActivity.this, TestingActivity.class));
                 finish();
             }
         });
