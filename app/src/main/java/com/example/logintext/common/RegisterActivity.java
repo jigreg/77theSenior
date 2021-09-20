@@ -314,6 +314,7 @@ public class RegisterActivity extends AppCompatActivity {
                                                         hashMap.put("myProtector", "none");
                                                         hashMap.put("gps", "none");
                                                         hashMap.put("walk", "0");
+                                                        hashMap.put("today","none");
                                                     } else if (type.equals("protector")) {
                                                         hashMap.put("myUser", "none");
                                                         hashMap.put("safeZone", "none");

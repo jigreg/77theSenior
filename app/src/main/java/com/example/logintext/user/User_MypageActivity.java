@@ -28,12 +28,13 @@ public class User_MypageActivity extends AppCompatActivity {
    private ImageButton back;
    private Button proinfo;
    private TextView allrank,allpercent,walkrank,walkpercent,brainrank,brainpercent,grade;
-   private String uid, proname, prophonenum, prouid;
+   private String uid, proname, prophonenum, prouid, mywalkrank,mytrainrank,mywalkpercent,mytrainpercent,allmyrank,allmypercent;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
        super.onCreate(savedInstanceState);
        setContentView(R.layout.user_mypage);
+
 
        back = (ImageButton)findViewById(R.id.back);
        proinfo = (Button)findViewById(R.id.proinfo);
@@ -44,6 +45,7 @@ public class User_MypageActivity extends AppCompatActivity {
        brainrank = (TextView)findViewById(R.id.brainrank);
        brainpercent = (TextView)findViewById(R.id.brainpercent);
        grade = (TextView)findViewById(R.id.grade);
+
 
        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
        uid = user.getUid();
@@ -90,6 +92,38 @@ public class User_MypageActivity extends AppCompatActivity {
            }
        });
 
+       nreference.child(uid).addValueEventListener(new ValueEventListener() {
+           @Override
+           public void onDataChange(DataSnapshot snapshot) {
+               String todaydata = String.valueOf(snapshot.child("today").getValue());
+               try {
+                   if (todaydata.equals("none") && snapshot.child("today") == null) {
+                       RankDialog();
+                   } else {
+                       mywalkrank = snapshot.child("today").child("today_walkrank").getValue().toString();
+                       mytrainrank = snapshot.child("today").child("today_trainrank").getValue().toString();
+                       allmyrank = String.valueOf((Integer.parseInt(mywalkrank) + Integer.parseInt(mytrainrank)) / 2);
+                       mywalkpercent = snapshot.child("today").child("today_walkpercent").getValue().toString();
+                       mytrainpercent = snapshot.child("today").child("today_trainpercent").getValue().toString();
+                       allmypercent = String.valueOf((Integer.parseInt(mywalkpercent) + Integer.parseInt(mytrainpercent)) / 2);
+                       walkrank.setText(mywalkrank + "위");
+                       brainrank.setText(mytrainrank + "위");
+                       walkpercent.setText("상위 " + mywalkpercent + "%");
+                       brainpercent.setText("상위 " + mytrainpercent + "%");
+                       allrank.setText(allmyrank + "위");
+                       allpercent.setText("상위 " + allmypercent + "%");
+                   }
+               }catch(NullPointerException e) {
+                   RankDialog();
+               }
+           }
+
+           @Override
+           public void onCancelled(DatabaseError error) {
+
+           }
+       });
+
 
 
    }//oncreate end
@@ -126,4 +160,20 @@ public class User_MypageActivity extends AppCompatActivity {
        msgDlg.show();
 
    }
+    void RankDialog() {
+        AlertDialog.Builder msgBuilder = new AlertDialog.Builder(User_MypageActivity.this)
+                .setTitle("순위갱신")
+                .setMessage("순위가 갱신되지 않았습니다."+"\n"+"버튼을 누르면 순위화면으로 이동되어 갱신됩니다.")
+                .setPositiveButton("확인",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                startActivity(new Intent(User_MypageActivity.this, User_RankActivity.class));
+                                finish();
+                            }
+                        });
+        AlertDialog msgDlg = msgBuilder.create();
+        msgDlg.show();
+
+    }
 }//main end
