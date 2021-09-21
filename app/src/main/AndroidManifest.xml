@@ -41,7 +41,7 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".TestingActivity"/>
+        <activity android:name=".user.User_TestWalkActivity"/>
         <activity android:name=".user.User_BrainMain"/>
         <activity android:name=".user.User_RankActivity" />
         <activity android:name=".user.User_RegisterCodeActivity" />

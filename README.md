@@ -213,3 +213,11 @@
     : Create Walk_Foreground Module & Implement notification tap's XML
 
 - issue 1. Need to merge new Module and User_WalkActivity
+
+---
+
+### 0921 Hwang Won Tae
+    : Merge Walk_Foreground Moudule & User_WalkActivity -> User_TestWalkActibity
+
+- issue 1. The number of notification tab steps has not changed.
+- issue 2. The foreground doesn't apply at once.

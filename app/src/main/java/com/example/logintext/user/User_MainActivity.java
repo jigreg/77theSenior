@@ -1,13 +1,10 @@
 package com.example.logintext.user;
 
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.view.View;
@@ -20,7 +17,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintext.R;
-import com.example.logintext.TestingActivity;
 import com.example.logintext.UndeadService;
 import com.example.logintext.common.LoginActivity;
 import com.example.logintext.common.LoginMaintainService;
@@ -129,7 +125,7 @@ public class User_MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                startActivity(new Intent(User_MainActivity.this, User_WalkActivity.class));
-                startActivity(new Intent(User_MainActivity.this, TestingActivity.class));
+                startActivity(new Intent(User_MainActivity.this, User_TestWalkActivity.class));
                 finish();
             }
         });
