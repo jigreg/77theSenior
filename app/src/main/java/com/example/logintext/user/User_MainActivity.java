@@ -102,7 +102,6 @@ public class User_MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-
         Intent foregroundServiceIntent = new Intent(User_MainActivity.this, UndeadService.class);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForegroundService(foregroundServiceIntent);
@@ -113,7 +112,10 @@ public class User_MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mAuth.signOut();
                 stopService(foregroundServiceIntent);
-                ((UndeadService) UndeadService.context_main).onUnbind(serviceIntent);
+                try {
+                    ((UndeadService) UndeadService.context_main).onUnbind(serviceIntent);
+                } catch (Exception e) { }
+
                 LoginMaintainService.clearUserName(User_MainActivity.this);
                 Toast.makeText(getApplicationContext(), "로그아웃 합니다.", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(User_MainActivity.this, LoginActivity.class));
