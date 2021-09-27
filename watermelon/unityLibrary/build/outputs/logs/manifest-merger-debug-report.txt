@@ -1,0 +1,125 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:3:1-38:12
+INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:3:1-38:12
+INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:3:1-38:12
+INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:3:1-38:12
+INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:3:1-38:12
+INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:3:1-38:12
+INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:3:1-38:12
+	package
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:4:5-33
+		INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml
+		INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:3:1-38:12
+		INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:4:34-80
+	android:versionCode
+		INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:3:1-38:12
+		INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:3:11-69
+application
+ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:5:3-30:17
+activity#com.unity3d.player.UnityPlayerActivity
+ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:6:5-21:16
+	android:screenOrientation
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:8:9-47
+	android:process
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:12:9-39
+	android:launchMode
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:9:9-40
+	android:hardwareAccelerated
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:11:9-44
+	android:configChanges
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:10:9-190
+	android:theme
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:7:9-50
+	android:name
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:6:15-68
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:13:7-16:23
+action#android.intent.action.MAIN
+ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:14:9-61
+	android:name
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:14:17-58
+category#android.intent.category.LAUNCHER
+ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:15:9-69
+	android:name
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:15:19-66
+meta-data#unityplayer.UnityActivity
+ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:17:7-18:34
+	android:value
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:18:11-31
+	android:name
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:17:18-58
+meta-data#android.notch_support
+ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:19:7-20:34
+	android:value
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:20:11-31
+	android:name
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:19:18-54
+meta-data#unity.splash-mode
+ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:22:5-23:29
+	android:value
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:23:9-26
+	android:name
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:22:16-48
+meta-data#unity.splash-enable
+ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:24:5-25:32
+	android:value
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:25:9-29
+	android:name
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:24:16-50
+meta-data#notch.config
+ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:26:5-27:46
+	android:value
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:27:9-43
+	android:name
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:26:16-43
+meta-data#unity.build-id
+ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:28:5-29:64
+	android:value
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:29:9-61
+	android:name
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:28:16-45
+uses-feature#0x00020000
+ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:31:3-52
+	android:glEsVersion
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:31:17-49
+uses-feature#android.hardware.touchscreen
+ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:32:3-33:34
+	android:required
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:33:7-31
+	android:name
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:32:17-60
+uses-feature#android.hardware.touchscreen.multitouch
+ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:34:3-35:34
+	android:required
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:35:7-31
+	android:name
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:34:17-71
+uses-feature#android.hardware.touchscreen.multitouch.distinct
+ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:36:3-37:34
+	android:required
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:37:7-31
+	android:name
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml:36:17-80
+uses-sdk
+INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml
+INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml
+INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml
+INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml
+		INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml
+		ADDED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml
+		INJECTED from D:\myGit\77theSenior\watermelon\unityLibrary\src\main\AndroidManifest.xml

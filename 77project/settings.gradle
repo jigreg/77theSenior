@@ -1,2 +1,4 @@
+include ':launcher'
+include ':unityLibrary'
 include ':app'
 rootProject.name = "logintext"
