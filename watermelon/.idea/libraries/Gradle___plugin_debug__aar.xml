@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: :plugin-debug:@aar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../../projectmk3/logintext/caches/transforms-3/74692eeecd0aec9ff0ca93b57c9b8d04/transformed/plugin-debug/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../projectmk3/logintext/caches/transforms-3/74692eeecd0aec9ff0ca93b57c9b8d04/transformed/plugin-debug/res" />
+      <root url="file://$PROJECT_DIR$/../../../../projectmk3/logintext/caches/transforms-3/74692eeecd0aec9ff0ca93b57c9b8d04/transformed/plugin-debug/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../../../../../projectmk3/logintext/caches/transforms-3/74692eeecd0aec9ff0ca93b57c9b8d04/transformed/plugin-debug/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../../../../../projectmk3/logintext/caches/transforms-3/74692eeecd0aec9ff0ca93b57c9b8d04/transformed/plugin-debug/res" />
+      <root url="jar://$PROJECT_DIR$/../../../../../projectmk3/logintext/caches/transforms-3/74692eeecd0aec9ff0ca93b57c9b8d04/transformed/plugin-debug/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
