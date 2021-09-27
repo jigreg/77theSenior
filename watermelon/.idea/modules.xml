@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/watermelon.iml" filepath="$PROJECT_DIR$/.idea/modules/watermelon.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/launcher/watermelon.launcher.iml" filepath="$PROJECT_DIR$/.idea/modules/launcher/watermelon.launcher.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unityLibrary/watermelon.unityLibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/unityLibrary/watermelon.unityLibrary.iml" />
     </modules>
   </component>
 </project>

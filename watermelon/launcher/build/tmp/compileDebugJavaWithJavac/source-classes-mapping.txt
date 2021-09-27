@@ -1,2 +1,0 @@
-com/DefaultCompany/Watermelongame/BuildConfig.java
- com.DefaultCompany.Watermelongame.BuildConfig

@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9fa6cb62-95a8-4931-94e4-e1327c5d0879" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../77project" beforeDir="false" afterPath="$PROJECT_DIR$/../77project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/javaCompile/jarAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle____unityLibrary_libs_unity_classes_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle___plugin_debug__aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/launcher/watermelon.launcher.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/unityLibrary/watermelon.unityLibrary.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/watermelon.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/generated/source/buildConfig/debug/com/DefaultCompany/Watermelongame/BuildConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/annotation_processor_list/debug/annotationProcessors.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/apk_list/debug/apk-list.gson" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/blame/res/debug/multi-v2/debug.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/blame/res/debug/multi-v2/values-v21.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/blame/res/debug/multi-v2/values-v28.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/blame/res/debug/multi-v2/values.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/blame/res/debug/single/debug.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/bundle_manifest/debug/bundle-manifest/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/bundle_manifest/debug/bundle-manifest/output.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/compatible_screen_manifest/debug/out/output.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/dex/debug/mergeLibDexDebug/out/classes_0.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/dex_archive_input_jar_hashes/debug/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/external_file_lib_dex_archives/debug/out/0_unity-classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/external_libs_dex/debug/out/classes.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/Dja+_RBpfSiTJpPVDs0WNnDgFNI=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/wF+nlRZfzd1MqNyDsJLNff97ALs=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/yrA1DF9Xsmm4tKd6hdEN+yVpME4=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/debug-mergeNativeLibs/merge-state" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/Dja+_RBpfSiTJpPVDs0WNnDgFNI=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/wF+nlRZfzd1MqNyDsJLNff97ALs=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/yrA1DF9Xsmm4tKd6hdEN+yVpME4=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v28/values-v28.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/mergeDebugResources/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/mergeDebugShaders/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/javaResources0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/instant_app_manifest/debug/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/instant_app_manifest/debug/output.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/javac/debug/classes/com/DefaultCompany/Watermelongame/BuildConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/Assembly-CSharp.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/Mono.Security.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.ComponentModel.Composition.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.Configuration.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.Core.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.Data.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.Diagnostics.StackTrace.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.Drawing.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.EnterpriseServices.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.Globalization.Extensions.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.IO.Compression.FileSystem.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.IO.Compression.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.Net.Http.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.Numerics.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.Runtime.Serialization.Xml.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.Runtime.Serialization.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.ServiceModel.Internals.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.Transactions.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.Xml.Linq.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.Xml.XPath.XDocument.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.Xml.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/System.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/Unity.2D.Animation.Runtime.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/Unity.2D.Animation.Triangle.Runtime.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/Unity.2D.Common.Runtime.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/Unity.2D.IK.Runtime.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/Unity.2D.PixelPerfect.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/Unity.2D.SpriteShape.Runtime.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/Unity.InternalAPIEngineBridge.001.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/Unity.Mathematics.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/Unity.TextMeshPro.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/Unity.Timeline.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.AIModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.ARModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.AccessibilityModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.AndroidJNIModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.AnimationModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.AssetBundleModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.AudioModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.ClothModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.CoreModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.CrashReportingModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.DSPGraphModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.DirectorModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.GIModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.GameCenterModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.GridModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.HotReloadModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.IMGUIModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.ImageConversionModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.InputLegacyModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.InputModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.JSONSerializeModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.LocalizationModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.ParticleSystemModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.PerformanceReportingModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.Physics2DModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.PhysicsModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.ProfilerModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.ScreenCaptureModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.SharedInternalsModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.SpriteMaskModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.SpriteShapeModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.StreamingModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.SubstanceModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.SubsystemsModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.TLSModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.TerrainModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.TerrainPhysicsModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.TextCoreModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.TextRenderingModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.TilemapModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.UI.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.UIElementsModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.UIElementsNativeModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.UIModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.UNETModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.UmbraModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.UnityAnalyticsModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.UnityConnectModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.UnityCurlModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.UnityTestProtocolModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.UnityWebRequestModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.VFXModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.VRModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.VehiclesModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.VideoModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.WindModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.XRModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/UnityEngine.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/mscorlib.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/Managed/netstandard.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/RuntimeInitializeOnLoads.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/ScriptingAssemblies.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/boot.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/data.unity3d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/platform_native_link.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_assets/debug/out/bin/Data/unity default resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_java_res/debug/out.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_manifests/debug/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_manifests/debug/output.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_native_libs/debug/out/lib/armeabi-v7a/libMonoPosixHelper.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_native_libs/debug/out/lib/armeabi-v7a/libmain.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_native_libs/debug/out/lib/armeabi-v7a/libmonobdwgc-2.0.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/merged_native_libs/debug/out/lib/armeabi-v7a/libunity.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/metadata_feature_manifest/debug/metadata-feature/output.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/navigation_json/debug/navigation.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/processed_res/debug/out/output.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/processed_res/debug/out/resources-debug.ap_" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/project_dex_archive/debug/out/com/DefaultCompany/Watermelongame/BuildConfig.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/project_dex_archive/debug/out/d1957301fa8220a27c3794716b3b230f19ae70b01d2d519074df8e0bca17903b_0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/project_dex_archive/debug/out/d1957301fa8220a27c3794716b3b230f19ae70b01d2d519074df8e0bca17903b_2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/project_dex_archive/debug/out/d1957301fa8220a27c3794716b3b230f19ae70b01d2d519074df8e0bca17903b_3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/project_dex_archive/debug/out/d1957301fa8220a27c3794716b3b230f19ae70b01d2d519074df8e0bca17903b_5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/project_dex_archive/debug/out/d1957301fa8220a27c3794716b3b230f19ae70b01d2d519074df8e0bca17903b_7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/res/merged/debug/mipmap-anydpi-v26_app_icon.xml.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/res/merged/debug/mipmap-anydpi-v26_app_icon_round.xml.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/res/merged/debug/mipmap-mdpi_app_icon.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_background.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_foreground.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/res/merged/debug/values-v21_values-v21.arsc.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/res/merged/debug/values-v28_values-v28.arsc.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/res/merged/debug/values_values.arsc.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/runtime_symbol_list/debug/R.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/stripped_native_libs/debug/out/lib/armeabi-v7a/libMonoPosixHelper.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/stripped_native_libs/debug/out/lib/armeabi-v7a/libmain.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/stripped_native_libs/debug/out/lib/armeabi-v7a/libmonobdwgc-2.0.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/stripped_native_libs/debug/out/lib/armeabi-v7a/libunity.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/outputs/apk/debug/launcher-debug.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/outputs/apk/debug/output.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/.transforms/120fee14e3d0a6daa6be0b4c46b8acc7/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/.transforms/120fee14e3d0a6daa6be0b4c46b8acc7/transformed/classes/classes.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/.transforms/990755db96ff77c800a39d0472da2579/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/.transforms/990755db96ff77c800a39d0472da2579/transformed/classes/classes.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/generated/source/buildConfig/debug/com/unity3d/player/BuildConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/aapt_friendly_merged_manifests/debug/aapt/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/aapt_friendly_merged_manifests/debug/aapt/output.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/annotation_processor_list/debug/annotationProcessors.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/compile_library_classes/debug/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/compile_only_not_namespaced_r_class_jar/debug/R.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/compile_symbol_list/debug/R.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/incremental/debug-mergeNativeLibs/merge-state" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/incremental/mergeDebugShaders/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/incremental/packageDebugAssets/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/incremental/packageDebugResources/merged.dir/values-v21/values-v21.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/incremental/packageDebugResources/merged.dir/values-v28/values-v28.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/incremental/packageDebugResources/merged.dir/values/values.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/incremental/packageDebugResources/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/javac/debug/classes/com/unity3d/player/BuildConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/javac/debug/classes/com/unity3d/player/UnityPlayerActivity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/Assembly-CSharp.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/Mono.Security.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.ComponentModel.Composition.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.Configuration.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.Core.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.Data.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.Diagnostics.StackTrace.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.Drawing.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.EnterpriseServices.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.Globalization.Extensions.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.IO.Compression.FileSystem.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.IO.Compression.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.Net.Http.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.Numerics.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.Runtime.Serialization.Xml.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.Runtime.Serialization.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.ServiceModel.Internals.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.Transactions.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.Xml.Linq.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.Xml.XPath.XDocument.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.Xml.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/System.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/Unity.2D.Animation.Runtime.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/Unity.2D.Animation.Triangle.Runtime.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/Unity.2D.Common.Runtime.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/Unity.2D.IK.Runtime.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/Unity.2D.PixelPerfect.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/Unity.2D.SpriteShape.Runtime.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/Unity.InternalAPIEngineBridge.001.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/Unity.Mathematics.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/Unity.TextMeshPro.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/Unity.Timeline.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.AIModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.ARModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.AccessibilityModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.AndroidJNIModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.AnimationModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.AssetBundleModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.AudioModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.ClothModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.CoreModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.CrashReportingModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.DSPGraphModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.DirectorModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.GIModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.GameCenterModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.GridModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.HotReloadModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.IMGUIModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.ImageConversionModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.InputLegacyModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.InputModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.JSONSerializeModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.LocalizationModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.ParticleSystemModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.PerformanceReportingModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.Physics2DModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.PhysicsModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.ProfilerModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.ScreenCaptureModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.SharedInternalsModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.SpriteMaskModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.SpriteShapeModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.StreamingModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.SubstanceModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.SubsystemsModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.TLSModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.TerrainModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.TerrainPhysicsModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.TextCoreModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.TextRenderingModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.TilemapModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.UI.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.UIElementsModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.UIElementsNativeModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.UIModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.UNETModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.UmbraModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.UnityAnalyticsModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.UnityConnectModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.UnityCurlModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.UnityTestProtocolModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.UnityWebRequestModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.VFXModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.VRModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.VehiclesModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.VideoModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.WindModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.XRModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/UnityEngine.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/mscorlib.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/Managed/netstandard.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/RuntimeInitializeOnLoads.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/ScriptingAssemblies.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/boot.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/data.unity3d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/platform_native_link.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_assets/debug/out/bin/Data/unity default resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_java_res/debug/res.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_jni/debug/jni/armeabi-v7a/libMonoPosixHelper.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_jni/debug/jni/armeabi-v7a/libmain.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_jni/debug/jni/armeabi-v7a/libmonobdwgc-2.0.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_jni/debug/jni/armeabi-v7a/libunity.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/library_manifest/debug/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/local_only_symbol_list/debug/R-def.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/merged_jni_libs/debug/out/armeabi-v7a/libMonoPosixHelper.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/merged_jni_libs/debug/out/armeabi-v7a/libmain.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/merged_jni_libs/debug/out/armeabi-v7a/libmonobdwgc-2.0.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/merged_jni_libs/debug/out/armeabi-v7a/libunity.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/merged_manifests/debug/output.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/merged_native_libs/debug/out/lib/armeabi-v7a/libMonoPosixHelper.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/merged_native_libs/debug/out/lib/armeabi-v7a/libmain.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/merged_native_libs/debug/out/lib/armeabi-v7a/libmonobdwgc-2.0.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/merged_native_libs/debug/out/lib/armeabi-v7a/libunity.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/navigation_json/debug/navigation.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/packaged_res/debug/values-v21/values-v21.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/packaged_res/debug/values-v28/values-v28.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/packaged_res/debug/values/values.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/runtime_library_classes/debug/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/stripped_native_libs/debug/out/lib/armeabi-v7a/libMonoPosixHelper.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/stripped_native_libs/debug/out/lib/armeabi-v7a/libmain.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/stripped_native_libs/debug/out/lib/armeabi-v7a/libmonobdwgc-2.0.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/stripped_native_libs/debug/out/lib/armeabi-v7a/libunity.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/unityLibrary/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/src/main/assets/bin/Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/unityLibrary/src/main/assets/bin/Data/Managed/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/src/main/assets/bin/Data/boot.config" beforeDir="false" afterPath="$PROJECT_DIR$/unityLibrary/src/main/assets/bin/Data/boot.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unityLibrary/src/main/assets/bin/Data/data.unity3d" beforeDir="false" afterPath="$PROJECT_DIR$/unityLibrary/src/main/assets/bin/Data/data.unity3d" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1yhoxdp9qMbSdVsyXpASvglBsVq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../77project" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9fa6cb62-95a8-4931-94e4-e1327c5d0879" name="Default Changelist" comment="" />
+      <created>1632713431804</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1632713431804</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
