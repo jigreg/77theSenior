@@ -65,14 +65,14 @@ public class User_TestWalkActivity extends AppCompatActivity {
     private ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            Toast.makeText(getApplicationContext(), "예쓰바인딩", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "예쓰바인딩", Toast.LENGTH_SHORT).show();
             UndeadService.MyBinder mb  = (UndeadService.MyBinder) service;
             stepService = mb.getService();
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
-            Toast.makeText(getApplicationContext(), "디스바인딩", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "디스바인딩", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -91,7 +91,7 @@ public class User_TestWalkActivity extends AppCompatActivity {
         stepService = new UndeadService();
 
         Intent foregroundServiceIntent = new Intent(User_TestWalkActivity.this, UndeadService.class);
-        startService(foregroundServiceIntent);
+//        startService(foregroundServiceIntent);
         bindService(foregroundServiceIntent, serviceConnection, Context.BIND_AUTO_CREATE);
 
         back = (ImageButton) findViewById(R.id.back);

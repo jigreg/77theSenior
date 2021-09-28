@@ -70,33 +70,13 @@ public class Pro_MainActivity extends AppCompatActivity {
                     mReference.child("user").child(myUser).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            mywalk = (String.valueOf(snapshot.child("walk").child("date").child(format_time).child("walk").getValue()));
-                            if (mywalk.equals("null")) {
+                            mywalk = snapshot.child("today_walking").getValue().toString();
+                            mytrain = snapshot.child("today_training").getValue().toString();
+                            if (mywalk.equals("0")) {
                                 walkstep.setText("오늘은 걷지 않았어요");
                             } else {
                                 walkstep.setText(mywalk + "걸음");
                             }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                        }
-                    });
-                }else {
-                    walkstep.setText("사용자와 연동해주세요.");
-                }
-            }
-        });
-
-        mReference.child("protector").child(uid).child("myUser").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                myUser = task.getResult().getValue().toString();
-                if (!myUser.equals("none")) {
-                    mReference.child("user").child(myUser).addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            mytrain = dataSnapshot.child("today_training").getValue().toString();
                             if (mytrain.equals("0")) {
                                 brain_train.setText("오늘도 훈련해봐요");
                             } else {
@@ -109,6 +89,7 @@ public class Pro_MainActivity extends AppCompatActivity {
                         }
                     });
                 }else {
+                    walkstep.setText("사용자와 연동해주세요.");
                     brain_train.setText("사용자와 연동해주세요.");
                 }
             }
