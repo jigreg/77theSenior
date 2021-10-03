@@ -62,9 +62,8 @@ public class UndeadService extends Service implements SensorEventListener {
     private Sensor stepDetectorSensor;
     private Sensor stepCountSensor;
 
-//    private RemoteViews remoteViews;
-//
-//    private NotificationCompat.Builder builder;
+    private RemoteViews remoteViews;
+    private NotificationCompat.Builder builder;
 
     public static int mStepDetector;
 
@@ -111,12 +110,14 @@ public class UndeadService extends Service implements SensorEventListener {
         Intent notificationIntent = new Intent(this, User_TestWalkActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
-        RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.notification);
+        remoteViews = new RemoteViews(getPackageName(), R.layout.notification);
 
-        NotificationCompat.Builder builder;
         NotificationChannel channel = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
+            channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_LOW);
+            channel.setVibrationPattern(new long[]{0});
+            channel.enableVibration(true);
+
             ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE))
                     .createNotificationChannel(channel);
             builder = new NotificationCompat.Builder(this, CHANNEL_ID);
@@ -175,9 +176,6 @@ public class UndeadService extends Service implements SensorEventListener {
             if (event.values[0] == 1.0f) {
                 mStepDetector += event.values[0];
 
-//                remoteViews.setTextViewText(R.id.step_count, mStepDetector+"");
-//                builder.setContent(remoteViews);
-
                 Toast.makeText(getApplicationContext(), mStepDetector+"걸음", Toast.LENGTH_SHORT).show();
 
                 Map<String, Object> his = new HashMap<>();
@@ -191,6 +189,11 @@ public class UndeadService extends Service implements SensorEventListener {
 
 
                 if (callBack != null) callBack.onStepCallback(mStepDetector);
+
+                remoteViews.setTextViewText(R.id.step_count, mStepDetector+"");
+                builder.setContent(remoteViews);
+
+                startForeground(1, builder.build());
             }
         }
     }
