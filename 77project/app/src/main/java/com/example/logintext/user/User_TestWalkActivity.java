@@ -2,7 +2,9 @@ package com.example.logintext.user;
 
 
 import android.Manifest;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -23,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.dinuscxj.progressbar.CircleProgressBar;
+import com.example.logintext.AlarmReceiver;
 import com.example.logintext.R;
 import com.example.logintext.UndeadService;
 import com.google.firebase.auth.FirebaseAuth;
@@ -57,6 +60,7 @@ public class User_TestWalkActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference mReference, today_reference;
     private FirebaseUser user;
+    private AlarmManager alarmManager;
 
     private int mStepDetector = ((UndeadService) UndeadService.context_main).mStepDetector;
 
@@ -66,7 +70,7 @@ public class User_TestWalkActivity extends AppCompatActivity {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
 //            Toast.makeText(getApplicationContext(), "예쓰바인딩", Toast.LENGTH_SHORT).show();
-            UndeadService.MyBinder mb  = (UndeadService.MyBinder) service;
+            UndeadService.MyBinder mb = (UndeadService.MyBinder) service;
             stepService = mb.getService();
         }
 
@@ -83,12 +87,14 @@ public class User_TestWalkActivity extends AppCompatActivity {
         setContentView(R.layout.user_walk);
 
         if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACTIVITY_RECOGNITION) == PackageManager.PERMISSION_DENIED){
+                Manifest.permission.ACTIVITY_RECOGNITION) == PackageManager.PERMISSION_DENIED) {
 
             requestPermissions(new String[]{Manifest.permission.ACTIVITY_RECOGNITION}, 0);
         }
 
         stepService = new UndeadService();
+        alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        setAlarm();
 
         Intent foregroundServiceIntent = new Intent(User_TestWalkActivity.this, UndeadService.class);
 //        startService(foregroundServiceIntent);
@@ -104,10 +110,10 @@ public class User_TestWalkActivity extends AppCompatActivity {
         countWalk = (TextView) findViewById(R.id.walk);
         dis = (TextView) findViewById(R.id.distance);
         calorie = (TextView) findViewById(R.id.calorie);
-        userNickName = (TextView)findViewById(R.id.userNickName);
+        userNickName = (TextView) findViewById(R.id.userNickName);
         count = (TextView) findViewById(R.id.count);
 
-        datePicker = (DatePicker)findViewById(R.id.datePicker);
+        datePicker = (DatePicker) findViewById(R.id.datePicker);
 
         cal = Calendar.getInstance();
 
@@ -115,7 +121,8 @@ public class User_TestWalkActivity extends AppCompatActivity {
 
         circleProgressBar.setProgressFormatter((progress, max) -> {
             final String DEFAULT_PATTERN = "목표 %d 걸음 -> %d 걸음";
-            return String.format(DEFAULT_PATTERN, max, progress); });
+            return String.format(DEFAULT_PATTERN, max, progress);
+        });
         circleProgressBar.setMax(100);
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -143,7 +150,7 @@ public class User_TestWalkActivity extends AppCompatActivity {
                 });
 
         // 걸음 데이터 데이터베이스에 업로드
-        format = new SimpleDateFormat ( "yyyybMbd");
+        format = new SimpleDateFormat("yyyybMbd");
         time = Calendar.getInstance();
 
         format_time = format.format(time.getTime());
@@ -182,39 +189,23 @@ public class User_TestWalkActivity extends AppCompatActivity {
                 } catch (Exception e) {
                 }
 
-                if  (walk.equals("null")) {
+                if (walk.equals("null")) {
                     count.setText("오늘도 걸어봅시다!");
                 } else {
                     count.setText("걸음 수 : " + walk);
                 }
                 nickname = dataSnapshot.child("name").getValue().toString();
-                userNickName.setText("닉네임 : "+ nickname );
+                userNickName.setText("닉네임 : " + nickname);
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(getApplicationContext(),"onCancelled", Toast.LENGTH_SHORT);
+                Toast.makeText(getApplicationContext(), "onCancelled", Toast.LENGTH_SHORT);
             }
         });
 
         return;
     }
-
-//    public static void resetAlarm(Context context){
-//        AlarmManager resetAlarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-//        Intent resetIntent = new Intent(context, Alarmservice.class);
-//        PendingIntent resetSender = PendingIntent.getBroadcast(context, 0, resetIntent, 0); // 자정 시간
-//        Calendar resetCal = Calendar.getInstance(); resetCal.setTimeInMillis(System.currentTimeMillis());
-//        resetCal.set(Calendar.HOUR_OF_DAY, 0); resetCal.set(Calendar.MINUTE,0); resetCal.set(Calendar.SECOND, 0);
-//
-//        // 다음날 0시에 맞추기 위해 24시간을 뜻하는 상수인 AlarmManager.INTERVAL_DAY를 더해줌.
-//        resetAlarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, resetCal.getTimeInMillis() +
-//                AlarmManager.INTERVAL_DAY, AlarmManager.INTERVAL_DAY, resetSender);
-//        SimpleDateFormat format = new SimpleDateFormat("MM/dd kk:mm:ss");
-//        String setResetTime = format.format(new Date(resetCal.getTimeInMillis()+AlarmManager.INTERVAL_DAY));
-//        Log.d("resetAlarm", "ResetHour : " + setResetTime);
-//    }
-
-
     // calender
     DatePickerDialog.OnDateSetListener mDateSetListener =
             new DatePickerDialog.OnDateSetListener() {
@@ -224,4 +215,20 @@ public class User_TestWalkActivity extends AppCompatActivity {
                     date.setText(String.format("%d-%d-%d", yy, mm + 1, dd));
                 }
             };
+
+    private void setAlarm() {
+        //AlarmReceiver에 값 전달
+        Intent receiverIntent = new Intent(User_TestWalkActivity.this, AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(User_TestWalkActivity.this, 0, receiverIntent, 0);
+
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
+        calendar.set(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 59);
+
+        alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
+
+    }
 }
+

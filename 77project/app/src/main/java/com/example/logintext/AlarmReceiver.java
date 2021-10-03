@@ -19,7 +19,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     private FirebaseDatabase mDatabase;
     private DatabaseReference today_reference;
     private FirebaseUser user;
-
+    public AlarmReceiver(){ }
     private String uid;
 
     @Override
@@ -31,13 +31,12 @@ public class AlarmReceiver extends BroadcastReceiver {
         mDatabase = FirebaseDatabase.getInstance("https://oldman-eb51e-default-rtdb.firebaseio.com/");
         today_reference = mDatabase.getReference("Users").child("user").child(uid);
 
-        ((User_WalkActivity)User_WalkActivity.mContext).mStepDetector = 0;
-
         Map<String, Object> reset = new HashMap<>();
-        reset.put("today_walking", 0);
+        reset.put("today_walking",0);
         reset.put("today_training", 0);
 
         today_reference.updateChildren(reset);
+        ((UndeadService)UndeadService.context_main).mStepDetector = 0;
     }
 
 }

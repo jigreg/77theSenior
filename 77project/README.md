@@ -266,3 +266,11 @@
     : Notification update solved & Remove the sound and vibration
 
 - issue 1. Foreground's StepDetector doesn't apply at once.
+
+---
+
+### 1003 Yu Seo Jun
+
+    : ADD AlarmReceiver & 12:00 Push Data in DB
+
+- issue 1. Ranking has to do it .
