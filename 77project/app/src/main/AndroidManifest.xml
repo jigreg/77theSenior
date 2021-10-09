@@ -41,7 +41,14 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".user.User_TestWalkActivity"/>
+        <receiver android:name=".PushAlarmReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
         <activity android:name=".user.User_BrainMain"/>
         <activity android:name=".user.User_RankActivity" />
         <activity android:name=".user.User_RegisterCodeActivity" />
@@ -50,8 +57,9 @@
         <activity android:name=".user.User_SettingActivity" />
         <activity android:name=".user.User_LocationActivity" />
         <activity android:name=".user.User_MainActivity" />
-        <activity android:name=".user.User_WalkActivity" />
         <activity android:name=".user.User_MypageActivity" />
+        <activity android:name=".user.User_WalkActivity" />
+        <activity android:name=".user.User_TestRankActivity" />
         <activity android:name=".protector.Pro_RegisterCodeActivity" />
         <activity android:name=".protector.Pro_SettingActivity" />
         <activity android:name=".protector.Pro_GPSHistoryActivity" />

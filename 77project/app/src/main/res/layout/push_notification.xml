@@ -13,7 +13,7 @@
         android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="  77맞은 어르신"
+        android:text="  77 맞은 어르신"
         android:drawableLeft="@drawable/noti_icon_1"/>
 
     <RelativeLayout
@@ -22,27 +22,28 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/title">
 
-
         <TextView
-            android:id="@+id/step_count"
-            android:layout_toRightOf="@+id/logo"
-            android:paddingLeft="10dp"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:gravity="center"
-            android:text="0000"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/steps"
+            android:id="@+id/message"
             android:paddingTop="5dp"
+            android:paddingLeft="15dp"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="25dp"
             android:layout_toRightOf="@+id/step_count"
             android:gravity="center"
+            android:textSize="15dp"
+            android:text="@string/push_alram_01"/>
+
+        <TextView
+            android:id="@+id/sub_message"
+            android:paddingTop="5dp"
+            android:paddingLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_toRightOf="@+id/step_count"
+            android:layout_below="@+id/message"
+            android:gravity="center"
             android:textSize="12dp"
-            android:text="걸음"/>
+            android:text="@string/push_alram_02"/>
 
         <ImageView
             android:id="@+id/icon_01"
@@ -56,23 +57,8 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="10dp"
         android:layout_below="@+id/line">
-
-        <TextView
-            android:id="@+id/text_contents"
-            android:paddingLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="12dp"
-            android:text="오늘도 걸어볼까요?"/>
-
-        <TextView
-            android:layout_below="@id/text_contents"
-            android:layout_width="wrap_content"
-            android:layout_height="10dp"/>
-
 
     </RelativeLayout>
 

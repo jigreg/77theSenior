@@ -45,12 +45,12 @@
             android:orientation="vertical">
 
             <Switch
-                android:id="@+id/switch1"
+                android:id="@+id/all_set"
                 android:layout_width="350dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
                 android:background="@drawable/textview5"
-                android:paddingLeft="30dp"
+                android:paddingLeft="65dp"
                 android:text="전체 알림"
                 android:textColor="#4C4B4B"
                 android:textSize="23dp"
@@ -66,44 +66,44 @@
                 android:orientation="vertical">
 
                 <Switch
-                    android:id="@+id/switch2"
+                    android:id="@+id/msg_set"
                     android:layout_width="300dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="50dp"
                     android:layout_marginBottom="130dp"
                     android:paddingLeft="40dp"
-                    android:text="메시지 알림"
+                    android:text="일일 메시지 알림"
                     android:textColor="#4C4B4B"
                     android:textSize="20dp"
                     android:textStyle="bold"></Switch>
 
                 <Switch
-                    android:id="@+id/switch3"
+                    android:id="@+id/safe_set"
                     android:layout_width="300dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="-120dp"
-                    android:paddingLeft="65dp"
-                    android:text="소리"
+                    android:paddingLeft="40dp"
+                    android:text="안전구역 알림"
                     android:textColor="#4C4B4B"
                     android:textSize="20dp"
                     android:textStyle="bold"></Switch>
 
                 <Switch
-                    android:id="@+id/switch4"
+                    android:id="@+id/rank_set"
                     android:layout_width="300dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:paddingLeft="65dp"
-                    android:text="진동"
+                    android:paddingLeft="40dp"
+                    android:text="랭킹 변동 알림"
                     android:textColor="#4C4B4B"
                     android:textSize="20dp"
                     android:textStyle="bold"></Switch>
 
                 <Switch
-                    android:id="@+id/switch5"
+                    android:id="@+id/market_set"
                     android:layout_width="300dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"

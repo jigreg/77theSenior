@@ -274,3 +274,12 @@
     : ADD AlarmReceiver & 12:00 Push Data in DB
 
 - issue 1. Ranking has to do it .
+
+---
+
+### 1009 Hwang Won Tae
+
+    : ADD PushAlarmReceiver & Several internal restructuring
+
+- issue 1. Ranking changes are underway.
+- issue 2. Need to change DB when adding PushAlram

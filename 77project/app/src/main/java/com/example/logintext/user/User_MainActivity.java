@@ -1,5 +1,8 @@
 package com.example.logintext.user;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -16,6 +19,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.logintext.AlarmReceiver;
+import com.example.logintext.PushAlarmReceiver;
 import com.example.logintext.R;
 import com.example.logintext.UndeadService;
 import com.example.logintext.common.LoginActivity;
@@ -53,6 +58,8 @@ public class User_MainActivity extends AppCompatActivity {
 
     private String uid, format_time, mywalk, mytrain;
 
+    private AlarmManager alarmManager;
+
     private SimpleDateFormat format;
     private Calendar time;
     private ArrayList<NewsItem> arrayList;
@@ -80,6 +87,9 @@ public class User_MainActivity extends AppCompatActivity {
 
         walkstep = (TextView) findViewById(R.id.walk_step);
         brain_train = (TextView) findViewById(R.id.brain_train);
+
+        alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        setAlarm();
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -127,7 +137,7 @@ public class User_MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                startActivity(new Intent(User_MainActivity.this, User_WalkActivity.class));
-                startActivity(new Intent(User_MainActivity.this, User_TestWalkActivity.class));
+                startActivity(new Intent(User_MainActivity.this, User_WalkActivity.class));
                 finish();
             }
         });
@@ -251,6 +261,22 @@ public class User_MainActivity extends AppCompatActivity {
             stopService(serviceIntent);
             serviceIntent = null;
         }
+    }
+
+    private void setAlarm() {
+        Intent receiverIntent = new Intent(User_MainActivity.this, PushAlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(User_MainActivity.this, 0, receiverIntent, 0);
+
+        Calendar calendar = Calendar.getInstance();
+//        calendar.set(Calendar.HOUR_OF_DAY, 17);
+//        calendar.set(Calendar.MINUTE, 59);
+//        calendar.set(Calendar.SECOND, 59);
+
+        calendar.set(Calendar.HOUR_OF_DAY, 20);
+        calendar.set(Calendar.MINUTE, 26);
+        calendar.set(Calendar.SECOND, 59);
+
+        alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
     }
 
     /* 뉴스 크롤링하기 */

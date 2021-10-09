@@ -14,13 +14,10 @@ import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
 import android.widget.RemoteViews;
-import android.widget.TextView;
-import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
-import com.example.logintext.user.User_LocationActivity;
-import com.example.logintext.user.User_MainActivity;
-import com.example.logintext.user.User_TestWalkActivity;
+
 import com.example.logintext.user.User_WalkActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -106,8 +103,7 @@ public class UndeadService extends Service implements SensorEventListener {
 //            Toast.makeText(this, "No Step Detect Sensor", Toast.LENGTH_SHORT).show();
         }
 
-//        Intent notificationIntent = new Intent(this, User_WalkActivity.class);
-        Intent notificationIntent = new Intent(this, User_TestWalkActivity.class);
+        Intent notificationIntent = new Intent(this, User_WalkActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
         remoteViews = new RemoteViews(getPackageName(), R.layout.notification);
@@ -175,8 +171,6 @@ public class UndeadService extends Service implements SensorEventListener {
         if (event.sensor.getType() == Sensor.TYPE_STEP_DETECTOR) {
             if (event.values[0] == 1.0f) {
                 mStepDetector += event.values[0];
-
-                Toast.makeText(getApplicationContext(), mStepDetector+"걸음", Toast.LENGTH_SHORT).show();
 
                 Map<String, Object> his = new HashMap<>();
                 his.put("walking", mStepDetector);
