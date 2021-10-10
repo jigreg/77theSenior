@@ -19,9 +19,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.logintext.AlarmReceiver;
 import com.example.logintext.PushAlarmReceiver;
 import com.example.logintext.R;
+import com.example.logintext.RankRegisterReceiver;
 import com.example.logintext.UndeadService;
 import com.example.logintext.common.LoginActivity;
 import com.example.logintext.common.LoginMaintainService;
@@ -58,7 +58,7 @@ public class User_MainActivity extends AppCompatActivity {
 
     private String uid, format_time, mywalk, mytrain;
 
-    private AlarmManager alarmManager;
+    private AlarmManager alarmManager, rankManager;
 
     private SimpleDateFormat format;
     private Calendar time;
@@ -89,7 +89,9 @@ public class User_MainActivity extends AppCompatActivity {
         brain_train = (TextView) findViewById(R.id.brain_train);
 
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        setAlarm();
+        rankManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        setPushAlarm();
+        setRanking();
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -263,20 +265,28 @@ public class User_MainActivity extends AppCompatActivity {
         }
     }
 
-    private void setAlarm() {
+    private void setPushAlarm() {
         Intent receiverIntent = new Intent(User_MainActivity.this, PushAlarmReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(User_MainActivity.this, 0, receiverIntent, 0);
 
-        Calendar calendar = Calendar.getInstance();
-//        calendar.set(Calendar.HOUR_OF_DAY, 17);
-//        calendar.set(Calendar.MINUTE, 59);
-//        calendar.set(Calendar.SECOND, 59);
+        Calendar alarm_calendar = Calendar.getInstance();
+        alarm_calendar.set(Calendar.HOUR_OF_DAY, 17);
+        alarm_calendar.set(Calendar.MINUTE, 59);
+        alarm_calendar.set(Calendar.SECOND, 59);
 
-        calendar.set(Calendar.HOUR_OF_DAY, 20);
-        calendar.set(Calendar.MINUTE, 26);
-        calendar.set(Calendar.SECOND, 59);
+        alarmManager.set(AlarmManager.RTC, alarm_calendar.getTimeInMillis(), pendingIntent);
+    }
 
-        alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
+    private void setRanking() {
+        Intent receiverIntent = new Intent(User_MainActivity.this, RankRegisterReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(User_MainActivity.this, 0, receiverIntent, 0);
+
+        Calendar rank_calendar = Calendar.getInstance();
+        rank_calendar.set(Calendar.HOUR_OF_DAY, 23);
+        rank_calendar.set(Calendar.MINUTE, 59);
+        rank_calendar.set(Calendar.SECOND, 59);
+
+        rankManager.set(AlarmManager.RTC, rank_calendar.getTimeInMillis(), pendingIntent);
     }
 
     /* 뉴스 크롤링하기 */

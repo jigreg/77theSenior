@@ -309,6 +309,9 @@ public class RegisterActivity extends AppCompatActivity {
                                                     hashMap.put("joined", format_time);
                                                     hashMap.put("today_walking", 0);
                                                     hashMap.put("today_training", 0);
+                                                    hashMap.put("rank_walking", 0);
+                                                    hashMap.put("rank_training", 0);
+
 
                                                     if (type.equals("user")) {
                                                         hashMap.put("myProtector", "none");

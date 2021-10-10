@@ -29,11 +29,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCSs-7XKcBnHDYf-P2bXXyj7X6JruWCy4U" />
 
-<!--        <receiver android:name=".user.AlarmRecever"/>-->
-
         <service android:name=".UndeadService"/>
 
-        <receiver android:name=".AlarmReceiver"
+        <receiver android:name=".PushAlarmReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
@@ -41,7 +39,7 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".PushAlarmReceiver"
+        <receiver android:name=".RankRegisterReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
@@ -59,7 +57,6 @@
         <activity android:name=".user.User_MainActivity" />
         <activity android:name=".user.User_MypageActivity" />
         <activity android:name=".user.User_WalkActivity" />
-        <activity android:name=".user.User_TestRankActivity" />
         <activity android:name=".protector.Pro_RegisterCodeActivity" />
         <activity android:name=".protector.Pro_SettingActivity" />
         <activity android:name=".protector.Pro_GPSHistoryActivity" />

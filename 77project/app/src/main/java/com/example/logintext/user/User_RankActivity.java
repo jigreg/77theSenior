@@ -125,11 +125,11 @@ public class User_RankActivity extends TabActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
         mReference = mDatabase.getReference("Users").child("user");
-        nReference = mDatabase.getReference("Users").child("user").child(uid).child("today");
+        nReference = mReference.child(uid).child("today");
 
 
         // limitToFirst(숫자) 한정 메소드
-        mReference.orderByChild("today_walking").addValueEventListener(new ValueEventListener() {
+        mReference.orderByChild("rank_walking").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int rank = 1;
@@ -137,7 +137,7 @@ public class User_RankActivity extends TabActivity {
                 for (DataSnapshot messageData : dataSnapshot.getChildren()) {
                     String myUid = messageData.child("uid").getValue().toString();
                     String name = messageData.child("name").getValue().toString();
-                    String walked = messageData.child("today_walking").getValue().toString();
+                    String walked = messageData.child("rank_walking").getValue().toString();
 
                     TempWalkingList.add(new Walking(name, walked));
 
@@ -156,7 +156,7 @@ public class User_RankActivity extends TabActivity {
                 Walkrank = String.valueOf(WalkingList.size()-myWalkRank+1);
                 int walkpercent = (int) ((double)((WalkingList.size()-myWalkRank+1))/(double)(WalkingList.size())*100);
                 Walkpercent = String.valueOf(walkpercent);
-                myWalkRankNum.setText((WalkingList.size()-(myWalkRank+1))+"");
+                myWalkRankNum.setText((WalkingList.size()-myWalkRank+1)+"");
             }
 
             @Override
@@ -169,7 +169,7 @@ public class User_RankActivity extends TabActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String name = dataSnapshot.child("name").getValue().toString();
-                String walked = dataSnapshot.child("today_walking").getValue().toString();
+                String walked = dataSnapshot.child("rank_walking").getValue().toString();
                 myWalkNickname.setText(name);
                 myWalked.setText(walked);
             }
@@ -180,14 +180,15 @@ public class User_RankActivity extends TabActivity {
             }
         });
 
-        mReference.orderByChild("today_training").addValueEventListener(new ValueEventListener() {
+        mReference.orderByChild("rank_training").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int rank = 1;
+                TempTrainingList.clear();
                 for (DataSnapshot messageData : dataSnapshot.getChildren()) {
                     String myUid = messageData.child("uid").getValue().toString();
                     String name = messageData.child("name").getValue().toString();
-                    String trained = messageData.child("today_training").getValue().toString();
+                    String trained = messageData.child("rank_training").getValue().toString();
 
                     TempTrainingList.add(new Training(name, trained));
 
@@ -202,7 +203,7 @@ public class User_RankActivity extends TabActivity {
                     TrainingList.add(i, temp);
                 }
                 train_adapter.notifyDataSetChanged();
-                Trainrank =String.valueOf(TrainingList.size()-(myTrainRank)+1);
+                Trainrank = String.valueOf(TrainingList.size()-myTrainRank+1);
                 int trainpercent = (int) ((double)((TrainingList.size()-myTrainRank+1))/(double)(TrainingList.size())*100);
                 Trainpercent = String.valueOf(trainpercent);
                 myTrainRankNum.setText((TrainingList.size()-myTrainRank+1)+"");
@@ -218,7 +219,7 @@ public class User_RankActivity extends TabActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String name = dataSnapshot.child("name").getValue().toString();
-                String trained = dataSnapshot.child("today_training").getValue().toString();
+                String trained = dataSnapshot.child("rank_training").getValue().toString();
                 myTrainNickname.setText(name);
                 myTrained.setText(trained);
             }

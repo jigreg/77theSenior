@@ -2,9 +2,7 @@ package com.example.logintext.user;
 
 
 import android.Manifest;
-import android.app.AlarmManager;
 import android.app.DatePickerDialog;
-import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -25,7 +23,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.dinuscxj.progressbar.CircleProgressBar;
-import com.example.logintext.AlarmReceiver;
 import com.example.logintext.R;
 import com.example.logintext.UndeadService;
 import com.google.firebase.auth.FirebaseAuth;
@@ -60,7 +57,6 @@ public class User_WalkActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference mReference, today_reference;
     private FirebaseUser user;
-    private AlarmManager alarmManager;
 
     private int mStepDetector = ((UndeadService) UndeadService.context_main).mStepDetector;
 
@@ -93,8 +89,6 @@ public class User_WalkActivity extends AppCompatActivity {
         }
 
         stepService = new UndeadService();
-        alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        setAlarm();
 
         Intent foregroundServiceIntent = new Intent(User_WalkActivity.this, UndeadService.class);
 //        startService(foregroundServiceIntent);
@@ -216,17 +210,6 @@ public class User_WalkActivity extends AppCompatActivity {
                 }
             };
 
-    private void setAlarm() {
-        //AlarmReceiver에 값 전달
-        Intent receiverIntent = new Intent(User_WalkActivity.this, AlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(User_WalkActivity.this, 0, receiverIntent, 0);
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 23);
-        calendar.set(Calendar.MINUTE, 59);
-        calendar.set(Calendar.SECOND, 59);
-
-        alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
-    }
 }
 

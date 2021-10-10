@@ -283,3 +283,12 @@
 
 - issue 1. Ranking changes are underway.
 - issue 2. Need to change DB when adding PushAlram
+
+---
+
+### 1010 Hwang Won Tae
+
+    : ADD RankRegisterReceiver & Several internal restructuring
+
+- issue 1. Need to fix MyPage ( Infinity Rank )
+- issue 2. All receiver works together ( Error )
