@@ -292,3 +292,12 @@
 
 - issue 1. Need to fix MyPage ( Infinity Rank )
 - issue 2. All receiver works together ( Error )
+
+---
+
+### 1014 Hwang Won Tae
+
+    : Several internal restructuring
+
+- issue 1. Need to Add training's date
+- issue 2. The notification doesn't appear ( SafeZone Alram )

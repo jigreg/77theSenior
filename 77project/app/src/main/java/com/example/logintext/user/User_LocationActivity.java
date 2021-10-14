@@ -1,8 +1,11 @@
 package com.example.logintext.user;
 
 import android.Manifest;
+import android.app.AlarmManager;
 import android.app.IntentService;
+import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -27,8 +30,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.logintext.PushAlarmReceiver;
 import com.example.logintext.R;
 import com.example.logintext.UndeadService;
+import com.example.logintext.protector.Pro_LocationActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -108,13 +113,17 @@ public class User_LocationActivity extends AppCompatActivity
 
     private Intent foregroundServiceIntent;
 
+    private AlarmManager alarmManager;
+    private PendingIntent pendingIntent;
+
     private View mLayout;  // Snackbar 사용하기 위해서 View 필요
+
+    public static Context context_main;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -123,6 +132,7 @@ public class User_LocationActivity extends AppCompatActivity
 
         mLayout = findViewById(R.id.layout_location);
         address = (TextView) findViewById(R.id.address);
+        alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
         back = (ImageButton) findViewById(R.id.back);
 
@@ -226,7 +236,6 @@ public class User_LocationActivity extends AppCompatActivity
             startLocationUpdates(); // 위치 업데이트 시작
 
         } else {  // 권한이 없을 경우
-
             // 권한 거부된 적이 있을 때
             if (ActivityCompat.shouldShowRequestPermissionRationale(User_LocationActivity.this, REQUIRED_PERMISSIONS[0])) {
 
@@ -241,6 +250,7 @@ public class User_LocationActivity extends AppCompatActivity
                                 PERMISSIONS_REQUEST_CODE);
                     }
                 }).show();
+
             } else { // 권한 거부된 적이 없을 때
                 // 권한 요청
                 ActivityCompat.requestPermissions(User_LocationActivity.this, REQUIRED_PERMISSIONS,
@@ -319,9 +329,11 @@ public class User_LocationActivity extends AppCompatActivity
                                         distance = rad * b;
 
                                         if (distance > area) {
+                                            setAlarm();
                                             Toast.makeText(getApplicationContext(), "안전구역을 벗어났습니다.", Toast.LENGTH_SHORT).show();
                                         } else {
-                                            Toast.makeText(getApplicationContext(), "안전구역 이내입니다.", Toast.LENGTH_SHORT).show();
+                                            cancelAlram();
+//                                            Toast.makeText(getApplicationContext(), "안전구역 이내입니다.", Toast.LENGTH_SHORT).show();
                                         }
                                     } catch (Exception e) {
                                         Toast.makeText(User_LocationActivity.this, "안전구역은 미설정 상태입니다.", Toast.LENGTH_SHORT).show();
@@ -381,15 +393,16 @@ public class User_LocationActivity extends AppCompatActivity
             if (mMap!=null) mMap.setMyLocationEnabled(true);
         }
     }
-//
-//    @Override
-//    protected void onStop() {
-//        super.onStop();
-//        if (mFusedLocationClient != null) {
-//            Log.d(TAG, "onStop : call stopLocationUpdates");
-//            mFusedLocationClient.removeLocationUpdates(locationCallback);
-//        }
-//    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        context_main = this;
+        if (mFusedLocationClient != null) {
+            Log.d(TAG, "onStop : call stopLocationUpdates");
+            mFusedLocationClient.removeLocationUpdates(locationCallback);
+        }
+    }
 
     public String getCurrentAddress(LatLng latlng) {
         // GPS를 주소로 변환
@@ -576,5 +589,23 @@ public class User_LocationActivity extends AppCompatActivity
         public String getSnippet() {
             return null;
         }
+    }
+
+    private void setAlarm() {
+        Intent receiverIntent = new Intent(User_LocationActivity.this, PushAlarmReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(User_LocationActivity.this, 0, receiverIntent, 0);
+
+        Calendar alarm_calendar = Calendar.getInstance();
+        alarm_calendar.set(Calendar.HOUR_OF_DAY, alarm_calendar.get(Calendar.HOUR_OF_DAY));
+        alarm_calendar.set(Calendar.MINUTE, alarm_calendar.get(Calendar.MINUTE));
+        alarm_calendar.set(Calendar.SECOND, alarm_calendar.get(Calendar.SECOND));
+
+        // 20분마다 알람
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, alarm_calendar.getTimeInMillis(),
+                1000 * 60 * 20, pendingIntent);
+    }
+
+    private void cancelAlram() {
+        alarmManager.cancel(pendingIntent);
     }
 }

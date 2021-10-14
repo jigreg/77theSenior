@@ -1,6 +1,5 @@
 package com.example.logintext;
 
-import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -16,15 +15,15 @@ import androidx.core.app.NotificationCompat;
 import com.example.logintext.user.User_MainActivity;
 
 
-public class PushAlarmReceiver extends BroadcastReceiver {
+public class SafeReceiver extends BroadcastReceiver {
 
-    public PushAlarmReceiver(){ }
+    public SafeReceiver(){ }
 
     private NotificationManager manager;
     private NotificationCompat.Builder builder;
 
-    public static final String CHANNEL_ID = "Push_Alram";
-    public static final String CHANNEL_NAME = "Push_Alram_Service";
+    public static final String CHANNEL_ID = "Safe_Alram";
+    public static final String CHANNEL_NAME = "Safe_Alram_Service";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -41,7 +40,7 @@ public class PushAlarmReceiver extends BroadcastReceiver {
 
         Intent intent2 = new Intent(context, User_MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent2, 0);
-        RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.push_notification);
+        RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.safe_notification);
 
         NotificationChannel channel = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -56,7 +55,7 @@ public class PushAlarmReceiver extends BroadcastReceiver {
                     .setContentIntent(pendingIntent);
 
             Notification notification = builder.build();
-            manager.notify(2, notification);
+            manager.notify(3, notification);
         }
     }
 }

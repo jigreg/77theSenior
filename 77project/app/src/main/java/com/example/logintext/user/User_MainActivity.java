@@ -59,6 +59,7 @@ public class User_MainActivity extends AppCompatActivity {
     private String uid, format_time, mywalk, mytrain;
 
     private AlarmManager alarmManager, rankManager;
+    private PendingIntent pendingPush, pendingRanking;
 
     private SimpleDateFormat format;
     private Calendar time;
@@ -122,10 +123,13 @@ public class User_MainActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                alarmManager.cancel(pendingPush);
+                rankManager.cancel(pendingRanking);
                 mAuth.signOut();
                 stopService(foregroundServiceIntent);
                 try {
                     ((UndeadService) UndeadService.context_main).onUnbind(serviceIntent);
+                    ((User_LocationActivity) User_LocationActivity.context_main).onStop();
                 } catch (Exception e) { }
 
                 LoginMaintainService.clearUserName(User_MainActivity.this);
@@ -266,27 +270,31 @@ public class User_MainActivity extends AppCompatActivity {
     }
 
     private void setPushAlarm() {
-        Intent receiverIntent = new Intent(User_MainActivity.this, PushAlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(User_MainActivity.this, 0, receiverIntent, 0);
+        Intent pushIntent = new Intent(User_MainActivity.this, PushAlarmReceiver.class);
+        pendingPush = PendingIntent.getBroadcast(User_MainActivity.this, 0, pushIntent, 0);
 
         Calendar alarm_calendar = Calendar.getInstance();
         alarm_calendar.set(Calendar.HOUR_OF_DAY, 17);
         alarm_calendar.set(Calendar.MINUTE, 59);
         alarm_calendar.set(Calendar.SECOND, 59);
 
-        alarmManager.set(AlarmManager.RTC, alarm_calendar.getTimeInMillis(), pendingIntent);
+//        alarmManager.set(AlarmManager.RTC, alarm_calendar.getTimeInMillis(), pendingIntent);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, alarm_calendar.getTimeInMillis(),
+                1000 * 60 * 60 * 24, pendingPush);
     }
 
     private void setRanking() {
-        Intent receiverIntent = new Intent(User_MainActivity.this, RankRegisterReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(User_MainActivity.this, 0, receiverIntent, 0);
+        Intent rankingIntent = new Intent(User_MainActivity.this, RankRegisterReceiver.class);
+        pendingRanking = PendingIntent.getBroadcast(User_MainActivity.this, 0, rankingIntent, 0);
 
         Calendar rank_calendar = Calendar.getInstance();
         rank_calendar.set(Calendar.HOUR_OF_DAY, 23);
         rank_calendar.set(Calendar.MINUTE, 59);
         rank_calendar.set(Calendar.SECOND, 59);
 
-        rankManager.set(AlarmManager.RTC, rank_calendar.getTimeInMillis(), pendingIntent);
+//        rankManager.set(AlarmManager.RTC, rank_calendar.getTimeInMillis(), pendingIntent);
+        rankManager.setRepeating(AlarmManager.RTC_WAKEUP, rank_calendar.getTimeInMillis(),
+                1000 * 60 * 60 * 24, pendingRanking);
     }
 
     /* 뉴스 크롤링하기 */
@@ -295,7 +303,6 @@ public class User_MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-
         }
 
         @Override

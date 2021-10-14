@@ -73,7 +73,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView16"
+                    android:id="@+id/address"
                     android:layout_width="340dp"
                     android:layout_height="80dp"
                     android:background="@drawable/textview7"
@@ -92,7 +92,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/safe_set"
                     android:layout_width="165dp"
                     android:layout_height="60dp"
                     android:background="@drawable/textview8"
@@ -100,7 +100,7 @@
                     android:textSize="20dp" />
 
                 <Button
-                    android:id="@+id/button4"
+                    android:id="@+id/history"
                     android:layout_width="165dp"
                     android:layout_height="60dp"
                     android:layout_marginLeft="10dp"

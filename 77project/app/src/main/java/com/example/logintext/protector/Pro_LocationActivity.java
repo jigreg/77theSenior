@@ -1,18 +1,30 @@
 package com.example.logintext.protector;
 
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RemoteViews;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import com.example.logintext.PushAlarmReceiver;
 import com.example.logintext.R;
+import com.example.logintext.user.User_LocationActivity;
+import com.example.logintext.user.User_MainActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -32,6 +44,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
+
 import static java.lang.Math.asin;
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
@@ -47,6 +61,9 @@ public class Pro_LocationActivity extends FragmentActivity implements OnMapReady
 
     private Circle currentCircle = null;
 
+    private AlarmManager alarmManager;
+    private PendingIntent pendingIntent;
+
     private String userAddr = "";
 
     private double userLat = 0, userLon = 0, distance;
@@ -60,9 +77,11 @@ public class Pro_LocationActivity extends FragmentActivity implements OnMapReady
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
 
-        area = (Button) findViewById(R.id.button3);
-        history = (Button) findViewById(R.id.button4);
-        address = (TextView) findViewById(R.id.textView16);
+        area = (Button) findViewById(R.id.safe_set);
+        history = (Button) findViewById(R.id.history);
+        address = (TextView) findViewById(R.id.address);
+        alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
         back = (ImageButton) findViewById(R.id.back);
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -189,9 +208,11 @@ public class Pro_LocationActivity extends FragmentActivity implements OnMapReady
                                             distance = rad * b;
 
                                             if (distance > area) {
+                                                setAlarm();
                                                 Toast.makeText(getApplicationContext(), "안전구역을 벗어났습니다.", Toast.LENGTH_SHORT).show();
                                             } else {
-                                                Toast.makeText(getApplicationContext(), "안전구역 이내입니다.", Toast.LENGTH_SHORT).show();
+                                                cancelAlram();
+//                                                Toast.makeText(getApplicationContext(), "안전구역 이내입니다.", Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     }
@@ -214,6 +235,24 @@ public class Pro_LocationActivity extends FragmentActivity implements OnMapReady
                 }
             }
         });
+    }
+
+    private void setAlarm() {
+        Intent receiverIntent = new Intent(Pro_LocationActivity.this, PushAlarmReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(Pro_LocationActivity.this, 0, receiverIntent, 0);
+
+        Calendar alarm_calendar = Calendar.getInstance();
+        alarm_calendar.set(Calendar.HOUR_OF_DAY, alarm_calendar.get(Calendar.HOUR_OF_DAY));
+        alarm_calendar.set(Calendar.MINUTE, alarm_calendar.get(Calendar.MINUTE));
+        alarm_calendar.set(Calendar.SECOND, alarm_calendar.get(Calendar.SECOND));
+
+        // 20분마다 알람
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, alarm_calendar.getTimeInMillis(),
+                1000 * 60 * 20, pendingIntent);
+    }
+
+    private void cancelAlram() {
+        alarmManager.cancel(pendingIntent);
     }
 }
 

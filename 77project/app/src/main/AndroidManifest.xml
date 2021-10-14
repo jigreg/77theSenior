@@ -47,6 +47,14 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".SafeReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
         <activity android:name=".user.User_BrainMain"/>
         <activity android:name=".user.User_RankActivity" />
         <activity android:name=".user.User_RegisterCodeActivity" />

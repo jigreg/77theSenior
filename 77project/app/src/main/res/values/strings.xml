@@ -17,6 +17,9 @@
     <string name="push_alram_01">오늘 하루 알차게 보내셨나요?</string>
     <string name="push_alram_02">캘린더를 통해 확인해보세요</string>
 
+    <string name="safe_noti_01">사용자께서 안전구역을 벗어나셨어요</string>
+    <string name="safe_noti_02">위치를 통해 확인해보세요</string>
+
     <string name="pro_explane">보호자 등록 관련하여 아래 내용을 인지하십시오.</string>
 
     <string name="explane">사용자 등록 방법</string>

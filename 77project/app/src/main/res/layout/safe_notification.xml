@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/title"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  77 맞은 어르신"
+        android:drawableLeft="@drawable/noti_icon_1"/>
+
+    <RelativeLayout
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title">
+
+        <TextView
+            android:id="@+id/message"
+            android:paddingTop="5dp"
+            android:paddingLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_toRightOf="@+id/step_count"
+            android:gravity="center"
+            android:textSize="15dp"
+            android:text="@string/safe_noti_01"/>
+
+        <TextView
+            android:id="@+id/sub_message"
+            android:paddingTop="5dp"
+            android:paddingLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_toRightOf="@+id/step_count"
+            android:layout_below="@+id/message"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:text="@string/safe_noti_02"/>
+
+        <ImageView
+            android:id="@+id/icon_01"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:paddingRight="10dp"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/myicon"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:layout_below="@+id/line">
+
+    </RelativeLayout>
+
+</RelativeLayout>
