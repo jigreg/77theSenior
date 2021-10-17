@@ -242,9 +242,6 @@ public class Pro_LocationActivity extends FragmentActivity implements OnMapReady
         pendingIntent = PendingIntent.getBroadcast(Pro_LocationActivity.this, 0, receiverIntent, 0);
 
         Calendar alarm_calendar = Calendar.getInstance();
-        alarm_calendar.set(Calendar.HOUR_OF_DAY, alarm_calendar.get(Calendar.HOUR_OF_DAY));
-        alarm_calendar.set(Calendar.MINUTE, alarm_calendar.get(Calendar.MINUTE));
-        alarm_calendar.set(Calendar.SECOND, alarm_calendar.get(Calendar.SECOND));
 
         // 20분마다 알람
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, alarm_calendar.getTimeInMillis(),

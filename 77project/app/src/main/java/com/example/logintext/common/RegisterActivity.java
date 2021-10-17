@@ -87,6 +87,9 @@ public class RegisterActivity extends AppCompatActivity {
 
     public static Context context_register;
 
+    private FirebaseDatabase database;
+    private DatabaseReference reference, mReference;
+
     public static FirebaseUser user;
     public static PhoneAuthProvider.ForceResendingToken mResendToken;
 
@@ -297,6 +300,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                                                     //해쉬맵 테이블을 파이어베이스 데이터베이스에 저장
                                                     HashMap<Object, Object> hashMap = new HashMap<>();
+                                                    HashMap<Object, Object> pushMap = new HashMap<>();
 
                                                     hashMap.put("uid", uid);
                                                     hashMap.put("email", email);
@@ -318,14 +322,27 @@ public class RegisterActivity extends AppCompatActivity {
                                                         hashMap.put("gps", "none");
                                                         hashMap.put("walk", "0");
                                                         hashMap.put("today","none");
+
+                                                        pushMap.put("daily", "y");
+                                                        pushMap.put("safeZone", "y");
+                                                        pushMap.put("ranking", "y");
+                                                        pushMap.put("marketing", "y");
+
                                                     } else if (type.equals("protector")) {
                                                         hashMap.put("myUser", "none");
                                                         hashMap.put("safeZone", "none");
+
+                                                        pushMap.put("daily", "y");
+                                                        pushMap.put("safeZone", "y");
+                                                        pushMap.put("marketing", "y");
                                                     }
 
-                                                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                                    DatabaseReference reference = database.getReference("Users");
-                                                    reference.child(type).child(uid).setValue(hashMap);
+                                                    database = FirebaseDatabase.getInstance();
+                                                    reference = database.getReference("Users");
+                                                    mReference = reference.child(type).child(uid);
+
+                                                    mReference.setValue(hashMap);
+                                                    mReference.child("alarm").setValue(pushMap);
 
                                                     //가입이 이루어졌을시 가입 화면을 빠져나감.
                                                     Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);

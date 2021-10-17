@@ -82,7 +82,7 @@ public class User_LocationActivity extends AppCompatActivity
 
     private static final String TAG = "googlemap_example";
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
-    private static final int UPDATE_INTERVAL_MS = 10000;  // 10초
+    private static final int UPDATE_INTERVAL_MS = 20000;  // 10초
     private static final int FAST_UPDATE_INTERVAL_MS = UPDATE_INTERVAL_MS / 2;  // 5초
     private static final int MAX_WAIT_TIME = 120000;  // 60초
     private static final int PERMISSIONS_REQUEST_CODE = 100;

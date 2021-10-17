@@ -282,7 +282,7 @@
     : ADD PushAlarmReceiver & Several internal restructuring
 
 - issue 1. Ranking changes are underway.
-- issue 2. Need to change DB when adding PushAlram
+- issue 2. Need to change DB when adding PushAlarm
 
 ---
 
@@ -300,4 +300,12 @@
     : Several internal restructuring
 
 - issue 1. Need to Add training's date
-- issue 2. The notification doesn't appear ( SafeZone Alram )
+- issue 2. The notification doesn't appear ( SafeZone Alarm )
+
+---
+
+### 1017 Hwang Won Tae
+
+    : Add PushAlarm's DB & Done setting
+
+- issue 1. Step_Number is different from other apps

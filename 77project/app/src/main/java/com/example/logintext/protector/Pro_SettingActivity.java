@@ -10,16 +10,12 @@ import android.view.ViewManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintext.R;
 import com.example.logintext.common.AppInfoActivity;
 import com.example.logintext.common.DementiaGradeActivity;
-import com.example.logintext.common.PushAlramActivity;
-import com.example.logintext.user.User_MainActivity;
-import com.example.logintext.user.User_RegisterCodeActivity;
 
 public class Pro_SettingActivity extends AppCompatActivity {
 
@@ -61,7 +57,7 @@ public class Pro_SettingActivity extends AppCompatActivity {
         push_alram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Pro_SettingActivity.this, PushAlramActivity.class));
+                startActivity(new Intent(Pro_SettingActivity.this, Pro_PushAlarmActivity.class));
                 finish();
             }
         });

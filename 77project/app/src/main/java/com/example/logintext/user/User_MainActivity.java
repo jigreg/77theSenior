@@ -279,7 +279,7 @@ public class User_MainActivity extends AppCompatActivity {
         alarm_calendar.set(Calendar.SECOND, 59);
 
 //        alarmManager.set(AlarmManager.RTC, alarm_calendar.getTimeInMillis(), pendingIntent);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, alarm_calendar.getTimeInMillis(),
+        alarmManager.setRepeating(AlarmManager.RTC, alarm_calendar.getTimeInMillis(),
                 1000 * 60 * 60 * 24, pendingPush);
     }
 
@@ -293,7 +293,7 @@ public class User_MainActivity extends AppCompatActivity {
         rank_calendar.set(Calendar.SECOND, 59);
 
 //        rankManager.set(AlarmManager.RTC, rank_calendar.getTimeInMillis(), pendingIntent);
-        rankManager.setRepeating(AlarmManager.RTC_WAKEUP, rank_calendar.getTimeInMillis(),
+        rankManager.setRepeating(AlarmManager.RTC, rank_calendar.getTimeInMillis(),
                 1000 * 60 * 60 * 24, pendingRanking);
     }
 
