@@ -309,3 +309,11 @@
     : Add PushAlarm's DB & Done setting
 
 - issue 1. Step_Number is different from other apps
+
+---
+
+### 1114 Hwang Won Tae
+
+    : Pushalarm (Y/N) is applied
+
+- issue 1. Protecter's alarm has not been implemented.
