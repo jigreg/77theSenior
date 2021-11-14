@@ -32,6 +32,8 @@ import androidx.core.content.ContextCompat;
 
 import com.example.logintext.PushAlarmReceiver;
 import com.example.logintext.R;
+import com.example.logintext.RankRegisterReceiver;
+import com.example.logintext.SafeReceiver;
 import com.example.logintext.UndeadService;
 import com.example.logintext.protector.Pro_LocationActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -108,7 +110,7 @@ public class User_LocationActivity extends AppCompatActivity
     private Location location;
 
     private FirebaseDatabase mDatabase;
-    private DatabaseReference mReference;
+    private DatabaseReference mReference, refer;
     private FirebaseUser user;
 
     private Intent foregroundServiceIntent;
@@ -330,9 +332,8 @@ public class User_LocationActivity extends AppCompatActivity
 
                                         if (distance > area) {
                                             setAlarm();
-                                            Toast.makeText(getApplicationContext(), "안전구역을 벗어났습니다.", Toast.LENGTH_SHORT).show();
                                         } else {
-                                            cancelAlram();
+                                            cancelAlarm();
 //                                            Toast.makeText(getApplicationContext(), "안전구역 이내입니다.", Toast.LENGTH_SHORT).show();
                                         }
                                     } catch (Exception e) {
@@ -592,20 +593,33 @@ public class User_LocationActivity extends AppCompatActivity
     }
 
     private void setAlarm() {
-        Intent receiverIntent = new Intent(User_LocationActivity.this, PushAlarmReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(User_LocationActivity.this, 0, receiverIntent, 0);
+        refer = mDatabase.getReference().child("Users").child("user").child(uid);
 
-        Calendar alarm_calendar = Calendar.getInstance();
-        alarm_calendar.set(Calendar.HOUR_OF_DAY, alarm_calendar.get(Calendar.HOUR_OF_DAY));
-        alarm_calendar.set(Calendar.MINUTE, alarm_calendar.get(Calendar.MINUTE));
-        alarm_calendar.set(Calendar.SECOND, alarm_calendar.get(Calendar.SECOND));
+        refer.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                String alarm = task.getResult().child("alarm").child("safeZone").toString();
 
-        // 20분마다 알람
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, alarm_calendar.getTimeInMillis(),
-                1000 * 60 * 20, pendingIntent);
+                if (alarm.equals("y")) {
+                    Intent receiverIntent = new Intent(User_LocationActivity.this, PushAlarmReceiver.class);
+                    pendingIntent = PendingIntent.getBroadcast(User_LocationActivity.this, 0, receiverIntent, 0);
+
+                    Calendar alarm_calendar = Calendar.getInstance();
+                    alarm_calendar.set(Calendar.HOUR_OF_DAY, alarm_calendar.get(Calendar.HOUR_OF_DAY));
+                    alarm_calendar.set(Calendar.MINUTE, alarm_calendar.get(Calendar.MINUTE));
+                    alarm_calendar.set(Calendar.SECOND, alarm_calendar.get(Calendar.SECOND));
+
+                    // 20분마다 알람
+                    alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, alarm_calendar.getTimeInMillis(),
+                            1000 * 60 * 20, pendingIntent);
+
+                    Toast.makeText(getApplicationContext(), "안전구역을 벗어났습니다.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
-    private void cancelAlram() {
+    private void cancelAlarm() {
         alarmManager.cancel(pendingIntent);
     }
 }

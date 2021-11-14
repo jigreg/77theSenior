@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintext.PushAlarmReceiver;
@@ -25,6 +26,8 @@ import com.example.logintext.RankRegisterReceiver;
 import com.example.logintext.UndeadService;
 import com.example.logintext.common.LoginActivity;
 import com.example.logintext.common.LoginMaintainService;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -270,31 +273,56 @@ public class User_MainActivity extends AppCompatActivity {
     }
 
     private void setPushAlarm() {
-        Intent pushIntent = new Intent(User_MainActivity.this, PushAlarmReceiver.class);
-        pendingPush = PendingIntent.getBroadcast(User_MainActivity.this, 0, pushIntent, 0);
+        uid = user.getUid();
+        mReference = database.getReference().child("Users").child("user").child(uid);
 
-        Calendar alarm_calendar = Calendar.getInstance();
-        alarm_calendar.set(Calendar.HOUR_OF_DAY, 17);
-        alarm_calendar.set(Calendar.MINUTE, 59);
-        alarm_calendar.set(Calendar.SECOND, 59);
+        mReference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                String alarm = task.getResult().child("alarm").child("daily").toString();
 
-//        alarmManager.set(AlarmManager.RTC, alarm_calendar.getTimeInMillis(), pendingIntent);
-        alarmManager.setRepeating(AlarmManager.RTC, alarm_calendar.getTimeInMillis(),
-                1000 * 60 * 60 * 24, pendingPush);
+                if (alarm.equals("y")) {
+                    Intent pushIntent = new Intent(User_MainActivity.this, PushAlarmReceiver.class);
+                    pendingPush = PendingIntent.getBroadcast(User_MainActivity.this, 0, pushIntent, 0);
+
+                    Calendar alarm_calendar = Calendar.getInstance();
+                    alarm_calendar.set(Calendar.HOUR_OF_DAY, 17);
+                    alarm_calendar.set(Calendar.MINUTE, 59);
+                    alarm_calendar.set(Calendar.SECOND, 59);
+
+                    // alarmManager.set(AlarmManager.RTC, alarm_calendar.getTimeInMillis(), pendingIntent);
+                    alarmManager.setRepeating(AlarmManager.RTC, alarm_calendar.getTimeInMillis(),
+                            1000 * 60 * 60 * 24, pendingPush);
+                }
+            }
+        });
     }
 
     private void setRanking() {
-        Intent rankingIntent = new Intent(User_MainActivity.this, RankRegisterReceiver.class);
-        pendingRanking = PendingIntent.getBroadcast(User_MainActivity.this, 0, rankingIntent, 0);
+        uid = user.getUid();
+        mReference = database.getReference().child("Users").child("user").child(uid);
 
-        Calendar rank_calendar = Calendar.getInstance();
-        rank_calendar.set(Calendar.HOUR_OF_DAY, 23);
-        rank_calendar.set(Calendar.MINUTE, 59);
-        rank_calendar.set(Calendar.SECOND, 59);
+        mReference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                String alarm = task.getResult().child("alarm").child("ranking").toString();
 
-//        rankManager.set(AlarmManager.RTC, rank_calendar.getTimeInMillis(), pendingIntent);
-        rankManager.setRepeating(AlarmManager.RTC, rank_calendar.getTimeInMillis(),
-                1000 * 60 * 60 * 24, pendingRanking);
+                if (alarm.equals("y")) {
+
+                    Intent rankingIntent = new Intent(User_MainActivity.this, RankRegisterReceiver.class);
+                    pendingRanking = PendingIntent.getBroadcast(User_MainActivity.this, 0, rankingIntent, 0);
+
+                    Calendar rank_calendar = Calendar.getInstance();
+                    rank_calendar.set(Calendar.HOUR_OF_DAY, 10);
+                    rank_calendar.set(Calendar.MINUTE, 34);
+                    rank_calendar.set(Calendar.SECOND, 59);
+
+                    // rankManager.set(AlarmManager.RTC, rank_calendar.getTimeInMillis(), pendingIntent);
+                    rankManager.setRepeating(AlarmManager.RTC, rank_calendar.getTimeInMillis(),
+                            1000 * 60 * 60 * 24, pendingRanking);
+                }
+            }
+        });
     }
 
     /* 뉴스 크롤링하기 */
