@@ -94,8 +94,6 @@ public class User_MainActivity extends AppCompatActivity {
 
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         rankManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        setPushAlarm();
-        setRanking();
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -259,6 +257,9 @@ public class User_MainActivity extends AppCompatActivity {
             }
         });
 
+        setPushAlarm();
+        setRanking();
+
         NewsAsyncTask newsAsyncTask = new NewsAsyncTask();
         newsAsyncTask.execute();
     }
@@ -273,7 +274,6 @@ public class User_MainActivity extends AppCompatActivity {
     }
 
     private void setPushAlarm() {
-        uid = user.getUid();
         mReference = database.getReference().child("Users").child("user").child(uid);
 
         mReference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -299,7 +299,6 @@ public class User_MainActivity extends AppCompatActivity {
     }
 
     private void setRanking() {
-        uid = user.getUid();
         mReference = database.getReference().child("Users").child("user").child(uid);
 
         mReference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
