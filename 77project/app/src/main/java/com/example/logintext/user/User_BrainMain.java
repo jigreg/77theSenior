@@ -13,7 +13,7 @@ import com.example.logintext.R;
 public class User_BrainMain extends AppCompatActivity {
 
     private ImageButton back;
-    private Button cat, watermelon;
+    private Button cat, watermelon, space, calc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,8 @@ public class User_BrainMain extends AppCompatActivity {
         back = (ImageButton) findViewById(R.id.back);
         cat = (Button)findViewById(R.id.FindCat);
         watermelon = (Button)findViewById(R.id.watermelon);
+        space = (Button)findViewById(R.id.space);
+        calc = (Button)findViewById(R.id.calc);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,13 +42,28 @@ public class User_BrainMain extends AppCompatActivity {
             }
         });
 
-
         watermelon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClassName("com.unity3d.player", "com.unity3d.player.UnityPlayerActivity");
                 startActivity(intent);
+            }
+        });
+
+        space.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(User_BrainMain.this, User_Space.class));
+                finish();
+            }
+        });
+
+        calc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(User_BrainMain.this, User_Calc.class));
+                finish();
             }
         });
 

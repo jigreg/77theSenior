@@ -190,6 +190,7 @@ public class User_MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
        mypage.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -197,6 +198,7 @@ public class User_MainActivity extends AppCompatActivity {
                finish();
            }
        });
+
        diagnosis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -302,11 +304,16 @@ public class User_MainActivity extends AppCompatActivity {
                     // alarmManager.set(AlarmManager.RTC, alarm_calendar.getTimeInMillis(), pendingIntent);
                     alarmManager.setRepeating(AlarmManager.RTC, alarm_calendar.getTimeInMillis(),
                             1000 * 60 * 60 * 24, pendingPush);
+                } else {
+                    try {
+                        alarmManager.cancel(pendingPush);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
     }
-
 
 
     private void setRanking() {
@@ -330,6 +337,12 @@ public class User_MainActivity extends AppCompatActivity {
                     // rankManager.set(AlarmManager.RTC, rank_calendar.getTimeInMillis(), pendingIntent);
                     rankManager.setRepeating(AlarmManager.RTC, rank_calendar.getTimeInMillis(),
                             1000 * 60 * 60 * 24, pendingRanking);
+                } else {
+                    try {
+                        rankManager.cancel(pendingPush);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
