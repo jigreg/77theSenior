@@ -9,53 +9,56 @@
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
-    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
-<!--    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>-->
-
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/myicon"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/myicon"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        android:requestLegacyExternalStorage="true">
-
-        <!-- 구글맵 API 가져오기 -->
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".user.User_Calc"
+            android:exported="true" />
+        <activity
+            android:name=".user.User_Space"
+            android:exported="true" /> <!-- 구글맵 API 가져오기 -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCSs-7XKcBnHDYf-P2bXXyj7X6JruWCy4U" />
 
-        <service android:name=".UndeadService"/>
+        <service android:name=".UndeadService" />
 
-        <receiver android:name=".PushAlarmReceiver"
+        <receiver
+            android:name=".PushAlarmReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
-        <receiver android:name=".RankRegisterReceiver"
+        <receiver
+            android:name=".RankRegisterReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
-        <receiver android:name=".SafeReceiver"
+        <receiver
+            android:name=".SafeReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <activity android:name=".user.User_BrainMain"/>
+        <activity android:name=".user.User_BrainMain" />
         <activity android:name=".user.User_RankActivity" />
         <activity android:name=".user.User_RegisterCodeActivity" />
         <activity android:name=".user.User_CatFindActivity" />

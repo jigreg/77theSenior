@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name ="one">전체 블럭의 개수는?</string>
+    <string name ="two">전체 블럭의 개수는?</string>
+    <string name ="three">전체 블럭의 개수는?</string>
+</resources>
