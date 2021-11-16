@@ -51,7 +51,7 @@ import java.util.StringTokenizer;
 
 public class User_MainActivity extends AppCompatActivity {
 
-    private Button logout, walk, training, locate, setting, ranking, calendar,mypage;
+    private Button logout, walk, training, locate, setting, ranking, calendar,mypage,diagnosis;
     private TextView walkstep, brain_train;
 
     private FirebaseAuth mAuth;
@@ -88,14 +88,14 @@ public class User_MainActivity extends AppCompatActivity {
         setting = (Button) findViewById(R.id.setting);
         calendar = (Button) findViewById(R.id.calendar);
         mypage = (Button) findViewById(R.id.myPage);
+        diagnosis = (Button) findViewById(R.id.diagnosis);
 
         walkstep = (TextView) findViewById(R.id.walk_step);
         brain_train = (TextView) findViewById(R.id.brain_train);
 
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         rankManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        setPushAlarm();
-        setRanking();
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -197,6 +197,13 @@ public class User_MainActivity extends AppCompatActivity {
                finish();
            }
        });
+       diagnosis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(User_MainActivity.this, User_DiagnosisActivity.class));
+                finish();
+            }
+        });
 
         //걸음 수 표시
         format = new SimpleDateFormat("yyyybMbd");
@@ -259,6 +266,9 @@ public class User_MainActivity extends AppCompatActivity {
             }
         });
 
+        setPushAlarm();
+        setRanking();
+
         NewsAsyncTask newsAsyncTask = new NewsAsyncTask();
         newsAsyncTask.execute();
     }
@@ -273,7 +283,6 @@ public class User_MainActivity extends AppCompatActivity {
     }
 
     private void setPushAlarm() {
-        uid = user.getUid();
         mReference = database.getReference().child("Users").child("user").child(uid);
 
         mReference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -298,8 +307,9 @@ public class User_MainActivity extends AppCompatActivity {
         });
     }
 
+
+
     private void setRanking() {
-        uid = user.getUid();
         mReference = database.getReference().child("Users").child("user").child(uid);
 
         mReference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {

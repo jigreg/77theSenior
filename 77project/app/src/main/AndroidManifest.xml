@@ -58,7 +58,12 @@
             </intent-filter>
         </receiver>
 
+<<<<<<< HEAD
         <activity android:name=".user.User_BrainMain" />
+=======
+        <activity android:name=".user.User_BrainMain"/>
+        <activity android:name=".user.User_DiagnosisActivity" />
+>>>>>>> 5ec97aa614dda472a4ae77768094c03db3ba9f8b
         <activity android:name=".user.User_RankActivity" />
         <activity android:name=".user.User_RegisterCodeActivity" />
         <activity android:name=".user.User_CatFindActivity" />
