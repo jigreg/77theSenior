@@ -22,10 +22,10 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".user.User_Calc"
+            android:name=".user.User_CalculateActivity"
             android:exported="true" />
         <activity
-            android:name=".user.User_Space"
+            android:name=".user.User_SpaceActivity"
             android:exported="true" /> <!-- 구글맵 API 가져오기 -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -57,10 +57,8 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
-        <activity android:name=".user.User_Calc"/>
-        <activity android:name=".user.User_Space"/>
         <activity android:name=".user.User_BrainMain" />
+        <activity android:name=".user.User_DiagnosisActivity"/>
         <activity android:name=".user.User_RankActivity" />
         <activity android:name=".user.User_RegisterCodeActivity" />
         <activity android:name=".user.User_CatFindActivity" />

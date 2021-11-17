@@ -54,7 +54,7 @@ public class User_BrainMain extends AppCompatActivity {
         space.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(User_BrainMain.this, User_Space.class));
+                startActivity(new Intent(User_BrainMain.this, User_SpaceActivity.class));
                 finish();
             }
         });
@@ -62,7 +62,7 @@ public class User_BrainMain extends AppCompatActivity {
         calc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(User_BrainMain.this, User_Calc.class));
+                startActivity(new Intent(User_BrainMain.this, User_CalculateActivity.class));
                 finish();
             }
         });

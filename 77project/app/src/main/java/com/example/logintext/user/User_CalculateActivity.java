@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.example.logintext.R;
 
-public class User_Calc extends AppCompatActivity {
+public class User_CalculateActivity extends AppCompatActivity {
     TextView num1,num2,sign;
     EditText input;
     String signs;

@@ -13,7 +13,7 @@ import com.example.logintext.R;
 
 import java.util.ArrayList;
 
-public class User_Space extends AppCompatActivity {
+public class User_SpaceActivity extends AppCompatActivity {
 
     Button cbtn1, cbtn2, cbtn3, cbtn4;
     ImageView block;
